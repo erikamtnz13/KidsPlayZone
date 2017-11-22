@@ -1,6 +1,15 @@
-import React from 'react';
-import Auth from '../modules/Auth';
-import Dashboard from '../components/Dashboard.jsx';
+import React from 'react'
+import { BrowserRouter as Router, Route, browserHistory, Redirect} from "react-router-dom";
+import Auth from '../modules/Auth'
+import Dashboard from '../components/Dashboard.jsx'
+import HomePage from '../components/HomePage.jsx';
+import Navpills from '../components/Navpills.jsx'
+import Jumbotron from "../components/Jumbotron"
+import Members from "./Members";
+import Profile from "./UserProfile";
+import Games from "./Games/Games";
+import Videos from "./Videos/Videos";
+
 
 
 class DashboardPage extends React.Component {
@@ -40,7 +49,26 @@ class DashboardPage extends React.Component {
    * Render the component.
    */
   render() {
-    return (<Dashboard secretData={this.state.secretData} />);
+    return (
+    <Router history={browserHistory} >
+      <div>
+        <Jumbotron />
+        <Navpills >
+          <Route exact path="/"  render={() => 
+            (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<HomePage/>))}/>
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/members" component={Members} />
+          <Route exact path="/games" component={Games} />
+          <Route exact path="/videos" component={Videos} />
+          <Route exact path="/logout"  render={ () => {
+            Auth.deauthenticateUser()
+            return <Redirect to="/"/>
+          }}/>
+      </Navpills>
+      </div>
+      </Router>
+    
+    )
   }
 
 }
