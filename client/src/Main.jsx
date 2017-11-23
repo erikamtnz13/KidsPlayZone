@@ -13,6 +13,8 @@ import Games from "./containers/Games/Games";
 import Videos from "./containers/Videos/Videos";
 import Auth from './modules/Auth';
 
+import LandingPage from './containers/LandingPage/LandingPage'
+
 
 const Main = () => (
 
@@ -25,7 +27,7 @@ const Main = () => (
         <HomePage />
       )} */}
       <Route exact path="/"  render={() => 
-        (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<HomePage/>))}/>
+        (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<LandingPage/>))}/>
       {/* <Route exact path="/home"  render={() => 
         (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<HomePage/>))}/> */}
       <Route exact path="/signup" component={SignUpPage} />

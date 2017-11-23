@@ -13,15 +13,22 @@ import './sec2.css';
 import './sec3.css';
 
  
-class Main extends Component {
-    constructor(props) {
-    super(props)
+class LandingPage extends Component {
+    constructor(props, context) {
+    super(props, context)
     this.state = {
       current: 0,
-      modal: false
+      modal: false,
+      errors: {},
+      user: {
+          name: '',
+          password: ''
+      }
     };
 
     this.toggle = this.toggle.bind(this);
+    this.onSignupChange = this.onSignupChange.bind(this)
+    this.onSignupSubmit = this.onSignupSubmit.bind(this)
 
     }
 
@@ -29,6 +36,61 @@ class Main extends Component {
         this.setState({
         modal: !this.state.modal
         });
+    }
+
+    onSignupSubmit(event) {
+        event.preventDefault()
+        console.log(this.state.user.name, this.state.user.password)
+        
+        // create a string for an HTTP body message
+        const name = encodeURIComponent(this.state.user.name);
+        const password = encodeURIComponent(this.state.user.password);
+        const formData = `name=${name}&password=${password}`;
+
+        // create an AJAX request
+    const xhr = new XMLHttpRequest();
+    xhr.open('post', '/auth/signup');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.responseType = 'json';
+    xhr.addEventListener('load', () => {
+      if (xhr.status === 200) {
+        // success
+        console.log('you successfully signed up')
+        // change the component-container state
+        this.setState({
+          errors: {}
+        });
+
+        // set a message
+        localStorage.setItem('successMessage', xhr.response.message);
+
+        // make a redirect
+        this.context.history.push('/login');
+        console.log(this.context)
+      
+      } else {
+        // failure
+
+        const errors = xhr.response.errors ? xhr.response.errors : {};
+        errors.summary = xhr.response.message;
+
+        this.setState({
+          errors
+        });
+      }
+    });
+    xhr.send(formData);
+    }
+
+    onSignupChange(event) {
+        const field = event.target.name;
+        const user = this.state.user;
+        user[field] = event.target.value;
+    
+        this.setState({
+          user
+        });
+       
     }
 
     render() {
@@ -55,8 +117,8 @@ class Main extends Component {
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                       <ModalBody>
                           <form>
-                            <input id="userID" type="text" name="user" placeholder="Username" /><br/>
-                            <input type="password" name="pass" placeholder="Password" />
+                            <input id="userID" type="text" name="name" placeholder="Username" /><br/>
+                            <input type="password" name="password" placeholder="Password" />
                           </form>
                       </ModalBody>
                       <ModalFooter>
@@ -65,7 +127,7 @@ class Main extends Component {
                       </ModalFooter>
                     </Modal>
                 </div>
-                <div class="title">
+                <div className="title">
                     <div className="d-flex justify-content-center" id="smallheader"><img src={MCEDLogo} /></div>
                     <div className="d-flex justify-content-center" id="smallheader2">presents</div><br/>
                     <div className="d-flex justify-content-center" id="header1">KIDS</div>
@@ -134,8 +196,8 @@ class Main extends Component {
 
                   <Row className="d-flex justify-content-center">
                       <Col md="6" id="rec">
-                          <Form>
-                              <FormGroup>
+                          <Form  onSubmit={this.onSignupSubmit}>
+                              {/* <FormGroup>
                                   <Label for="nameInput">Parent's Name</Label>
                                   <Input type="name" name="name" id="nameInput" placeholder="Enter Parent's Name" />
                               </FormGroup>
@@ -146,14 +208,18 @@ class Main extends Component {
                               <FormGroup>
                                   <Label for="pwInput">Parent's Password</Label>
                                   <Input type="password" name="password" id="pwInput" placeholder="Enter Parent's Password" />
-                              </FormGroup>
+                              </FormGroup> */}
                               <FormGroup>
                                   <Label for="childNameInput">Child's Name (This will be the child's UserName)</Label>
-                                  <Input type="childName" name="childName" id="childNameInput" placeholder="Enter Child's Name" />
+                                  <Input 
+                                    onChange={this.onSignupChange}
+                                    type="childName" name="name" id="childNameInput" placeholder="Enter Child's Name" />
                               </FormGroup>
                               <FormGroup>
                                   <Label for="childPwInput">Child's Password</Label>
-                                  <Input type="childPw" name="childPw" id="childPwInput" placeholder="Enter Child's Password" />
+                                  <Input 
+                                    onChange={this.onSignupChange}
+                                    type="childPw" name="password" id="childPwInput" placeholder="Enter Child's Password" />
                               </FormGroup>
                               <Button className="btn btn-primary d-flex justify-content-center" type="submit">Submit</Button>
 
@@ -192,4 +258,4 @@ class Main extends Component {
   }
 }
  
-export default Main;
+export default LandingPage;
