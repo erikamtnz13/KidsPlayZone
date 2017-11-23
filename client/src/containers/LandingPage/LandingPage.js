@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import { Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
@@ -11,6 +12,8 @@ import './style.css';
 import './sec1.css';
 import './sec2.css';
 import './sec3.css';
+
+import Auth from '../../modules/Auth'
 
  
 class LandingPage extends Component {
@@ -27,10 +30,19 @@ class LandingPage extends Component {
     };
 
     this.toggle = this.toggle.bind(this);
-    this.onSignupChange = this.onSignupChange.bind(this)
+
     this.onSignupSubmit = this.onSignupSubmit.bind(this)
+    this.onLoginSubmit =  this.onLoginSubmit.bind(this)
+
+    this.onInputChange = this.onInputChange.bind(this)
+  
 
     }
+
+    componentDidMount () {
+        window.scrollTo(0, 0)
+      }
+    
 
     toggle() {
         this.setState({
@@ -38,6 +50,7 @@ class LandingPage extends Component {
         });
     }
 
+    //Handle sign up
     onSignupSubmit(event) {
         event.preventDefault()
         console.log(this.state.user.name, this.state.user.password)
@@ -48,41 +61,45 @@ class LandingPage extends Component {
         const formData = `name=${name}&password=${password}`;
 
         // create an AJAX request
-    const xhr = new XMLHttpRequest();
-    xhr.open('post', '/auth/signup');
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.responseType = 'json';
-    xhr.addEventListener('load', () => {
-      if (xhr.status === 200) {
-        // success
-        console.log('you successfully signed up')
-        // change the component-container state
-        this.setState({
-          errors: {}
+        const xhr = new XMLHttpRequest();
+        xhr.open('post', '/auth/signup');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.responseType = 'json';
+        xhr.addEventListener('load', () => {
+        if (xhr.status === 200) {
+            // success
+            console.log('you successfully signed up')
+            // change the component-container state
+            this.setState({
+            errors: {}
+            });
+
+            // set a message
+            localStorage.setItem('successMessage', xhr.response.message);
+
+            // make a redirect
+            this.context.router.history.push('/login');
+        
+        
+            console.log(this.context)
+        
+        } else {
+            // failure
+
+            const errors = xhr.response.errors ? xhr.response.errors : {};
+            errors.summary = xhr.response.message;
+
+            this.setState({
+            errors
+            });
+            console.log(this.state.errors)
+        }
         });
-
-        // set a message
-        localStorage.setItem('successMessage', xhr.response.message);
-
-        // make a redirect
-        this.context.history.push('/login');
-        console.log(this.context)
-      
-      } else {
-        // failure
-
-        const errors = xhr.response.errors ? xhr.response.errors : {};
-        errors.summary = xhr.response.message;
-
-        this.setState({
-          errors
-        });
-      }
-    });
-    xhr.send(formData);
+        xhr.send(formData);
     }
 
-    onSignupChange(event) {
+    //Handle Login/Signup Input Change
+    onInputChange(event) {
         const field = event.target.name;
         const user = this.state.user;
         user[field] = event.target.value;
@@ -92,6 +109,55 @@ class LandingPage extends Component {
         });
        
     }
+
+    ///Handling Login
+    onLoginSubmit(event){
+            // prevent default action. in this case, action is the form submission event
+    event.preventDefault();
+    
+        // create a string for an HTTP body message
+        const name = encodeURIComponent(this.state.user.name);
+        const password = encodeURIComponent(this.state.user.password);
+        const formData = `name=${name}&password=${password}`;
+    
+        // create an AJAX request
+        const xhr = new XMLHttpRequest();
+        xhr.open('post', '/auth/login');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.responseType = 'json';
+        xhr.addEventListener('load', () => {
+          if (xhr.status === 200) {
+            // success
+            console.log(xhr.response.message)
+            // change the component-container state
+            this.setState({
+              errors: {}
+            });
+    
+            // save the token
+            Auth.authenticateUser(xhr.response.token);
+    
+    
+            // change the current URL to /
+            this.context.router.history.push('/');
+          } else {
+            // failure
+    
+            // change the component state
+            const errors = xhr.response.errors ? xhr.response.errors : {};
+            errors.summary = xhr.response.message;
+    
+            this.setState({
+              errors
+            });
+
+            console.log(this.state.errors)
+          }
+        });
+        xhr.send(formData);
+    }
+
+
 
     render() {
         const options = {
@@ -116,13 +182,20 @@ class LandingPage extends Component {
                     <Button color="primary" onClick={this.toggle}>{this.props.buttonLabel}Sign In</Button>
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                       <ModalBody>
-                          <form>
-                            <input id="userID" type="text" name="name" placeholder="Username" /><br/>
-                            <input type="password" name="password" placeholder="Password" />
+                          <form  onSubmit={this.onLoginSubmit}>
+                            <input 
+                                onChange={this.onInputChange}
+                                errorText={this.state.errors.name}
+                                id="userID" type="text" name="name" placeholder="Username" /><br />
+
+                            <input 
+                                onChange={this.onInputChange}
+                                type="password" name="password" placeholder="Password" /><br />
+                            <Label>{this.state.errors.summary}</Label>
                           </form>
                       </ModalBody>
                       <ModalFooter>
-                        <Button color="primary" onClick={this.toggle}>Sign In</Button>{' '}
+                        <Button color="primary" type="submit" onClick={this.onLoginSubmit}>Sign In</Button>{' '}
                         <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                       </ModalFooter>
                     </Modal>
@@ -212,14 +285,18 @@ class LandingPage extends Component {
                               <FormGroup>
                                   <Label for="childNameInput">Child's Name (This will be the child's UserName)</Label>
                                   <Input 
-                                    onChange={this.onSignupChange}
+                                    onChange={this.onInputChange}
+                                    value={this.state.user.name}
                                     type="childName" name="name" id="childNameInput" placeholder="Enter Child's Name" />
+                                    <Label>{this.state.errors.name}</Label>
                               </FormGroup>
                               <FormGroup>
                                   <Label for="childPwInput">Child's Password</Label>
                                   <Input 
-                                    onChange={this.onSignupChange}
-                                    type="childPw" name="password" id="childPwInput" placeholder="Enter Child's Password" />
+                                    onChange={this.onInputChange}
+                                    value={this.state.user.password}
+                                    type="password" name="password" id="childPwInput" placeholder="Enter Child's Password" />
+                                    <Label>{this.state.errors.password}</Label>
                               </FormGroup>
                               <Button className="btn btn-primary d-flex justify-content-center" type="submit">Submit</Button>
 
@@ -257,5 +334,9 @@ class LandingPage extends Component {
     );
   }
 }
+
+LandingPage.contextTypes = {
+    router: PropTypes.object.isRequired
+  };
  
 export default LandingPage;

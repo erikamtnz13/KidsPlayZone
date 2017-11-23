@@ -1582,6 +1582,80 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Auth = function () {
+  function Auth() {
+    _classCallCheck(this, Auth);
+  }
+
+  _createClass(Auth, null, [{
+    key: 'authenticateUser',
+
+
+    /**
+     * Authenticate a user. Save a token string in Local Storage
+     *
+     * @param {string} token
+     */
+    value: function authenticateUser(token) {
+      localStorage.setItem('token', token);
+    }
+
+    /**
+     * Check if a user is authenticated - check if a token is saved in Local Storage
+     *
+     * @returns {boolean}
+     */
+
+  }, {
+    key: 'isUserAuthenticated',
+    value: function isUserAuthenticated() {
+      if (localStorage.getItem('token') != null) return true;else return false;
+    }
+
+    /**
+     * Deauthenticate a user. Remove a token from Local Storage.
+     *
+     */
+
+  }, {
+    key: 'deauthenticateUser',
+    value: function deauthenticateUser() {
+      localStorage.removeItem('token');
+    }
+
+    /**
+     * Get a token value.
+     *
+     * @returns {string}
+     */
+
+  }, {
+    key: 'getToken',
+    value: function getToken() {
+      return localStorage.getItem('token');
+    }
+  }]);
+
+  return Auth;
+}();
+
+exports.default = Auth;
+
+/***/ }),
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7052,7 +7126,7 @@ var UncontrolledTooltip = components.UncontrolledTooltip;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7094,7 +7168,7 @@ function reactProdInvariant(code) {
 module.exports = reactProdInvariant;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7161,7 +7235,7 @@ var createPath = exports.createPath = function createPath(location) {
 };
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7232,80 +7306,6 @@ var createPath = function createPath(location) {
 };
 
 /***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Auth = function () {
-  function Auth() {
-    _classCallCheck(this, Auth);
-  }
-
-  _createClass(Auth, null, [{
-    key: 'authenticateUser',
-
-
-    /**
-     * Authenticate a user. Save a token string in Local Storage
-     *
-     * @param {string} token
-     */
-    value: function authenticateUser(token) {
-      localStorage.setItem('token', token);
-    }
-
-    /**
-     * Check if a user is authenticated - check if a token is saved in Local Storage
-     *
-     * @returns {boolean}
-     */
-
-  }, {
-    key: 'isUserAuthenticated',
-    value: function isUserAuthenticated() {
-      if (localStorage.getItem('token') != null) return true;else return false;
-    }
-
-    /**
-     * Deauthenticate a user. Remove a token from Local Storage.
-     *
-     */
-
-  }, {
-    key: 'deauthenticateUser',
-    value: function deauthenticateUser() {
-      localStorage.removeItem('token');
-    }
-
-    /**
-     * Get a token value.
-     *
-     * @returns {string}
-     */
-
-  }, {
-    key: 'getToken',
-    value: function getToken() {
-      return localStorage.getItem('token');
-    }
-  }]);
-
-  return Auth;
-}();
-
-exports.default = Auth;
-
-/***/ }),
 /* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -7314,7 +7314,7 @@ exports.default = Auth;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return locationsAreEqual; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_resolve_pathname__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_value_equal__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PathUtils__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PathUtils__ = __webpack_require__(18);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -7595,7 +7595,7 @@ var _valueEqual = __webpack_require__(41);
 
 var _valueEqual2 = _interopRequireDefault(_valueEqual);
 
-var _PathUtils = __webpack_require__(16);
+var _PathUtils = __webpack_require__(17);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8127,7 +8127,7 @@ module.exports = lowPriorityWarning;
 
 
 
-var _prodInvariant = __webpack_require__(15);
+var _prodInvariant = __webpack_require__(16);
 
 var ReactCurrentOwner = __webpack_require__(21);
 
@@ -9884,7 +9884,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactstrap = __webpack_require__(14);
+var _reactstrap = __webpack_require__(15);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10074,7 +10074,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Auth = __webpack_require__(18);
+var _Auth = __webpack_require__(14);
 
 var _Auth2 = _interopRequireDefault(_Auth);
 
@@ -10245,7 +10245,7 @@ exports.default = UserProfile;
 
 
 
-var _prodInvariant = __webpack_require__(15),
+var _prodInvariant = __webpack_require__(16),
     _assign = __webpack_require__(7);
 
 var ReactNoopUpdateQueue = __webpack_require__(54);
@@ -10817,7 +10817,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactstrap = __webpack_require__(14);
+var _reactstrap = __webpack_require__(15);
 
 var _squaddio = __webpack_require__(143);
 
@@ -28509,7 +28509,7 @@ var _Videos = __webpack_require__(59);
 
 var _Videos2 = _interopRequireDefault(_Videos);
 
-var _Auth = __webpack_require__(18);
+var _Auth = __webpack_require__(14);
 
 var _Auth2 = _interopRequireDefault(_Auth);
 
@@ -28531,6 +28531,9 @@ var Main = function Main() {
         null,
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", render: function render() {
             return _Auth2.default.isUserAuthenticated() ? _react2.default.createElement(_reactRouterDom.Redirect, { to: "/dashboard" }) : _react2.default.createElement(_LandingPage2.default, null);
+          } }),
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/home", render: function render() {
+            return _Auth2.default.isUserAuthenticated() ? _react2.default.createElement(_reactRouterDom.Redirect, { to: "/dashboard" }) : _react2.default.createElement(_HomePage2.default, null);
           } }),
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/signup", component: _SignUpPage2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/login", component: _LoginPage2.default }),
@@ -28701,7 +28704,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _LocationUtils = __webpack_require__(25);
 
-var _PathUtils = __webpack_require__(16);
+var _PathUtils = __webpack_require__(17);
 
 var _createTransitionManager = __webpack_require__(26);
 
@@ -29078,7 +29081,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _LocationUtils = __webpack_require__(25);
 
-var _PathUtils = __webpack_require__(16);
+var _PathUtils = __webpack_require__(17);
 
 var _createTransitionManager = __webpack_require__(26);
 
@@ -29482,7 +29485,7 @@ var _warning = __webpack_require__(3);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _PathUtils = __webpack_require__(16);
+var _PathUtils = __webpack_require__(17);
 
 var _LocationUtils = __webpack_require__(25);
 
@@ -30398,7 +30401,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(19);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(18);
 /* unused harmony reexport parsePath */
 /* unused harmony reexport createPath */
 
@@ -30421,7 +30424,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(46);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -30725,7 +30728,7 @@ var createBrowserHistory = function createBrowserHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(46);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -31043,7 +31046,7 @@ var createHashHistory = function createHashHistory() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PathUtils__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PathUtils__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(30);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -31228,7 +31231,7 @@ var createMemoryHistory = function createMemoryHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history_PathUtils__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history_PathUtils__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history_PathUtils___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_history_PathUtils__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Router__ = __webpack_require__(28);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -31663,7 +31666,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRouterDom = __webpack_require__(13);
 
-var _Auth = __webpack_require__(18);
+var _Auth = __webpack_require__(14);
 
 var _Auth2 = _interopRequireDefault(_Auth);
 
@@ -35105,7 +35108,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(13);
 
-var _Auth = __webpack_require__(18);
+var _Auth = __webpack_require__(14);
 
 var _Auth2 = _interopRequireDefault(_Auth);
 
@@ -35250,7 +35253,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactstrap = __webpack_require__(14);
+var _reactstrap = __webpack_require__(15);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35777,7 +35780,7 @@ module.exports = ReactChildren;
 
 
 
-var _prodInvariant = __webpack_require__(15);
+var _prodInvariant = __webpack_require__(16);
 
 var invariant = __webpack_require__(4);
 
@@ -35892,7 +35895,7 @@ module.exports = PooledClass;
 
 
 
-var _prodInvariant = __webpack_require__(15);
+var _prodInvariant = __webpack_require__(16);
 
 var ReactCurrentOwner = __webpack_require__(21);
 var REACT_ELEMENT_TYPE = __webpack_require__(55);
@@ -36307,7 +36310,7 @@ module.exports = ReactDOMFactories;
 
 
 
-var _prodInvariant = __webpack_require__(15);
+var _prodInvariant = __webpack_require__(16);
 
 var ReactPropTypeLocationNames = __webpack_require__(135);
 var ReactPropTypesSecret = __webpack_require__(136);
@@ -37415,7 +37418,7 @@ module.exports = factory;
  */
 
 
-var _prodInvariant = __webpack_require__(15);
+var _prodInvariant = __webpack_require__(16);
 
 var ReactElement = __webpack_require__(11);
 
@@ -37570,7 +37573,7 @@ var _propTypes = __webpack_require__(2);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _Auth = __webpack_require__(18);
+var _Auth = __webpack_require__(14);
 
 var _Auth2 = _interopRequireDefault(_Auth);
 
@@ -37739,7 +37742,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRouterDom = __webpack_require__(13);
 
-var _reactstrap = __webpack_require__(14);
+var _reactstrap = __webpack_require__(15);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38001,7 +38004,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRouterDom = __webpack_require__(13);
 
-var _reactstrap = __webpack_require__(14);
+var _reactstrap = __webpack_require__(15);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38097,11 +38100,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = __webpack_require__(2);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactDom = __webpack_require__(24);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactstrap = __webpack_require__(14);
+var _reactstrap = __webpack_require__(15);
 
 var _mced = __webpack_require__(160);
 
@@ -38126,6 +38133,10 @@ __webpack_require__(166);
 __webpack_require__(168);
 
 __webpack_require__(170);
+
+var _Auth = __webpack_require__(14);
+
+var _Auth2 = _interopRequireDefault(_Auth);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38154,19 +38165,30 @@ var LandingPage = function (_Component) {
         };
 
         _this.toggle = _this.toggle.bind(_this);
-        _this.onSignupChange = _this.onSignupChange.bind(_this);
+
         _this.onSignupSubmit = _this.onSignupSubmit.bind(_this);
+        _this.onLoginSubmit = _this.onLoginSubmit.bind(_this);
+
+        _this.onInputChange = _this.onInputChange.bind(_this);
 
         return _this;
     }
 
     _createClass(LandingPage, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            window.scrollTo(0, 0);
+        }
+    }, {
         key: 'toggle',
         value: function toggle() {
             this.setState({
                 modal: !this.state.modal
             });
         }
+
+        //Handle sign up
+
     }, {
         key: 'onSignupSubmit',
         value: function onSignupSubmit(event) {
@@ -38198,7 +38220,8 @@ var LandingPage = function (_Component) {
                     localStorage.setItem('successMessage', xhr.response.message);
 
                     // make a redirect
-                    _this2.context.history.push('/login');
+                    _this2.context.router.history.push('/login');
+
                     console.log(_this2.context);
                 } else {
                     // failure
@@ -38209,13 +38232,17 @@ var LandingPage = function (_Component) {
                     _this2.setState({
                         errors: errors
                     });
+                    console.log(_this2.state.errors);
                 }
             });
             xhr.send(formData);
         }
+
+        //Handle Login/Signup Input Change
+
     }, {
-        key: 'onSignupChange',
-        value: function onSignupChange(event) {
+        key: 'onInputChange',
+        value: function onInputChange(event) {
             var field = event.target.name;
             var user = this.state.user;
             user[field] = event.target.value;
@@ -38224,10 +38251,61 @@ var LandingPage = function (_Component) {
                 user: user
             });
         }
+
+        ///Handling Login
+
+    }, {
+        key: 'onLoginSubmit',
+        value: function onLoginSubmit(event) {
+            var _this3 = this;
+
+            // prevent default action. in this case, action is the form submission event
+            event.preventDefault();
+
+            // create a string for an HTTP body message
+            var name = encodeURIComponent(this.state.user.name);
+            var password = encodeURIComponent(this.state.user.password);
+            var formData = 'name=' + name + '&password=' + password;
+
+            // create an AJAX request
+            var xhr = new XMLHttpRequest();
+            xhr.open('post', '/auth/login');
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.responseType = 'json';
+            xhr.addEventListener('load', function () {
+                if (xhr.status === 200) {
+                    // success
+                    console.log(xhr.response.message);
+                    // change the component-container state
+                    _this3.setState({
+                        errors: {}
+                    });
+
+                    // save the token
+                    _Auth2.default.authenticateUser(xhr.response.token);
+
+                    // change the current URL to /
+                    _this3.context.router.history.push('/');
+                } else {
+                    // failure
+
+                    // change the component state
+                    var errors = xhr.response.errors ? xhr.response.errors : {};
+                    errors.summary = xhr.response.message;
+
+                    _this3.setState({
+                        errors: errors
+                    });
+
+                    console.log(_this3.state.errors);
+                }
+            });
+            xhr.send(formData);
+        }
     }, {
         key: 'render',
         value: function render() {
-            var _this3 = this;
+            var _this4 = this;
 
             var options = {
                 sectionClassName: 'section',
@@ -38238,7 +38316,7 @@ var LandingPage = function (_Component) {
                 arrowNavigation: true,
 
                 scrollCallback: function scrollCallback(states) {
-                    return _this3.setState({ current: states.activeSection });
+                    return _this4.setState({ current: states.activeSection });
                 }
             };
 
@@ -38271,10 +38349,21 @@ var LandingPage = function (_Component) {
                                     null,
                                     _react2.default.createElement(
                                         'form',
-                                        null,
-                                        _react2.default.createElement('input', { id: 'userID', type: 'text', name: 'user', placeholder: 'Username' }),
+                                        { onSubmit: this.onLoginSubmit },
+                                        _react2.default.createElement('input', {
+                                            onChange: this.onInputChange,
+                                            errorText: this.state.errors.name,
+                                            id: 'userID', type: 'text', name: 'name', placeholder: 'Username' }),
                                         _react2.default.createElement('br', null),
-                                        _react2.default.createElement('input', { type: 'password', name: 'pass', placeholder: 'Password' })
+                                        _react2.default.createElement('input', {
+                                            onChange: this.onInputChange,
+                                            type: 'password', name: 'password', placeholder: 'Password' }),
+                                        _react2.default.createElement('br', null),
+                                        _react2.default.createElement(
+                                            _reactstrap.Label,
+                                            null,
+                                            this.state.errors.summary
+                                        )
                                     )
                                 ),
                                 _react2.default.createElement(
@@ -38282,7 +38371,7 @@ var LandingPage = function (_Component) {
                                     null,
                                     _react2.default.createElement(
                                         _reactstrap.Button,
-                                        { color: 'primary', onClick: this.toggle },
+                                        { color: 'primary', type: 'submit', onClick: this.onLoginSubmit },
                                         'Sign In'
                                     ),
                                     ' ',
@@ -38503,8 +38592,14 @@ var LandingPage = function (_Component) {
                                         'Child\'s Name (This will be the child\'s UserName)'
                                     ),
                                     _react2.default.createElement(_reactstrap.Input, {
-                                        onChange: this.onSignupChange,
-                                        type: 'childName', name: 'name', id: 'childNameInput', placeholder: 'Enter Child\'s Name' })
+                                        onChange: this.onInputChange,
+                                        value: this.state.user.name,
+                                        type: 'childName', name: 'name', id: 'childNameInput', placeholder: 'Enter Child\'s Name' }),
+                                    _react2.default.createElement(
+                                        _reactstrap.Label,
+                                        null,
+                                        this.state.errors.name
+                                    )
                                 ),
                                 _react2.default.createElement(
                                     _reactstrap.FormGroup,
@@ -38515,8 +38610,14 @@ var LandingPage = function (_Component) {
                                         'Child\'s Password'
                                     ),
                                     _react2.default.createElement(_reactstrap.Input, {
-                                        onChange: this.onSignupChange,
-                                        type: 'childPw', name: 'password', id: 'childPwInput', placeholder: 'Enter Child\'s Password' })
+                                        onChange: this.onInputChange,
+                                        value: this.state.user.password,
+                                        type: 'password', name: 'password', id: 'childPwInput', placeholder: 'Enter Child\'s Password' }),
+                                    _react2.default.createElement(
+                                        _reactstrap.Label,
+                                        null,
+                                        this.state.errors.password
+                                    )
                                 ),
                                 _react2.default.createElement(
                                     _reactstrap.Button,
@@ -38578,6 +38679,10 @@ var LandingPage = function (_Component) {
 
     return LandingPage;
 }(_react.Component);
+
+LandingPage.contextTypes = {
+    router: _propTypes2.default.object.isRequired
+};
 
 exports.default = LandingPage;
 

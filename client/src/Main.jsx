@@ -28,8 +28,8 @@ const Main = () => (
       )} */}
       <Route exact path="/"  render={() => 
         (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<LandingPage/>))}/>
-      {/* <Route exact path="/home"  render={() => 
-        (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<HomePage/>))}/> */}
+      <Route exact path="/home"  render={() => 
+        (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<HomePage/>))}/>
       <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/login" component={LoginPage} />
       <Route exact path="/dashboard" component={DashboardPage} />
