@@ -20,12 +20,17 @@ const Main = () => (
 
   <Router history={browserHistory} >
   <div>
-    <Base >
-      {/* {Auth.isUserAuthenticated() ? (
+  <Route exact path="/"  render={() => 
+        (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<LandingPage/>))}/>
+
+
+     {Auth.isUserAuthenticated() ? (
         <DashboardPage />
       ) : (
         <HomePage />
-      )} */}
+      )}
+
+      
       <Route exact path="/"  render={() => 
         (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<LandingPage/>))}/>
       <Route exact path="/home"  render={() => 
