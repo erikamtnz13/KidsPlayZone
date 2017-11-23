@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter as Router, Route, browserHistory, Redirect} from "react-router-dom";
 import Auth from '../modules/Auth'
 import Dashboard from '../components/Dashboard.jsx'
-import HomePage from '../components/HomePage.jsx';
 import Navpills from '../components/Navpills.jsx'
 import Jumbotron from "../components/Jumbotron"
 import Members from "./Members";
@@ -63,11 +62,7 @@ class DashboardPage extends React.Component {
           <Route exact path="/videos" component={Videos} />
           <Route exact path="/logout"  render={ () => {
             Auth.deauthenticateUser()
-            //window.location.reload()
-            window.location.replace('/')
-            //return <Redirect to="/"/>
-            
-            
+            window.location.replace('/')  
           }}/>
       </Navpills>
       </div>
