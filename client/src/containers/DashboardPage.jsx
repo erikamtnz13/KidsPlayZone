@@ -9,6 +9,7 @@ import Members from "./Members";
 import Profile from "./UserProfile";
 import Games from "./Games/Games";
 import Videos from "./Videos/Videos";
+import LandingPage from './LandingPage/LandingPage'
 
 
 
@@ -55,7 +56,8 @@ class DashboardPage extends React.Component {
         <Jumbotron />
         <Navpills >
           <Route exact path="/"  render={() => 
-            (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<HomePage/>))}/>
+            (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<Redirect to="/home"/>))}/>
+          <Route exact path="/home" component={LandingPage} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/members" component={Members} />
           <Route exact path="/games" component={Games} />
