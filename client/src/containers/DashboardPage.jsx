@@ -56,15 +56,18 @@ class DashboardPage extends React.Component {
         <Jumbotron />
         <Navpills >
           <Route exact path="/"  render={() => 
-            (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<Redirect to="/home"/>))}/>
-          <Route exact path="/home" component={LandingPage} />
+            (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<LandingPage/>))}/>
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/members" component={Members} />
           <Route exact path="/games" component={Games} />
           <Route exact path="/videos" component={Videos} />
           <Route exact path="/logout"  render={ () => {
             Auth.deauthenticateUser()
-            return <Redirect to="/"/>
+            //window.location.reload()
+            window.location.replace('/')
+            //return <Redirect to="/"/>
+            
+            
           }}/>
       </Navpills>
       </div>
