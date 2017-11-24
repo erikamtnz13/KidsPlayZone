@@ -165,22 +165,23 @@ class LandingPage extends Component {
                   <div>
                       <Button color="primary" onClick={this.toggle}>{this.props.buttonLabel}Sign In</Button>
                       <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                        <ModalHeader toggle={this.toggle}>Log In</ModalHeader>
                         <ModalBody>
-                            <form  onSubmit={this.onLoginSubmit}>
+                            <form onSubmit={this.onLoginSubmit}>
                               <input 
                                   onChange={this.onInputChange}
                                   errorText={this.state.errors.name}
-                                  id="userID" type="text" name="name" placeholder="Username" /><br />
+                                  className="form-control" id="userID" type="text" name="name" placeholder="Username" /><br />
 
                               <input 
                                   onChange={this.onInputChange}
-                                  type="password" name="password" placeholder="Password" /><br />
+                                  className="form-control" type="password" name="password" placeholder="Password" /><br />
                               <Label>{this.state.errors.summary}</Label>
                             </form>
                         </ModalBody>
                         <ModalFooter>
-                          <Button color="primary" type="submit" onClick={this.onLoginSubmit}>Sign In</Button>{' '}
-                          <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                          <Button className="modalBtn" color="primary" type="submit" onClick={this.onLoginSubmit}>Sign In</Button>{' '}
+                          <Button className="modalBtn" color="secondary" onClick={this.toggle}>Cancel</Button>
                         </ModalFooter>
                       </Modal>
                   </div>
@@ -298,7 +299,7 @@ class LandingPage extends Component {
                             </div>
                         </div>
                         <div className="belt">
-                            <div className="locket"><b id="l">KAP</b></div>
+                            <div className="locket"><b id="KAP">KAP</b></div>
                             <div className="dot dot1"></div>
                             <div className="dot dot2"></div>
                             <div className="dot dot3"></div>
