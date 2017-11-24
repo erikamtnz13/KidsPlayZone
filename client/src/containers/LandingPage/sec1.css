@@ -118,7 +118,7 @@
 }
 
 .modal-backdrop.show {
-opacity: 0.5;
+    opacity: 0.5;
 }
 
 .modal-header {
@@ -218,6 +218,11 @@ margin-left: .25rem;
     border-color: #55b298;
 }
 
+.btn-primary:focus, .btn-primary.focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(120, 194, 173, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(120, 194, 173, 0.5);
+}
+
 .btn-secondary {
     color: #FFFFFF;
     background-color: #F3969A;
@@ -228,6 +233,11 @@ margin-left: .25rem;
     color: #FFF;
     background-color: #ef7479;
     border-color: #ee686e;
+}
+
+.btn-secondary:focus, .btn-secondary.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(243, 150, 154, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(243, 150, 154, 0.5);
 }
 
 .form-control {
@@ -246,6 +256,15 @@ margin-left: .25rem;
     transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.form-control:focus {
+    color: #5a5a5a;
+    background-color: #fff;
+    border-color: #d0eae2;
+    outline: none;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(120, 194, 173, 0.25);
+            box-shadow: 0 0 0 0.2rem rgba(120, 194, 173, 0.25);
 }
 
 @media (min-width: 576px) {
