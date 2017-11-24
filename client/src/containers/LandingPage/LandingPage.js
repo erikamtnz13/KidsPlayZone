@@ -167,7 +167,7 @@ class LandingPage extends Component {
                       <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                         <ModalHeader toggle={this.toggle}>Log In</ModalHeader>
                         <ModalBody>
-                            <form onSubmit={this.onLoginSubmit}>
+                            <form className="form" onSubmit={this.onLoginSubmit}>
                               <input 
                                   onChange={this.onInputChange}
                                   errorText={this.state.errors.name}
@@ -180,8 +180,8 @@ class LandingPage extends Component {
                             </form>
                         </ModalBody>
                         <ModalFooter>
-                          <Button className="modalBtn" color="primary" type="submit" onClick={this.onLoginSubmit}>Sign In</Button>{' '}
-                          <Button className="modalBtn" color="secondary" onClick={this.toggle}>Cancel</Button>
+                          <Button color="primary" type="submit" onClick={this.onLoginSubmit}>Sign In</Button>{' '}
+                          <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                         </ModalFooter>
                       </Modal>
                   </div>

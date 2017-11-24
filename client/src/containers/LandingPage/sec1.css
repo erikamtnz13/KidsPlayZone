@@ -37,12 +37,10 @@
 
 
 
+/* ======================================================= */
+/* ================= IT'S MODAL TIME!!!! =================
+/* ======================================================= */
 
-
-
-
-
-/* IT'S MODAL TIME!!!! */
 .modal-open {
     overflow: hidden;
 }
@@ -223,6 +221,14 @@ margin-left: .25rem;
     box-shadow: 0 0 0 0.2rem rgba(120, 194, 173, 0.5);
 }
 
+.btn-primary:not([disabled]):not(.disabled):active, .btn-primary:not([disabled]):not(.disabled).active {
+  color: #fff;
+  background-color: #55b298;
+  border-color: #4eac92;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(120, 194, 173, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(120, 194, 173, 0.5);
+}
+
 .btn-secondary {
     color: #FFFFFF;
     background-color: #F3969A;
@@ -236,6 +242,14 @@ margin-left: .25rem;
 }
 
 .btn-secondary:focus, .btn-secondary.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(243, 150, 154, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(243, 150, 154, 0.5);
+}
+
+.btn-secondary:not([disabled]):not(.disabled):active, .btn-secondary:not([disabled]):not(.disabled).active {
+  color: #fff;
+  background-color: #ee686e;
+  border-color: #ec5d63;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(243, 150, 154, 0.5);
           box-shadow: 0 0 0 0.2rem rgba(243, 150, 154, 0.5);
 }
