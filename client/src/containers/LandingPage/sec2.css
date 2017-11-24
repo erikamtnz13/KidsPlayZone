@@ -1,0 +1,28 @@
+#column1 {
+    background: #e21b2d;
+}
+
+
+#column2 {
+    background: #ffb140;
+}
+
+#column3 {
+    background: #73AD21;
+}
+
+#column4 {
+    background: #fe799f ;
+}
+
+#column1,
+#column2,
+#column3,
+#column4 {
+    border-radius: 25px;
+    margin: 30px;
+    margin-top: 50px;
+    padding-top: 30px;
+    height: 400px;
+    font-size: 1.6em;
+}

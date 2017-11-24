@@ -1,6 +1,5 @@
 import React from "react";
 import Image from '../components/Image.jsx'
-//import ReactUploadFile from 'react-upload-file'
 
 
 class UserProfile extends React.Component {
@@ -9,16 +8,9 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    const options = {
-      baseUrl: 'http://127.0.0.1',
-      query: {
-        warrior: 'fight'
-      }
-    }
     return (
       <div className="container">
         <h1>User Profile</h1>
-        {/* <ReactUploadFile options={options} chooseFileButton={<button/>} uploadFileButton={<button />} /> */}
         <Image />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit,
