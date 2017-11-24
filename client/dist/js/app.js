@@ -30191,18 +30191,31 @@ var DashboardPage = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (DashboardPage.__proto__ || Object.getPrototypeOf(DashboardPage)).call(this, props));
 
+    _this.toggle = _this.toggle.bind(_this);
+    _this.state = {
+      activeTab: '/'
+    };
+
     _this.state = {
       secretData: ''
     };
     return _this;
   }
 
-  /**
-   * This method will be executed after initial rendering.
-   */
-
-
   _createClass(DashboardPage, [{
+    key: 'toggle',
+    value: function toggle(tab) {
+      if (this.state.activeTab !== tab) {
+        this.setState({
+          activeTab: tab
+        });
+      }
+    }
+    /**
+     * This method will be executed after initial rendering.
+     */
+
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var _this2 = this;
@@ -34400,7 +34413,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, ".card {\r\n\tmargin-bottom: 10px;\r\n}", ""]);
+exports.push([module.i, ".card {\r\n\tmargin-bottom: 10px;\r\n\tborder-style: none;\r\n}", ""]);
 
 // exports
 

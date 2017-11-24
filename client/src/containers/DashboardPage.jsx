@@ -20,11 +20,23 @@ class DashboardPage extends React.Component {
   constructor(props) {
     super(props);
 
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      activeTab: '/'
+    };
+    
     this.state = {
       secretData: ''
     };
   }
-
+  
+  toggle(tab) {
+    if (this.state.activeTab !== tab) {
+      this.setState({
+        activeTab: tab
+      });
+    }
+  }
   /**
    * This method will be executed after initial rendering.
    */
@@ -74,3 +86,6 @@ class DashboardPage extends React.Component {
 }
 
 export default DashboardPage;
+
+
+
