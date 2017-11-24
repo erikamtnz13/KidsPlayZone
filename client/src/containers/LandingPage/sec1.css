@@ -1,0 +1,35 @@
+
+#section01 {
+    font-family: 'Catamaran', cursive;
+    font-size: 6em;
+    color: #fe799f;
+    text-shadow: 2px 2px #000;
+    margin-top: 60px;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#section1 {
+    background: #0094d5;
+    height: 110vh;
+    padding: 0 2% 0 2%;
+    }
+
+.img-fluid{
+    padding-top: 40px;
+}
+
+#middle {
+    padding-top: 32px;
+}
+
+#right {
+    padding-top: 98px;
+    padding-left: 10px;
+}
+
+#leftcol,
+#midcol,
+#rightcol  {
+    padding-top: 50px;
+}

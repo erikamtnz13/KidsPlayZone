@@ -40,7 +40,7 @@ function validateLoginForm(payload) {
 
   if (!payload || typeof payload.name !== 'string' || payload.name.trim().length === 0) {
     isFormValid = false;
-    errors.email = 'Please provide your name.';
+    errors.name = 'Please provide your name.';
   }
 
   if (!payload || typeof payload.password !== 'string' || payload.password.trim().length === 0) {
@@ -126,7 +126,7 @@ router.post('/login', (req, res, next) => {
 
     return res.json({
       success: true,
-      message: 'You have successfully logged in!',
+      message: 'You have successfully logged in! with this data' + kidData.name+kidData.id,
       token,
       kid: kidData
     });
