@@ -1,5 +1,4 @@
 import React from "react";
-import { videoAPI } from "./videoAPI"
 
 const Videos = () =>
   <div className="container">

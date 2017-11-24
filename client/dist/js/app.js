@@ -8646,24 +8646,6 @@ var LandingPage = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this4 = this;
-
-            var options = {
-                sectionClassName: 'section',
-                anchors: ['sectionOne', 'sectionTwo', 'sectionThree', 'sectionFour'],
-                scrollBar: false,
-                navigation: true,
-                verticalAlign: false,
-                arrowNavigation: true,
-
-                scrollCallback: function scrollCallback(states) {
-                    return _this4.setState({ current: states.activeSection });
-                }
-            };
-
-            var current = this.state.current;
-
-
             return _react2.default.createElement(
                 'div',
                 null,
@@ -34433,8 +34415,6 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _videoAPI = __webpack_require__(125);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Videos = function Videos() {
@@ -34466,13 +34446,7 @@ var Videos = function Videos() {
 exports.default = Videos;
 
 /***/ }),
-/* 125 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/***/ }),
+/* 125 */,
 /* 126 */
 /***/ (function(module, exports) {
 
