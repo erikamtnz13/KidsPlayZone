@@ -1,5 +1,7 @@
 import React from "react";
 import Auth from '../modules/Auth'
+import { Container, Row, Col, Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 class Members extends React.Component{
 
@@ -30,16 +32,25 @@ class Members extends React.Component{
   }
 
   render(){
+    let members = this.state.members
     return (
-      <div className="container">
-      <h1>Members</h1>
-      <p>
-        Lorem ipsum dolor sit amet, est ut enim consequat. Nostrum fastidii
-        partiendo sed ne, no mutat ludus aperiri mea, per in choro dolorem
-        electram. Invidunt reprimique assueverit quo ne, eruditi graecis pro ut.
-        Usu ut diceret scaevola evertitur, appareat voluptatibus ad vel.
-      </p>
-    </div>
+      <div>
+        <h3>Members</h3>
+        <Row>
+          <Col md="4">
+            {members.map(members =>
+              <Card>
+                <CardBody>
+                  <CardTitle key={members.name}>{members.name}</CardTitle>
+                  <CardSubtitle>Card subtitle</CardSubtitle>
+                  <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                  <Button>Button</Button> 
+                </CardBody>
+              </Card>
+            )}
+          </Col>
+        </Row>
+      </div>
     )
   }
 }
