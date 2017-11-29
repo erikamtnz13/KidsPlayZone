@@ -14,7 +14,7 @@ import "./games.css";
 
 const Games = () =>
   <div className="container">
-    <h1>Games</h1>
+    <h3 class="title">Games</h3>
     <div className="row">
       <div className="col-md-4 card">
         <Card>

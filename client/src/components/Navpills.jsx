@@ -6,6 +6,7 @@ import memberIcon from '../imgs/member-icon.png';
 import gameIcon from '../imgs/game-icon.png';
 import videoIcon from '../imgs/video-icon.png';
 import logoutIcon from '../imgs/logout-icon.png';
+import "./navpills.css";
 console.log(homeIcon)
 
 const Navpills = ({children}) =>
