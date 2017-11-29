@@ -3,6 +3,8 @@ import Auth from '../modules/Auth'
 import { Container, Row, Col, Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
 
+  import './members.css';
+
 class Members extends React.Component{
 
   constructor(){
@@ -35,7 +37,7 @@ class Members extends React.Component{
     let members = this.state.members
     return (
       <div>
-        <h3>Members</h3>
+        <h3 class="title">Members</h3>
         <Row>
           <Col md="4">
             {members.map(members =>

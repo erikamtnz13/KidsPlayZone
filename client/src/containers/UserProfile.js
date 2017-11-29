@@ -10,7 +10,7 @@ class UserProfile extends React.Component {
   render() {
     return (
       <div className="container">
-        <h3>User Profile</h3>
+        <h3 class="title">User Profile</h3>
         <Image />
 
       </div>
