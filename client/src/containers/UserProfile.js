@@ -1,16 +1,37 @@
 import React from "react";
-import Image from '../components/Image.jsx'
+import Image from '../components/Image.jsx';
+import axios from "axios";
 
 
 class UserProfile extends React.Component {
   constructor(){
     super()
+    // this.processUpload = this.processUpload.bind(this),
+    // this.test = this.test.bind(this)
   }
+
+  // processUpload(event) {
+  //   event.preventDefault();
+  //  console.log(event.target.fileName)
+  // }
+
+  // test(event){
+  //   console.log(event.target)
+  // }
 
   render() {
     return (
       <div className="container">
         <h1>User Profile</h1>
+        <form ref='uploadForm' 
+          id='uploadForm'
+          action = '/upload' 
+          method='post' 
+          encType="multipart/form-data"
+          onSubmit= {this.processUpload}>
+            <input type="file" name="sampleFile"/>
+            <input type='submit' value='Upload!' id="upload"/>
+        </form> 
         <Image />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit,

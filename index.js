@@ -2,8 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const mongoose = require("mongoose");
-const config = require('./config')
+const config = require('./config');
 
+const fileUpload = require('express-fileupload');
+const path = require("path");
 
 const app = express();
 // tell the app to look for static files in these directories
@@ -33,6 +35,31 @@ const authRoutes = require('./server/routes/auth');
 const apiRoutes = require('./server/routes/api');
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
+
+// default options
+app.use(fileUpload());
+
+// app.get("/", function(req, res){
+//     res.sendFile(path.join(__dirname, "client/src/containers/UserProfile.js"));
+// })
+ 
+app.post('/upload', function(req, res) {
+    console.log(req);
+  if (!req.files)
+    return res.status(400).send('No files were uploaded.');
+ 
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  let sampleFile = req.files.sampleFile;
+  console.log(sampleFile);
+ 
+  // Use the mv() method to place the file somewhere on your server
+  sampleFile.mv('./client/src/imgs/'+ sampleFile.name , function(err) {
+    if (err)
+      return res.status(500).send(err);
+ 
+    res.send('File uploaded!');
+  });
+});
 
 // start the server
 app.listen(3000, () => {
