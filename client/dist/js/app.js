@@ -34860,8 +34860,6 @@ var _LoginForm = __webpack_require__(144);
 
 var _LoginForm2 = _interopRequireDefault(_LoginForm);
 
-__webpack_require__(147);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -35025,6 +35023,8 @@ var _reactRouterDom = __webpack_require__(11);
 
 var _reactstrap = __webpack_require__(8);
 
+__webpack_require__(149);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var LoginForm = function LoginForm(_ref) {
@@ -35034,67 +35034,71 @@ var LoginForm = function LoginForm(_ref) {
       successMessage = _ref.successMessage,
       user = _ref.user;
   return _react2.default.createElement(
-    _reactstrap.Card,
-    { className: 'container' },
+    _reactstrap.Container,
+    { className: 'flexcontainer' },
     _react2.default.createElement(
-      'form',
-      { action: '/', onSubmit: onSubmit },
+      _reactstrap.Card,
+      null,
       _react2.default.createElement(
-        'h2',
-        { className: 'card-heading' },
-        'Login'
-      ),
-      successMessage && _react2.default.createElement(
-        'p',
-        { className: 'success-message' },
-        successMessage
-      ),
-      errors.summary && _react2.default.createElement(
-        'p',
-        { className: 'error-message' },
-        errors.summary
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'field-line' },
-        _react2.default.createElement(_reactstrap.Input, {
-          type: 'text',
-          name: 'name',
-          errorText: errors.email,
-          onChange: onChange,
-          value: user.email
-        })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'field-line' },
-        _react2.default.createElement(_reactstrap.Input, {
-          type: 'password',
-          name: 'password',
-          onChange: onChange,
-          errorText: errors.password,
-          value: user.password
-        })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'button-line' },
+        'form',
+        { action: '/', onSubmit: onSubmit },
         _react2.default.createElement(
-          _reactstrap.Button,
-          { color: 'info' },
-          'Log in'
-        )
-      ),
-      _react2.default.createElement(
-        _reactstrap.CardText,
-        null,
-        'Don\'t have an account? ',
-        _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/signup' },
-          'Create one'
+          'h2',
+          { className: 'card-heading' },
+          'Login'
         ),
-        '.'
+        successMessage && _react2.default.createElement(
+          'p',
+          { className: 'success-message' },
+          successMessage
+        ),
+        errors.summary && _react2.default.createElement(
+          'p',
+          { className: 'error-message' },
+          errors.summary
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'field-line' },
+          _react2.default.createElement(_reactstrap.Input, {
+            type: 'text',
+            name: 'name',
+            errorText: errors.email,
+            onChange: onChange,
+            value: user.email
+          })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'field-line' },
+          _react2.default.createElement(_reactstrap.Input, {
+            type: 'password',
+            name: 'password',
+            onChange: onChange,
+            errorText: errors.password,
+            value: user.password
+          })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'button-line' },
+          _react2.default.createElement(
+            _reactstrap.Button,
+            { color: 'primary', className: 'btn-block' },
+            'Log in'
+          )
+        ),
+        _react2.default.createElement(
+          _reactstrap.CardText,
+          { className: 'cardText' },
+          'Don\'t have an account? ',
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/signup' },
+            'Create one'
+          ),
+          '.'
+        )
       )
     )
   );
@@ -35365,13 +35369,15 @@ SignUpForm.propTypes = {
 exports.default = SignUpForm;
 
 /***/ }),
-/* 147 */
+/* 147 */,
+/* 148 */,
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(148);
+var content = __webpack_require__(150);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -35385,8 +35391,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js!./loginPage.css", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js!./loginPage.css");
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!./loginForm.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!./loginForm.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -35396,7 +35402,7 @@ if(false) {
 }
 
 /***/ }),
-/* 148 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(5)(undefined);
@@ -35404,7 +35410,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, "html, body {\r\n    background-color: #0094d5;\r\n}", ""]);
+exports.push([module.i, ".flexcontainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    height: 100vh;\r\n }\r\n\r\n\r\n .field-line {\r\n     margin-bottom: 2%;\r\n }\r\n\r\n .card-heading, \r\n .success-message, \r\n .error-message, \r\n .cardText {\r\n     text-align: center;\r\n }", ""]);
 
 // exports
 
