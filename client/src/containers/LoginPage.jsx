@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Auth from '../modules/Auth';
 import LoginForm from '../components/LoginForm.jsx';
+import './loginPage.css';
 
 
 class LoginPage extends React.Component {
