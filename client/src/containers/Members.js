@@ -39,18 +39,18 @@ class Members extends React.Component{
       <div>
         <h3 class="tabTitle">Members</h3>
         <Row>
-          <Col md="4">
-            {members.map(members =>
+          {members.map(members =>
+            <Col md="4">
               <Card>
                 <CardBody>
                   <CardTitle key={members.name}>{members.name}</CardTitle>
-                  <CardSubtitle>Card subtitle</CardSubtitle>
+                  {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
                   <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                  <Button>Button</Button> 
+                  <Button color="primary">Button</Button> 
                 </CardBody>
               </Card>
-            )}
-          </Col>
+            </Col>
+          )}
         </Row>
       </div>
     )

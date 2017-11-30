@@ -34058,11 +34058,11 @@ var Members = function (_React$Component) {
         _react2.default.createElement(
           _reactstrap.Row,
           null,
-          _react2.default.createElement(
-            _reactstrap.Col,
-            { md: '4' },
-            members.map(function (members) {
-              return _react2.default.createElement(
+          members.map(function (members) {
+            return _react2.default.createElement(
+              _reactstrap.Col,
+              { md: '4' },
+              _react2.default.createElement(
                 _reactstrap.Card,
                 null,
                 _react2.default.createElement(
@@ -34074,24 +34074,19 @@ var Members = function (_React$Component) {
                     members.name
                   ),
                   _react2.default.createElement(
-                    _reactstrap.CardSubtitle,
-                    null,
-                    'Card subtitle'
-                  ),
-                  _react2.default.createElement(
                     _reactstrap.CardText,
                     null,
                     'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
                   ),
                   _react2.default.createElement(
                     _reactstrap.Button,
-                    null,
+                    { color: 'primary' },
                     'Button'
                   )
                 )
-              );
-            })
-          )
+              )
+            );
+          })
         )
       );
     }
