@@ -1,14 +1,17 @@
 import React from "react";
+import './videos.css'
 
 const Videos = () =>
   <div className="container">
     <h3 class="tabTitle">Videos</h3>
-    <form className="form-inline" id="search-term">
-        <div className="form-group mx-sm-3">
-          <input type="text" className="form-control" id="query" placeholder="" />
-        </div>
-        <button type="submit" value="Submit" className="btn btn-primary">Enter</button>
-    </form>
+    <div className="row justify-content-md-center">
+      <form className="form-inline" id="search-term">
+          <div className="form-group mx-sm-3">
+            <input type="text" className="form-control" id="query" placeholder="" />
+          </div>
+          <button type="submit" value="Submit" className="btn btn-primary" id="video-btn" >Enter</button>
+      </form>
+    </div>
 
     <div className="row">
         <div id="videos-row">

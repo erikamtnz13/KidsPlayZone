@@ -8913,7 +8913,7 @@ var LandingPage = function (_Component) {
                                 { onSubmit: this.onSignupSubmit },
                                 _react2.default.createElement(
                                     _reactstrap.FormGroup,
-                                    null,
+                                    { className: 'signUpForm' },
                                     _react2.default.createElement(
                                         _reactstrap.Label,
                                         { 'for': 'childNameInput' },
@@ -8931,7 +8931,7 @@ var LandingPage = function (_Component) {
                                 ),
                                 _react2.default.createElement(
                                     _reactstrap.FormGroup,
-                                    null,
+                                    { className: 'signUpForm' },
                                     _react2.default.createElement(
                                         _reactstrap.Label,
                                         { 'for': 'childPwInput' },
@@ -34081,7 +34081,7 @@ var Members = function (_React$Component) {
                   _react2.default.createElement(
                     _reactstrap.Button,
                     { color: 'primary' },
-                    'Button'
+                    'Chat'
                   )
                 )
               )
@@ -34542,6 +34542,8 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+__webpack_require__(151);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Videos = function Videos() {
@@ -34554,17 +34556,21 @@ var Videos = function Videos() {
       "Videos"
     ),
     _react2.default.createElement(
-      "form",
-      { className: "form-inline", id: "search-term" },
+      "div",
+      { className: "row justify-content-md-center" },
       _react2.default.createElement(
-        "div",
-        { className: "form-group mx-sm-3" },
-        _react2.default.createElement("input", { type: "text", className: "form-control", id: "query", placeholder: "" })
-      ),
-      _react2.default.createElement(
-        "button",
-        { type: "submit", value: "Submit", className: "btn btn-primary" },
-        "Enter"
+        "form",
+        { className: "form-inline", id: "search-term" },
+        _react2.default.createElement(
+          "div",
+          { className: "form-group mx-sm-3" },
+          _react2.default.createElement("input", { type: "text", className: "form-control", id: "query", placeholder: "" })
+        ),
+        _react2.default.createElement(
+          "button",
+          { type: "submit", value: "Submit", className: "btn btn-primary", id: "video-btn" },
+          "Enter"
+        )
       )
     ),
     _react2.default.createElement(
@@ -34776,7 +34782,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, "#sec3header {\n    color: #00c544;\n}\n\n#rec {\n    border-radius: 25px;\n    height: 580px;\n    font-size: 1.5em;\n    background-color: #fff;\n}\n\n.form-group {\n    margin-top: 20px;\n}\n\n#nameInput, \n#emailInput, \n#pwInput, \n#childNameInput,\n#childPwInput {\n  width: 70%;\n  left: 0;\n  right: 0;\n  margin: auto; \n}\n\n.btn {\n  text-align: center;\n  left: 0;\n  right: 0;\n  margin: auto; \n}\n\n.dog {\n  width: 120px;\n  position: relative;\n  left: 75%;\n  top: -20%;\n  margin-top: -110px;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n\n.body {\n  background: #eacaac;\n  border-radius: 300px 300px 0 0;\n  height: 220px;\n}\n\n.beard {\n  width: 55px;\n  height: 65px;\n  background: #cf9861;\n  margin: 0 auto;\n  border-radius: 40px;\n  position: relative;\n}\n.beard:after {\n  content: '';\n  background: #cf9861;\n  width: 25px;\n  height: 8px;\n  border-radius: 0 0 25px 25px;\n  display: block;\n  margin: 0 auto;\n  -webkit-transform: translateY(64px);\n          transform: translateY(64px);\n}\n.beard:before {\n  content: '';\n  background: #000;\n  width: 30px;\n  height: 10px;\n  border-radius: 0 0 20px 20px;\n  display: block;\n  margin: 0 auto;\n  position: absolute;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n}\n\n.mouth {\n  background: #1A243C;\n  width: 40px;\n  height: 15px;\n  border-radius: 0 0 30px 30px;\n  position: absolute;\n  top: 22px;\n  margin: auto;\n  left: 0;\n  right: 0;\n  border-top: 5px solid #fff;\n  box-sizing: border-box;\n}\n.mouth .tongue {\n  width: 20px;\n  height: 20px;\n  border-radius: 5px 5px 10px 10px;\n  background: #FF6B5A;\n  margin: 0 auto;\n  position: relative;\n  top: 4px;\n  -webkit-transition: 300ms;\n  transition: 300ms;\n  -webkit-animation: grow .2s infinite alternate;\n          animation: grow .2s infinite alternate;\n}\n\n.eyes {\n  background: #fff;\n  width: 20px;\n  height: 30px;\n  border-radius: 10px 10px 0 0;\n  display: block;\n  margin: 0 auto;\n  position: relative;\n  top: 10px;\n}\n.eyes:before, .eyes:after {\n  content: '';\n  width: 20px;\n  height: 20px;\n  background: #000;\n  display: block;\n  border-radius: 50%;\n  top: 50%;\n  position: absolute;\n  -webkit-animation: squeeze 1.2s infinite;\n          animation: squeeze 1.2s infinite;\n}\n.eyes:before {\n  left: -30px;\n}\n.eyes:after {\n  right: -30px;\n}\n\n.belt {\n  height: 30px;\n  background: #e21b2d;\n  margin-top: 20px;\n  position: relative;\n}\n.belt .locket {\n  width: 30px;\n  height: 28px;\n  background: #ffb140;\n  margin: 0 auto;\n  border-radius: 50%;\n  font-size: 13px;\n  margin-top: -10px;\n}\n\n.locket, #KAP {\n  padding-top: 5px\n}\n\n.belt .dot {\n  width: 10px;\n  height: 10px;\n  background: #fe799f;\n  position: absolute;\n  border-radius: 50%;\n  top: 0;\n  bottom: 0;\n  margin: auto;\n}\n.belt .dot.dot1 {\n  margin-left: 8px;\n}\n.belt .dot.dot2 {\n  margin-left: 28px;\n}\n.belt .dot.dot3 {\n  margin-left: 82px;\n}\n.belt .dot.dot4 {\n  margin-left: 102px;\n}\n.belt:before, .belt:after {\n  content: '';\n  position: absolute;\n  width: 5px;\n  height: 10px;\n  background: #fe799f;\n  top: 0;\n  bottom: 0;\n  margin: auto;\n}\n.belt:before {\n  left: -5px;\n  border-radius: 10px 0 0 10px;\n}\n.belt:after {\n  right: -5px;\n  border-radius: 0 10px 10px 0;\n}\n\n.stomach {\n  width: 65px;\n  height: 70px;\n  background: #fff;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  border-radius: 120px 120px 0 0;\n}\n\n.legs {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 12px;\n}\n.legs:before, .legs:after {\n  height: 12px;\n  border-radius: 20px 20px 0 0;\n  display: inline-block;\n  content: '';\n  position: absolute;\n  background: #cf9861;\n  width: 45px;\n}\n.legs:before {\n  left: -37px;\n}\n.legs:after {\n  right: -37px;\n}\n.legs .left, .legs .right {\n  display: inline;\n  width: 12px;\n  height: 55px;\n  background: #cf9861;\n  position: absolute;\n  bottom: 0;\n}\n.legs .left:before, .legs .right:before {\n  content: '';\n  width: 28px;\n  height: 12px;\n  background: #eacaac;\n  border-radius: 20px 20px 0 0;\n  display: inline-block;\n  bottom: 0;\n  position: absolute;\n}\n.legs .left {\n  left: -12px;\n  border-radius: 20px 0 0 0;\n}\n.legs .left:before {\n  -webkit-transform: translateX(-1px);\n          transform: translateX(-1px);\n}\n.legs .right {\n  right: -12px;\n  border-radius: 0 20px 0 0;\n  z-index: 1;\n}\n.legs .right:before {\n  -webkit-transform: translateX(-13px);\n          transform: translateX(-13px);\n}\n\n.ears {\n  position: absolute;\n  z-index: -1;\n  top: -20px;\n}\n.ears:after, .ears:before {\n  content: '';\n  display: inline-block;\n  background: #cf9861;\n  width: 40px;\n  height: 90px;\n  border-radius: 100% 100% 0 0;\n}\n.ears:after {\n  -webkit-transform: translateX(40px);\n          transform: translateX(40px);\n  border: 10px solid #eacaac;\n  box-sizing: border-box;\n}\n\n.tail {\n  background: #eacaac;\n  width: 18px;\n  height: 70px;\n  position: absolute;\n  z-index: -1;\n  right: 10px;\n  bottom: 40px;\n  -webkit-transform: rotate(30deg);\n          transform: rotate(30deg);\n  border-radius: 14px;\n  -webkit-transform-origin: bottom;\n          transform-origin: bottom;\n  -webkit-transition: 300ms;\n  transition: 300ms;\n  -webkit-animation: shake .4s infinite alternate;\n          animation: shake .4s infinite alternate;\n}\n\n.tag {\n\n  width: 200%;\n  height: 161px;\n  z-index: 2;\n  position: absolute;\n  top: 30px;\n  left: 100px;\n  box-sizing: border-box;\n  border-bottom-left-radius: 40px;\n}\n\n@-webkit-keyframes squeeze {\n  90% {\n    -webkit-transform: none;\n            transform: none;\n    -webkit-animation-timing-function: ease-in;\n            animation-timing-function: ease-in;\n  }\n  93% {\n    -webkit-transform: scale(1.2, 0.3);\n            transform: scale(1.2, 0.3);\n  }\n  100% {\n    -webkit-animation-timing-function: ease-out;\n            animation-timing-function: ease-out;\n  }\n}\n\n@keyframes squeeze {\n  90% {\n    -webkit-transform: none;\n            transform: none;\n    -webkit-animation-timing-function: ease-in;\n            animation-timing-function: ease-in;\n  }\n  93% {\n    -webkit-transform: scale(1.2, 0.3);\n            transform: scale(1.2, 0.3);\n  }\n  100% {\n    -webkit-animation-timing-function: ease-out;\n            animation-timing-function: ease-out;\n  }\n}\n@-webkit-keyframes grow {\n  0% {\n    -webkit-animation-timing-function: ease-in;\n            animation-timing-function: ease-in;\n  }\n  100% {\n    height: 35px;\n  }\n}\n@keyframes grow {\n  0% {\n    -webkit-animation-timing-function: ease-in;\n            animation-timing-function: ease-in;\n  }\n  100% {\n    height: 35px;\n  }\n}\n@-webkit-keyframes shake {\n  0% {\n    -webkit-transform: rotate(30deg);\n            transform: rotate(30deg);\n  }\n  100% {\n    -webkit-transform: rotate(40deg);\n            transform: rotate(40deg);\n  }\n}\n@keyframes shake {\n  0% {\n    -webkit-transform: rotate(30deg);\n            transform: rotate(30deg);\n  }\n  100% {\n    -webkit-transform: rotate(40deg);\n            transform: rotate(40deg);\n  }\n}\n\n", ""]);
+exports.push([module.i, "#sec3header {\n    color: #00c544;\n}\n\n#rec {\n    border-radius: 25px;\n    height: 580px;\n    font-size: 1.5em;\n    background-color: #fff;\n}\n\n.signUpForm {\n    margin-top: 20px;\n}\n\n#nameInput, \n#emailInput, \n#pwInput, \n#childNameInput,\n#childPwInput {\n  width: 70%;\n  left: 0;\n  right: 0;\n  margin: auto; \n}\n\n.btn {\n  text-align: center;\n  left: 0;\n  right: 0;\n  margin: auto; \n}\n\n.dog {\n  width: 120px;\n  position: relative;\n  left: 75%;\n  top: -20%;\n  margin-top: -110px;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n}\n\n.body {\n  background: #eacaac;\n  border-radius: 300px 300px 0 0;\n  height: 220px;\n}\n\n.beard {\n  width: 55px;\n  height: 65px;\n  background: #cf9861;\n  margin: 0 auto;\n  border-radius: 40px;\n  position: relative;\n}\n.beard:after {\n  content: '';\n  background: #cf9861;\n  width: 25px;\n  height: 8px;\n  border-radius: 0 0 25px 25px;\n  display: block;\n  margin: 0 auto;\n  -webkit-transform: translateY(64px);\n          transform: translateY(64px);\n}\n.beard:before {\n  content: '';\n  background: #000;\n  width: 30px;\n  height: 10px;\n  border-radius: 0 0 20px 20px;\n  display: block;\n  margin: 0 auto;\n  position: absolute;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n}\n\n.mouth {\n  background: #1A243C;\n  width: 40px;\n  height: 15px;\n  border-radius: 0 0 30px 30px;\n  position: absolute;\n  top: 22px;\n  margin: auto;\n  left: 0;\n  right: 0;\n  border-top: 5px solid #fff;\n  box-sizing: border-box;\n}\n.mouth .tongue {\n  width: 20px;\n  height: 20px;\n  border-radius: 5px 5px 10px 10px;\n  background: #FF6B5A;\n  margin: 0 auto;\n  position: relative;\n  top: 4px;\n  -webkit-transition: 300ms;\n  transition: 300ms;\n  -webkit-animation: grow .2s infinite alternate;\n          animation: grow .2s infinite alternate;\n}\n\n.eyes {\n  background: #fff;\n  width: 20px;\n  height: 30px;\n  border-radius: 10px 10px 0 0;\n  display: block;\n  margin: 0 auto;\n  position: relative;\n  top: 10px;\n}\n.eyes:before, .eyes:after {\n  content: '';\n  width: 20px;\n  height: 20px;\n  background: #000;\n  display: block;\n  border-radius: 50%;\n  top: 50%;\n  position: absolute;\n  -webkit-animation: squeeze 1.2s infinite;\n          animation: squeeze 1.2s infinite;\n}\n.eyes:before {\n  left: -30px;\n}\n.eyes:after {\n  right: -30px;\n}\n\n.belt {\n  height: 30px;\n  background: #e21b2d;\n  margin-top: 20px;\n  position: relative;\n}\n.belt .locket {\n  width: 30px;\n  height: 28px;\n  background: #ffb140;\n  margin: 0 auto;\n  border-radius: 50%;\n  font-size: 13px;\n  margin-top: -10px;\n}\n\n.locket, #KAP {\n  padding-top: 5px\n}\n\n.belt .dot {\n  width: 10px;\n  height: 10px;\n  background: #fe799f;\n  position: absolute;\n  border-radius: 50%;\n  top: 0;\n  bottom: 0;\n  margin: auto;\n}\n.belt .dot.dot1 {\n  margin-left: 8px;\n}\n.belt .dot.dot2 {\n  margin-left: 28px;\n}\n.belt .dot.dot3 {\n  margin-left: 82px;\n}\n.belt .dot.dot4 {\n  margin-left: 102px;\n}\n.belt:before, .belt:after {\n  content: '';\n  position: absolute;\n  width: 5px;\n  height: 10px;\n  background: #fe799f;\n  top: 0;\n  bottom: 0;\n  margin: auto;\n}\n.belt:before {\n  left: -5px;\n  border-radius: 10px 0 0 10px;\n}\n.belt:after {\n  right: -5px;\n  border-radius: 0 10px 10px 0;\n}\n\n.stomach {\n  width: 65px;\n  height: 70px;\n  background: #fff;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  margin: auto;\n  border-radius: 120px 120px 0 0;\n}\n\n.legs {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 12px;\n}\n.legs:before, .legs:after {\n  height: 12px;\n  border-radius: 20px 20px 0 0;\n  display: inline-block;\n  content: '';\n  position: absolute;\n  background: #cf9861;\n  width: 45px;\n}\n.legs:before {\n  left: -37px;\n}\n.legs:after {\n  right: -37px;\n}\n.legs .left, .legs .right {\n  display: inline;\n  width: 12px;\n  height: 55px;\n  background: #cf9861;\n  position: absolute;\n  bottom: 0;\n}\n.legs .left:before, .legs .right:before {\n  content: '';\n  width: 28px;\n  height: 12px;\n  background: #eacaac;\n  border-radius: 20px 20px 0 0;\n  display: inline-block;\n  bottom: 0;\n  position: absolute;\n}\n.legs .left {\n  left: -12px;\n  border-radius: 20px 0 0 0;\n}\n.legs .left:before {\n  -webkit-transform: translateX(-1px);\n          transform: translateX(-1px);\n}\n.legs .right {\n  right: -12px;\n  border-radius: 0 20px 0 0;\n  z-index: 1;\n}\n.legs .right:before {\n  -webkit-transform: translateX(-13px);\n          transform: translateX(-13px);\n}\n\n.ears {\n  position: absolute;\n  z-index: -1;\n  top: -20px;\n}\n.ears:after, .ears:before {\n  content: '';\n  display: inline-block;\n  background: #cf9861;\n  width: 40px;\n  height: 90px;\n  border-radius: 100% 100% 0 0;\n}\n.ears:after {\n  -webkit-transform: translateX(40px);\n          transform: translateX(40px);\n  border: 10px solid #eacaac;\n  box-sizing: border-box;\n}\n\n.tail {\n  background: #eacaac;\n  width: 18px;\n  height: 70px;\n  position: absolute;\n  z-index: -1;\n  right: 10px;\n  bottom: 40px;\n  -webkit-transform: rotate(30deg);\n          transform: rotate(30deg);\n  border-radius: 14px;\n  -webkit-transform-origin: bottom;\n          transform-origin: bottom;\n  -webkit-transition: 300ms;\n  transition: 300ms;\n  -webkit-animation: shake .4s infinite alternate;\n          animation: shake .4s infinite alternate;\n}\n\n.tag {\n\n  width: 200%;\n  height: 161px;\n  z-index: 2;\n  position: absolute;\n  top: 30px;\n  left: 100px;\n  box-sizing: border-box;\n  border-bottom-left-radius: 40px;\n}\n\n@-webkit-keyframes squeeze {\n  90% {\n    -webkit-transform: none;\n            transform: none;\n    -webkit-animation-timing-function: ease-in;\n            animation-timing-function: ease-in;\n  }\n  93% {\n    -webkit-transform: scale(1.2, 0.3);\n            transform: scale(1.2, 0.3);\n  }\n  100% {\n    -webkit-animation-timing-function: ease-out;\n            animation-timing-function: ease-out;\n  }\n}\n\n@keyframes squeeze {\n  90% {\n    -webkit-transform: none;\n            transform: none;\n    -webkit-animation-timing-function: ease-in;\n            animation-timing-function: ease-in;\n  }\n  93% {\n    -webkit-transform: scale(1.2, 0.3);\n            transform: scale(1.2, 0.3);\n  }\n  100% {\n    -webkit-animation-timing-function: ease-out;\n            animation-timing-function: ease-out;\n  }\n}\n@-webkit-keyframes grow {\n  0% {\n    -webkit-animation-timing-function: ease-in;\n            animation-timing-function: ease-in;\n  }\n  100% {\n    height: 35px;\n  }\n}\n@keyframes grow {\n  0% {\n    -webkit-animation-timing-function: ease-in;\n            animation-timing-function: ease-in;\n  }\n  100% {\n    height: 35px;\n  }\n}\n@-webkit-keyframes shake {\n  0% {\n    -webkit-transform: rotate(30deg);\n            transform: rotate(30deg);\n  }\n  100% {\n    -webkit-transform: rotate(40deg);\n            transform: rotate(40deg);\n  }\n}\n@keyframes shake {\n  0% {\n    -webkit-transform: rotate(30deg);\n            transform: rotate(30deg);\n  }\n  100% {\n    -webkit-transform: rotate(40deg);\n            transform: rotate(40deg);\n  }\n}\n\n", ""]);
 
 // exports
 
@@ -35406,6 +35412,51 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 // module
 exports.push([module.i, ".flexcontainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    height: 100vh;\r\n }\r\n\r\n\r\n .field-line {\r\n     margin-bottom: 2%;\r\n }\r\n\r\n .card-heading, \r\n .success-message, \r\n .error-message, \r\n .cardText {\r\n     text-align: center;\r\n }", ""]);
+
+// exports
+
+
+/***/ }),
+/* 151 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(152);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(6)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!./videos.css", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!./videos.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 152 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "#video-btn {\r\n    margin: 0;\r\n}\r\n", ""]);
 
 // exports
 

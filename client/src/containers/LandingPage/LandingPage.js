@@ -255,19 +255,19 @@ class LandingPage extends Component {
                     <Row className="d-flex justify-content-center">
                         <Col md="6" id="rec">
                             <Form  onSubmit={this.onSignupSubmit}>
-                                {/* <FormGroup>
+                                {/* <FormGroup className="signUpForm">
                                     <Label for="nameInput">Parent's Name</Label>
                                     <Input type="name" name="name" id="nameInput" placeholder="Enter Parent's Name" />
                                 </FormGroup>
-                                <FormGroup>
+                                <FormGroup className="signUpForm">
                                     <Label for="emailInput">Parent's Email</Label>
                                     <Input type="email" name="email" id="emailInput" placeholder="Enter Parent's Email" />
                                 </FormGroup>
-                                <FormGroup>
+                                <FormGroup className="signUpForm">
                                     <Label for="pwInput">Parent's Password</Label>
                                     <Input type="password" name="password" id="pwInput" placeholder="Enter Parent's Password" />
                                 </FormGroup> */}
-                                <FormGroup>
+                                <FormGroup className="signUpForm">
                                     <Label for="childNameInput">Child's Name (This will be the child's UserName)</Label>
                                     <Input 
                                       onChange={this.onInputChange}
@@ -275,7 +275,7 @@ class LandingPage extends Component {
                                       type="childName" name="name" id="childNameInput" placeholder="Enter Child's Name" />
                                       <Label>{this.state.errors.name}</Label>
                                 </FormGroup>
-                                <FormGroup>
+                                <FormGroup className="signUpForm">
                                     <Label for="childPwInput">Child's Password</Label>
                                     <Input 
                                       onChange={this.onInputChange}
