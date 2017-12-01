@@ -3,7 +3,7 @@ import './videos.css'
 
 const Videos = () =>
   <div className="container">
-    <h3 class="tabTitle">Videos</h3>
+    <h3 className="tabTitle"><span className="blink">[</span>Videos<span className="blink">]</span></h3>
     <div className="row justify-content-md-center">
       <form className="form-inline" id="search-term">
           <div className="form-group mx-sm-3">
@@ -20,4 +20,3 @@ const Videos = () =>
   </div>
 
 export default Videos;
- 
