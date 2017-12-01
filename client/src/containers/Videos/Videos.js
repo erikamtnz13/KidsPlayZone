@@ -1,15 +1,20 @@
 import React from "react";
+import {Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
 
 class Videos extends React.Component{
   constructor(){
     super()
     this.state = {
       query: '',
-      searchResult: []
+      searchResult: [],
+      modal: false,
+      currentVideoId: ''
     }
 
     this.handleInput = this.handleInput.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.toggle = this.toggle.bind(this)
     
   }
 
@@ -45,8 +50,11 @@ class Videos extends React.Component{
     });
   }
 
-  showResult(){
-    return <p>hello</p>
+  toggle() {
+    console.log(this.state.currentVideoId)
+    this.setState({
+    modal: !this.state.modal
+    });
   }
 
   
@@ -73,14 +81,29 @@ class Videos extends React.Component{
           <div id="videos-row">
           {this.state.searchResult.length ? 
             this.state.searchResult.map(videoItem => 
-            <div key={videoItem.id.videoId}>
-            <a href={`https://www.youtube.com/watch?v=${videoItem.id.videoId}`}  target="_blank" data-toggle="tooltip" data-placement="top" title="Watch on Youtube" className="video-item-icon">
-              <img src={videoItem.snippet.thumbnails.medium.url} className="media-fluid"/>
+            <div key={videoItem.id.videoId}  onClick={() => this.setState({currentVideoId:videoItem.id.videoId})}>
+            <a 
+            onClick={this.toggle}
+              ><img src={videoItem.snippet.thumbnails.medium.url} className="media-fluid"/>
             </a>
             </div>)
             : "Enter your search"}
           </div>
       </div>
+      <Modal isOpen={this.state.modal} toggle={this.toggle} >
+      <ModalHeader toggle={this.toggle}>Video</ModalHeader>      
+      <ModalBody>
+        <div className="modal-video">
+          <div className="embed-responsive embed-responsive-16by9">
+            <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${this.state.currentVideoId}?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0`}
+             ></iframe>
+          </div>
+        </div>
+      </ModalBody>
+      <ModalFooter>
+      <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+      </ModalFooter>
+    </Modal>
     </div>
   
     )

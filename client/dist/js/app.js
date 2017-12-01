@@ -34500,6 +34500,8 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactstrap = __webpack_require__(8);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34518,11 +34520,14 @@ var Videos = function (_React$Component) {
 
     _this.state = {
       query: '',
-      searchResult: []
+      searchResult: [],
+      modal: false,
+      currentVideoId: ''
     };
 
     _this.handleInput = _this.handleInput.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.toggle = _this.toggle.bind(_this);
 
     return _this;
   }
@@ -34563,17 +34568,18 @@ var Videos = function (_React$Component) {
       });
     }
   }, {
-    key: 'showResult',
-    value: function showResult() {
-      return _react2.default.createElement(
-        'p',
-        null,
-        'hello'
-      );
+    key: 'toggle',
+    value: function toggle() {
+      console.log(this.state.currentVideoId);
+      this.setState({
+        modal: !this.state.modal
+      });
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       return _react2.default.createElement(
         'div',
         { className: 'container' },
@@ -34610,14 +34616,50 @@ var Videos = function (_React$Component) {
             this.state.searchResult.length ? this.state.searchResult.map(function (videoItem) {
               return _react2.default.createElement(
                 'div',
-                { key: videoItem.id.videoId },
+                { key: videoItem.id.videoId, onClick: function onClick() {
+                    return _this3.setState({ currentVideoId: videoItem.id.videoId });
+                  } },
                 _react2.default.createElement(
                   'a',
-                  { href: 'https://www.youtube.com/watch?v=' + videoItem.id.videoId, target: '_blank', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'Watch on Youtube', className: 'video-item-icon' },
+                  {
+                    onClick: _this3.toggle
+                  },
                   _react2.default.createElement('img', { src: videoItem.snippet.thumbnails.medium.url, className: 'media-fluid' })
                 )
               );
             }) : "Enter your search"
+          )
+        ),
+        _react2.default.createElement(
+          _reactstrap.Modal,
+          { isOpen: this.state.modal, toggle: this.toggle },
+          _react2.default.createElement(
+            _reactstrap.ModalHeader,
+            { toggle: this.toggle },
+            'Video'
+          ),
+          _react2.default.createElement(
+            _reactstrap.ModalBody,
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: 'modal-video' },
+              _react2.default.createElement(
+                'div',
+                { className: 'embed-responsive embed-responsive-16by9' },
+                _react2.default.createElement('iframe', { className: 'embed-responsive-item', src: 'https://www.youtube.com/embed/' + this.state.currentVideoId + '?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0'
+                })
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _reactstrap.ModalFooter,
+            null,
+            _react2.default.createElement(
+              _reactstrap.Button,
+              { color: 'secondary', onClick: this.toggle },
+              'Cancel'
+            )
           )
         )
       );
