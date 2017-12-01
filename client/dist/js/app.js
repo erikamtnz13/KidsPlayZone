@@ -26434,11 +26434,11 @@ var _DashboardPage = __webpack_require__(85);
 
 var _DashboardPage2 = _interopRequireDefault(_DashboardPage);
 
-var _LoginPage = __webpack_require__(139);
+var _LoginPage = __webpack_require__(140);
 
 var _LoginPage2 = _interopRequireDefault(_LoginPage);
 
-var _SignUpPage = __webpack_require__(141);
+var _SignUpPage = __webpack_require__(142);
 
 var _SignUpPage2 = _interopRequireDefault(_SignUpPage);
 
@@ -30172,6 +30172,10 @@ var _LandingPage = __webpack_require__(41);
 
 var _LandingPage2 = _interopRequireDefault(_LandingPage);
 
+var _HomePage = __webpack_require__(139);
+
+var _HomePage2 = _interopRequireDefault(_HomePage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30243,6 +30247,7 @@ var DashboardPage = function (_React$Component) {
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render() {
                 return _Auth2.default.isUserAuthenticated() ? _react2.default.createElement(_reactRouterDom.Redirect, { to: '/dashboard' }) : _react2.default.createElement(_LandingPage2.default, null);
               } }),
+            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/home', component: _HomePage2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/profile', component: _UserProfile2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/members', component: _Members2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/games', component: _Games2.default }),
@@ -33732,10 +33737,10 @@ var Navpills = function Navpills(_ref) {
       { className: 'nav nav-tabs' },
       _react2.default.createElement(
         'li',
-        { className: window.location.pathname === "/" ? "active" : "" },
+        { className: window.location.pathname === "/home" ? "active" : "" },
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/' },
+          { to: '/home' },
           '    ',
           _react2.default.createElement('img', { src: _homeIcon2.default, alt: "logo" })
         )
@@ -34892,6 +34897,60 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HomePage = function (_React$Component) {
+  _inherits(HomePage, _React$Component);
+
+  function HomePage() {
+    _classCallCheck(this, HomePage);
+
+    return _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this));
+  }
+
+  _createClass(HomePage, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "container" },
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Home Page"
+        )
+      );
+    }
+  }]);
+
+  return HomePage;
+}(_react2.default.Component);
+
+exports.default = HomePage;
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
 var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -34900,7 +34959,7 @@ var _Auth = __webpack_require__(14);
 
 var _Auth2 = _interopRequireDefault(_Auth);
 
-var _LoginForm = __webpack_require__(140);
+var _LoginForm = __webpack_require__(141);
 
 var _LoginForm2 = _interopRequireDefault(_LoginForm);
 
@@ -35045,7 +35104,7 @@ LoginPage.contextTypes = {
 exports.default = LoginPage;
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35153,7 +35212,7 @@ LoginForm.propTypes = {
 exports.default = LoginForm;
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35173,7 +35232,7 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _SignUpForm = __webpack_require__(142);
+var _SignUpForm = __webpack_require__(143);
 
 var _SignUpForm2 = _interopRequireDefault(_SignUpForm);
 
@@ -35307,7 +35366,7 @@ SignUpPage.contextTypes = {
 exports.default = SignUpPage;
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

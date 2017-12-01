@@ -12,8 +12,8 @@ console.log(homeIcon)
 const Navpills = ({children}) =>
   <div className="container">
     <ul className="nav nav-tabs">
-      <li className={window.location.pathname === "/" ? "active" : ""}>
-        <Link to="/">    <img src={homeIcon} alt={"logo"}/></Link>
+      <li className={window.location.pathname === "/home" ? "active" : ""}>
+        <Link to="/home">    <img src={homeIcon} alt={"logo"}/></Link>
       </li>
       <li className={window.location.pathname === "/profile" ? "active" : ""}>
         <Link to="/profile"><img src={profileIcon} alt={"logo"}/></Link>

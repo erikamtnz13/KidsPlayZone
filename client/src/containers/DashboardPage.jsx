@@ -9,6 +9,7 @@ import Profile from "./UserProfile";
 import Games from "./Games/Games";
 import Videos from "./Videos/Videos";
 import LandingPage from './LandingPage/LandingPage'
+import HomePage from './HomePage'
 
 
 
@@ -56,6 +57,7 @@ class DashboardPage extends React.Component {
         <Navpills >
           <Route exact path="/"  render={() => 
             (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<LandingPage/>))}/>
+          <Route exact path="/home" component={HomePage} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/members" component={Members} />
           <Route exact path="/games" component={Games} />
