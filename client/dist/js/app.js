@@ -34517,11 +34517,13 @@ var Videos = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Videos.__proto__ || Object.getPrototypeOf(Videos)).call(this));
 
     _this.state = {
-      query: ''
+      query: '',
+      searchResult: []
     };
 
     _this.handleInput = _this.handleInput.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+
     return _this;
   }
 
@@ -34541,7 +34543,9 @@ var Videos = function (_React$Component) {
   }, {
     key: 'getRequest',
     value: function getRequest(searchTerm) {
-      url = 'https://www.googleapis.com/youtube/v3/search';
+      var _this2 = this;
+
+      var url = 'https://www.googleapis.com/youtube/v3/search';
       var params = {
         part: 'snippet',
         key: 'AIzaSyBTeugYT-3-lxvuPKnDKPojsbisl_wknqA',
@@ -34553,9 +34557,19 @@ var Videos = function (_React$Component) {
         videoEmbeddable: true
       };
 
-      $.getJSON(url, params, function (searchTerm) {
-        onSearchResponse(searchTerm);
+      $.getJSON(url, params, function (searchResult) {
+        _this2.setState({ searchResult: searchResult.items });
+        console.log(_this2.state.searchResult);
       });
+    }
+  }, {
+    key: 'showResult',
+    value: function showResult() {
+      return _react2.default.createElement(
+        'p',
+        null,
+        'hello'
+      );
     }
   }, {
     key: 'render',
@@ -34590,7 +34604,21 @@ var Videos = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'row' },
-          _react2.default.createElement('div', { id: 'videos-row' })
+          _react2.default.createElement(
+            'div',
+            { id: 'videos-row' },
+            this.state.searchResult.length ? this.state.searchResult.map(function (videoItem) {
+              return _react2.default.createElement(
+                'div',
+                { key: videoItem.id.videoId },
+                _react2.default.createElement(
+                  'a',
+                  { href: 'https://www.youtube.com/watch?v=' + videoItem.id.videoId, target: '_blank', 'data-toggle': 'tooltip', 'data-placement': 'top', title: 'Watch on Youtube', className: 'video-item-icon' },
+                  _react2.default.createElement('img', { src: videoItem.snippet.thumbnails.medium.url, className: 'media-fluid' })
+                )
+              );
+            }) : "Enter your search"
+          )
         )
       );
     }

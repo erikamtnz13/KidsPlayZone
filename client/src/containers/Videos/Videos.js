@@ -4,11 +4,13 @@ class Videos extends React.Component{
   constructor(){
     super()
     this.state = {
-      query: ''
+      query: '',
+      searchResult: []
     }
 
     this.handleInput = this.handleInput.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    
   }
 
   handleInput(event){
@@ -24,7 +26,7 @@ class Videos extends React.Component{
   }
 
   getRequest(searchTerm) {
-    url = 'https://www.googleapis.com/youtube/v3/search';
+    const url = 'https://www.googleapis.com/youtube/v3/search';
     var params = {
         part: 'snippet',
         key: 'AIzaSyBTeugYT-3-lxvuPKnDKPojsbisl_wknqA',
@@ -36,10 +38,19 @@ class Videos extends React.Component{
         videoEmbeddable: true
     };
   
-        $.getJSON(url, params, function (searchTerm) {
-            onSearchResponse(searchTerm);
+        $.getJSON(url, params,  (searchResult) => {
+            this.setState({searchResult: searchResult.items })
+            console.log(this.state.searchResult)
+            
     });
-}
+  }
+
+  showResult(){
+    return <p>hello</p>
+  }
+
+  
+
   render(){
     return (
       <div className="container">
@@ -55,9 +66,19 @@ class Videos extends React.Component{
             onClick={this.handleSubmit}  
             type="submit" value="Submit" className="btn btn-primary">Enter</button>
       </form>
+
+      
   
       <div className="row">
           <div id="videos-row">
+          {this.state.searchResult.length ? 
+            this.state.searchResult.map(videoItem => 
+            <div key={videoItem.id.videoId}>
+            <a href={`https://www.youtube.com/watch?v=${videoItem.id.videoId}`}  target="_blank" data-toggle="tooltip" data-placement="top" title="Watch on Youtube" className="video-item-icon">
+              <img src={videoItem.snippet.thumbnails.medium.url} className="media-fluid"/>
+            </a>
+            </div>)
+            : "Enter your search"}
           </div>
       </div>
     </div>
