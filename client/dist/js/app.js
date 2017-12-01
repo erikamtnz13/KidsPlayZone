@@ -26434,11 +26434,11 @@ var _DashboardPage = __webpack_require__(85);
 
 var _DashboardPage2 = _interopRequireDefault(_DashboardPage);
 
-var _LoginPage = __webpack_require__(140);
+var _LoginPage = __webpack_require__(141);
 
 var _LoginPage2 = _interopRequireDefault(_LoginPage);
 
-var _SignUpPage = __webpack_require__(142);
+var _SignUpPage = __webpack_require__(143);
 
 var _SignUpPage2 = _interopRequireDefault(_SignUpPage);
 
@@ -34897,6 +34897,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _HomeChatroom = __webpack_require__(140);
+
+var _HomeChatroom2 = _interopRequireDefault(_HomeChatroom);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34924,7 +34928,8 @@ var HomePage = function (_React$Component) {
           "h3",
           null,
           "Home Page"
-        )
+        ),
+        _react2.default.createElement(_HomeChatroom2.default, null)
       );
     }
   }]);
@@ -34936,6 +34941,104 @@ exports.default = HomePage;
 
 /***/ }),
 /* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactstrap = __webpack_require__(8);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HomeChatroom = function (_React$Component) {
+    _inherits(HomeChatroom, _React$Component);
+
+    function HomeChatroom() {
+        _classCallCheck(this, HomeChatroom);
+
+        var _this = _possibleConstructorReturn(this, (HomeChatroom.__proto__ || Object.getPrototypeOf(HomeChatroom)).call(this));
+
+        _this.state = {
+            chat: [],
+            message: ''
+        };
+
+        _this.handleInput = _this.handleInput.bind(_this);
+        _this.submitMessage = _this.submitMessage.bind(_this);
+
+        return _this;
+    }
+
+    _createClass(HomeChatroom, [{
+        key: 'handleInput',
+        value: function handleInput(event) {
+            this.setState({ message: event.target.value });
+        }
+    }, {
+        key: 'submitMessage',
+        value: function submitMessage(event) {
+            event.preventDefault();
+            var message = this.state.message;
+            this.setState({ chat: this.state.chat.concat(message), message: '' });
+            console.log(this.state.chat);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { id: 'chat',
+                        name: 'chat',
+                        value: this.state.chat },
+                    this.state.chat.map(function (message, i) {
+                        return _react2.default.createElement(
+                            'p',
+                            { key: i },
+                            message
+                        );
+                    })
+                ),
+                _react2.default.createElement(_reactstrap.Input, {
+                    name: 'message',
+                    value: this.state.message,
+                    onChange: this.handleInput }),
+                _react2.default.createElement(
+                    'button',
+                    {
+                        onClick: this.submitMessage,
+                        type: 'submit', value: 'Submit', className: 'btn btn-primary' },
+                    'Send'
+                )
+            );
+        }
+    }]);
+
+    return HomeChatroom;
+}(_react2.default.Component);
+
+exports.default = HomeChatroom;
+
+/***/ }),
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34959,7 +35062,7 @@ var _Auth = __webpack_require__(14);
 
 var _Auth2 = _interopRequireDefault(_Auth);
 
-var _LoginForm = __webpack_require__(141);
+var _LoginForm = __webpack_require__(142);
 
 var _LoginForm2 = _interopRequireDefault(_LoginForm);
 
@@ -35104,7 +35207,7 @@ LoginPage.contextTypes = {
 exports.default = LoginPage;
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35212,7 +35315,7 @@ LoginForm.propTypes = {
 exports.default = LoginForm;
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35232,7 +35335,7 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _SignUpForm = __webpack_require__(143);
+var _SignUpForm = __webpack_require__(144);
 
 var _SignUpForm2 = _interopRequireDefault(_SignUpForm);
 
@@ -35366,7 +35469,7 @@ SignUpPage.contextTypes = {
 exports.default = SignUpPage;
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
