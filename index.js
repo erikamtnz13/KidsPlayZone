@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const mongoose = require("mongoose");
 const config = require('./config')
+const SocketManager = require('./SocketManager')
 
 
 const app = express();
@@ -11,8 +12,8 @@ const PORT = process.env.PORT || 3000
 
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-io.on('connection', function(socket){console.log("a user connected") });
-server.listen(PORT);
+io.on('connection', SocketManager);
+server.listen(PORT, () => {console.log(`server listening on ${PORT}`)});
 
 // tell the app to look for static files in these directories
 app.use(express.static('./server/static/'));
