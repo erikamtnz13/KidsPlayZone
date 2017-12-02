@@ -34337,7 +34337,7 @@ exports.default = Image;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _react = __webpack_require__(0);
@@ -34387,144 +34387,108 @@ __webpack_require__(126);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Games = function Games() {
-  return _react2.default.createElement(
-    'div',
-    { className: 'container' },
-    _react2.default.createElement(
-      'h3',
-      { 'class': 'tabTitle' },
-      'Games'
-    ),
-    _react2.default.createElement(
-      'div',
-      { className: 'row' },
-      _react2.default.createElement(
+    return _react2.default.createElement(
         'div',
-        { className: 'col-md-4 card' },
+        { className: 'container' },
         _react2.default.createElement(
-          _reactstrap.Card,
-          null,
-          _react2.default.createElement(
-            'a',
-            { href: 'https://www.miniclip.com/games/squaddio/en/#t-s-f-C' },
-            _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: _squaddio2.default, alt: 'Card image cap' })
-          )
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'col-md-4 card' },
+            'h3',
+            { 'class': 'tabTitle' },
+            'Games'
+        ),
         _react2.default.createElement(
-          _reactstrap.Card,
-          null,
-          _react2.default.createElement(
-            'a',
-            { href: 'https://www.miniclip.com/games/nobrakesio/en/#t-s-f-C' },
-            _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', className: 'img-responsive', src: _nobrakes2.default, alt: 'Card image cap' })
-          )
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'col-md-4 card' },
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-4' },
+                _react2.default.createElement(
+                    'a',
+                    { href: 'https://www.miniclip.com/games/squaddio/en/#t-s-f-C' },
+                    _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', className: 'img-responsive', src: _squaddio2.default, alt: 'Card image cap' })
+                )
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-4' },
+                _react2.default.createElement(
+                    'a',
+                    { href: 'https://www.miniclip.com/games/nobrakesio/en/#t-s-f-C' },
+                    _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', className: 'img-responsive', src: _nobrakes2.default, alt: 'Card image cap' })
+                )
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-4' },
+                _react2.default.createElement(
+                    'a',
+                    { href: 'https://www.miniclip.com/games/ovario/en/#t-s-f-C' },
+                    _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', className: 'img-responsive', src: _ovario2.default, alt: 'Card image cap' })
+                )
+            )
+        ),
         _react2.default.createElement(
-          _reactstrap.Card,
-          null,
-          _react2.default.createElement(
-            'a',
-            { href: 'https://www.miniclip.com/games/ovario/en/#t-s-f-C' },
-            _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: _ovario2.default, alt: 'Card image cap' })
-          )
-        )
-      )
-    ),
-    _react2.default.createElement(
-      'div',
-      { className: 'row' },
-      _react2.default.createElement(
-        'div',
-        { className: 'col-md-4 card' },
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-4' },
+                _react2.default.createElement(
+                    'a',
+                    { href: 'https://www.miniclip.com/games/empire/en/#t-s-f-C' },
+                    _react2.default.createElement(_reactstrap.CardImg, { className: 'img-responsive', top: true, width: '100%', src: _empire2.default, alt: 'Card image cap' })
+                )
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-4' },
+                _react2.default.createElement(
+                    'a',
+                    { href: 'https://www.miniclip.com/games/braains-io/en/#t-s-f-C' },
+                    _react2.default.createElement(_reactstrap.CardImg, { className: 'img-responsive', top: true, width: '100%', src: _brains2.default, alt: 'Card image cap' })
+                )
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-4' },
+                _react2.default.createElement(
+                    'a',
+                    { href: 'https://www.miniclip.com/games/battle-golf-online/en/#t-s-f-C' },
+                    _react2.default.createElement(_reactstrap.CardImg, { className: 'img-responsive', top: true, width: '100%', src: _battlegolf2.default, alt: 'Card image cap' })
+                )
+            )
+        ),
         _react2.default.createElement(
-          _reactstrap.Card,
-          null,
-          _react2.default.createElement(
-            'a',
-            { href: 'https://www.miniclip.com/games/empire/en/#t-s-f-C' },
-            _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: _empire2.default, alt: 'Card image cap' })
-          )
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-4' },
+                _react2.default.createElement(
+                    'a',
+                    { href: 'https://www.miniclip.com/games/lazerdriveio/en/#t-s-f-C' },
+                    _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: _lazerdrive2.default, alt: 'Card image cap' })
+                )
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-4' },
+                _react2.default.createElement(
+                    'a',
+                    { href: 'https://www.miniclip.com/games/starve-io/en/#t-s-f-C' },
+                    _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: _starve2.default, alt: 'Card image cap' })
+                )
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-4' },
+                _react2.default.createElement(
+                    'a',
+                    { href: 'https://www.miniclip.com/games/paper-io/en/#t-s-f-C' },
+                    _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: _paper2.default, alt: 'Card image cap' })
+                )
+            )
         )
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'col-md-4 card' },
-        _react2.default.createElement(
-          _reactstrap.Card,
-          null,
-          _react2.default.createElement(
-            'a',
-            { href: 'https://www.miniclip.com/games/braains-io/en/#t-s-f-C' },
-            _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: _brains2.default, alt: 'Card image cap' })
-          )
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'col-md-4 card' },
-        _react2.default.createElement(
-          _reactstrap.Card,
-          null,
-          _react2.default.createElement(
-            'a',
-            { href: 'https://www.miniclip.com/games/battle-golf-online/en/#t-s-f-C' },
-            _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: _battlegolf2.default, alt: 'Card image cap' })
-          )
-        )
-      )
-    ),
-    _react2.default.createElement(
-      'div',
-      { className: 'row' },
-      _react2.default.createElement(
-        'div',
-        { className: 'col-md-4 card' },
-        _react2.default.createElement(
-          _reactstrap.Card,
-          null,
-          _react2.default.createElement(
-            'a',
-            { href: 'https://www.miniclip.com/games/lazerdriveio/en/#t-s-f-C' },
-            _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: _lazerdrive2.default, alt: 'Card image cap' })
-          )
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'col-md-4 card' },
-        _react2.default.createElement(
-          _reactstrap.Card,
-          null,
-          _react2.default.createElement(
-            'a',
-            { href: 'https://www.miniclip.com/games/starve-io/en/#t-s-f-C' },
-            _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: _starve2.default, alt: 'Card image cap' })
-          )
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'col-md-4 card' },
-        _react2.default.createElement(
-          _reactstrap.Card,
-          null,
-          _react2.default.createElement(
-            'a',
-            { href: 'https://www.miniclip.com/games/paper-io/en/#t-s-f-C' },
-            _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: _paper2.default, alt: 'Card image cap' })
-          )
-        )
-      )
-    )
-  );
+    );
 };
 
 exports.default = Games;
@@ -34623,7 +34587,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".card {\r\n\tmargin-bottom: 2%;\r\n\tborder-style: none;\r\n}", ""]);
+exports.push([module.i, ".card {\r\n\tmargin-bottom: 2%;\r\n\tborder-style: none;\r\n\t/* padding: 5px 5px 2px 5px; */\r\n\tmargin: 0;\r\n}\r\n\r\n.card-img-top {\r\n\tborder: 10px solid white;\r\n\tmargin-bottom: 4%;\r\n}", ""]);
 
 // exports
 
@@ -34873,7 +34837,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".blink {\r\n  animation: blinker 2s linear infinite;\r\n    padding-left: 2rem;\r\n    padding-right: 2rem;\r\n    font-size: 5rem;\r\n    color: #16a085;\r\n    font-family: 'Lato';\r\n}\r\n\r\n@keyframes blinker {  \r\n  50% { opacity: 0; }\r\n}\r\n\r\n.videos {\r\n  margin: 2.5% 0 0 0;\r\n}\r\n\r\n#videos-row {\r\n  margin-bottom: 2.5%;\r\n}\r\n\r\n.media-fluid {\r\n  max-height: 100%;\r\n  max-width: 100%\r\n}", ""]);
+exports.push([module.i, ".blink {\r\n  animation: blinker 2s linear infinite;\r\n    padding-left: 2rem;\r\n    padding-right: 2rem;\r\n    font-size: 5rem;\r\n    color: #16a085;\r\n    font-family: 'Lato';\r\n}\r\n\r\n@keyframes blinker {  \r\n  50% { opacity: 0; }\r\n}\r\n\r\n.videos {\r\n  margin: 2.5% 0 0 0;\r\n}\r\n\r\n#videos-row {\r\n  margin-bottom: 2.5%;\r\n}\r\n\r\n.media-fluid {\r\n  max-height: 100%;\r\n  max-width: 100%;\r\n}", ""]);
 
 // exports
 
@@ -35122,7 +35086,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "h3 {\r\n    margin: 5% 0 5% 0;\r\n    text-align: center;\r\n    font-family: 'Lato';\r\n}\r\n\r\n.tabTitle {\r\n    font-size: 4em;\r\n}", ""]);
+exports.push([module.i, "h3 {\r\n    margin: 5% 0 5% 0;\r\n    text-align: center;\r\n    font-family: 'Lato';\r\n}\r\n\r\n.tabTitle {\r\n    font-size: 4em;\r\n}\r\n\r\nbody {\r\n    background-color: #0088009e;\r\n}", ""]);
 
 // exports
 
