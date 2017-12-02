@@ -34587,7 +34587,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".card {\r\n\tmargin-bottom: 2%;\r\n\tborder-style: none;\r\n\t/* padding: 5px 5px 2px 5px; */\r\n\tmargin: 0;\r\n}\r\n\r\n.card-img-top {\r\n\tborder: 10px solid white;\r\n\tmargin-bottom: 4%;\r\n}", ""]);
+exports.push([module.i, ".card {\r\n\tmargin-bottom: 2%;\r\n\tborder-style: none;\r\n\t/* padding: 5px 5px 2px 5px; */\r\n\tmargin: 0;\r\n}\r\n\r\n.card-img-top {\r\n\tborder: 10px solid white;\r\n\tmargin-bottom: 4%;\r\n\tborder-top-left-radius: calc(0.25rem - 1px);\r\n    border-top-right-radius: calc(0.25rem - 1px);\r\n    border-bottom-left-radius: calc(0.25rem - 1px);\r\n    border-bottom-right-radius: calc(0.25rem - 1px);\r\n}", ""]);
 
 // exports
 

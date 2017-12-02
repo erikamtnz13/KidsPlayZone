@@ -8,4 +8,8 @@
 .card-img-top {
 	border: 10px solid white;
 	margin-bottom: 4%;
+	border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+    border-bottom-left-radius: calc(0.25rem - 1px);
+    border-bottom-right-radius: calc(0.25rem - 1px);
 }
