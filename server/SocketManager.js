@@ -1,10 +1,12 @@
 const io = require('./server.js').io
+
+//import from Events.js
 const { 
   COMMUNITY_CHAT, MESSAGE_RECIEVED, MESSAGE_SENT, 
   USER_CONNECTED, USER_DISCONNECTED, TYPING, 
   STOP_TYPING, VERIFY_USER, LOGOUT
-        } = require('../Constants')
-const { createUser, createChat, createMessage } = require('../Classes')
+        } = require('./Events')
+const { createUser, createChat, createMessage } = require('./Factory')
 
 let communityChat = createChat()
 
@@ -19,7 +21,7 @@ module.exports = function(socket){
   let sendMessageToChatFromUser;
   let sendTypingFromUser;
   
-  //Verify Username 1
+  //Verify Username 1 this functin is supposed to be called from the login form
   socket.on(VERIFY_USER, function(newUser, callback){
     if(!isUser(connectedUsers, newUser)){
       

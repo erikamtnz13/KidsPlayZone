@@ -24,6 +24,11 @@ export default class Layout extends Component {
 		var socket = io(serverURI)
 		this.setState({ socket })
 		this.initSocket(socket)
+		//////////////////////////
+		var user = localStorage.getItem('id')
+		this.setState({user})
+
+		
 	}
 	
 	/*
