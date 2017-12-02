@@ -44,7 +44,7 @@ app.use(fileUpload());
 // })
  
 app.post('/upload', function(req, res) {
-    console.log(req);
+    // console.log(req);
   if (!req.files)
     return res.status(400).send('No files were uploaded.');
  
