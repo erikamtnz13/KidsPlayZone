@@ -129,13 +129,14 @@ class LandingPage extends Component {
           if (xhr.status === 200) {
             // success
             console.log(xhr.response.message)
+            console.log(xhr.response.kid)
             // change the component-container state
             this.setState({
               errors: {}
             });
     
             // save the token
-            Auth.authenticateUser(xhr.response.token);
+            Auth.authenticateUser(xhr.response);
     
     
             // change the current URL to /
