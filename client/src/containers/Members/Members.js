@@ -42,6 +42,7 @@ class Members extends React.Component{
             <Col xs="12" md="4">
               <Card>
                 <CardBody>
+                  <CardImg></CardImg>
                   <CardTitle key={members.name}>{members.name}</CardTitle>
                   {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
                   <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>

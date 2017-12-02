@@ -1,5 +1,5 @@
 import React from "react";
-import {  Container, Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {  Container, Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './videos.css'
 
 class Videos extends React.Component{
@@ -81,11 +81,13 @@ class Videos extends React.Component{
             {this.state.searchResult.length ? 
               this.state.searchResult.map(videoItem => 
               <Col md="3" className="videos" key={videoItem.id.videoId}  onClick={() => this.setState({currentVideoId:videoItem.id.videoId})}>
-              <a 
-              onClick={this.toggle}
-                ><img src={videoItem.snippet.thumbnails.medium.url} className="media-fluid"/>
-              </a>
-              <div className="video-title">{videoItem.snippet.title}</div>
+                <Card>
+                  <CardBody className="video-card-body">
+                    <a onClick={this.toggle}><CardImg src= {videoItem.snippet.thumbnails.medium.url} className="media-fluid"></CardImg>
+                    </a>
+                    <CardTitle className="video-title">{videoItem.snippet.title}</CardTitle>
+                  </CardBody>
+                </Card>
               </Col>)
               : ""}
         </Row>

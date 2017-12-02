@@ -34305,16 +34305,22 @@ var Videos = function (_React$Component) {
                   return _this3.setState({ currentVideoId: videoItem.id.videoId });
                 } },
               _react2.default.createElement(
-                'a',
-                {
-                  onClick: _this3.toggle
-                },
-                _react2.default.createElement('img', { src: videoItem.snippet.thumbnails.medium.url, className: 'media-fluid' })
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'video-title' },
-                videoItem.snippet.title
+                _reactstrap.Card,
+                null,
+                _react2.default.createElement(
+                  _reactstrap.CardBody,
+                  { className: 'video-card-body' },
+                  _react2.default.createElement(
+                    'a',
+                    { onClick: _this3.toggle },
+                    _react2.default.createElement(_reactstrap.CardImg, { src: videoItem.snippet.thumbnails.medium.url, className: 'media-fluid' })
+                  ),
+                  _react2.default.createElement(
+                    _reactstrap.CardTitle,
+                    { className: 'video-title' },
+                    videoItem.snippet.title
+                  )
+                )
               )
             );
           }) : ""
@@ -34400,7 +34406,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".videos {\r\n  margin: 2.5% 0 0 0;\r\n}\r\n\r\n#videos-row {\r\n  margin-bottom: 2.5%;\r\n}\r\n\r\n.media-fluid {\r\n  max-height: 100%;\r\n  max-width: 100%;\r\n}", ""]);
+exports.push([module.i, ".videos {\r\n  margin: 2.5% 0 0 0;\r\n}\r\n\r\n#videos-row {\r\n  margin-bottom: 2.5%;\r\n}\r\n\r\n.media-fluid {\r\n  max-height: 100%;\r\n  max-width: 100%;\r\n}\r\n\r\n.video-title {\r\n  font-size: 1em;\r\n  text-align: center;\r\n  margin-top: 5%;\r\n}\r\n\r\n.video-card-body {\r\n  padding: 5px 5px;\r\n  height: 230px;\r\n}\r\n\r\n.card-body {\r\n  overflow: hidden;\r\n}", ""]);
 
 // exports
 
@@ -34649,7 +34655,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "h3 {\r\n    margin: 5% 0 5% 0;\r\n    text-align: center;\r\n    font-family: 'Lato';\r\n}\r\n\r\n.tabTitle {\r\n    font-size: 4em;\r\n}\r\n\r\nbody {\r\n    background-color: #0088009e;\r\n}", ""]);
+exports.push([module.i, "h3 {\r\n    margin: 5% 0 5% 0;\r\n    text-align: center;\r\n    font-family: 'Lato';\r\n}\r\n\r\n.tabTitle {\r\n    font-size: 4em;\r\n}\r\n\r\nbody {\r\n    background-color: #00880052;\r\n}", ""]);
 
 // exports
 
@@ -35174,6 +35180,7 @@ var Members = function (_React$Component) {
                 _react2.default.createElement(
                   _reactstrap.CardBody,
                   null,
+                  _react2.default.createElement(_reactstrap.CardImg, null),
                   _react2.default.createElement(
                     _reactstrap.CardTitle,
                     { key: members.name },
