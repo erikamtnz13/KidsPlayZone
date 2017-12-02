@@ -34363,13 +34363,11 @@ var Videos = function (_React$Component) {
         _react2.default.createElement(
           _reactstrap.Modal,
           { isOpen: this.state.modal, toggle: this.toggle },
-          this.state.searchResult.length ? this.state.searchResult.map(function (videoItem) {
-            return _react2.default.createElement(
-              _reactstrap.ModalHeader,
-              { toggle: _this3.toggle },
-              videoItem.snippet.title
-            );
-          }) : "",
+          _react2.default.createElement(
+            _reactstrap.ModalHeader,
+            { toggle: this.toggle },
+            'Video'
+          ),
           _react2.default.createElement(
             _reactstrap.ModalBody,
             null,

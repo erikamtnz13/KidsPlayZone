@@ -93,9 +93,7 @@ class Videos extends React.Component{
         </Row>
         
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          {this.state.searchResult.length ? 
-            this.state.searchResult.map(videoItem =>
-            <ModalHeader toggle={this.toggle}>{videoItem.snippet.title}</ModalHeader>) : ""}      
+          <ModalHeader toggle={this.toggle}>Video</ModalHeader>      
           <ModalBody>
             <div className="modal-video">
               <div className="embed-responsive embed-responsive-16by9">
