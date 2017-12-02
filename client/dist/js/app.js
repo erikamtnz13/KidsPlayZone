@@ -33734,7 +33734,7 @@ var Navpills = function Navpills(_ref) {
       { className: 'nav nav-tabs' },
       _react2.default.createElement(
         'div',
-        { 'class': 'ih-item circle effect15 left_to_right' },
+        { className: 'ih-item circle effect15 left_to_right' },
         _react2.default.createElement(
           'li',
           { className: window.location.pathname === "/" ? "active" : "" },
@@ -33743,15 +33743,15 @@ var Navpills = function Navpills(_ref) {
             { to: '/' },
             _react2.default.createElement(
               'div',
-              { 'class': 'img' },
+              { className: 'img' },
               _react2.default.createElement('img', { src: _homeIcon2.default, alt: "logo" })
             ),
             _react2.default.createElement(
               'div',
-              { 'class': 'info' },
+              { className: 'info' },
               _react2.default.createElement(
                 'h3',
-                { 'class': 'iconName' },
+                { className: 'iconName' },
                 'Home'
               )
             )
@@ -33760,7 +33760,7 @@ var Navpills = function Navpills(_ref) {
       ),
       _react2.default.createElement(
         'div',
-        { 'class': 'ih-item circle effect15 left_to_right' },
+        { className: 'ih-item circle effect15 left_to_right' },
         _react2.default.createElement(
           'li',
           { className: window.location.pathname === "/profile" ? "active" : "" },
@@ -33769,15 +33769,15 @@ var Navpills = function Navpills(_ref) {
             { to: '/profile' },
             _react2.default.createElement(
               'div',
-              { 'class': 'img' },
+              { className: 'img' },
               _react2.default.createElement('img', { src: _profileIcon2.default, alt: "logo" })
             ),
             _react2.default.createElement(
               'div',
-              { 'class': 'info' },
+              { className: 'info' },
               _react2.default.createElement(
                 'h3',
-                { 'class': 'iconName' },
+                { className: 'iconName' },
                 'Profile'
               )
             )
@@ -33786,7 +33786,7 @@ var Navpills = function Navpills(_ref) {
       ),
       _react2.default.createElement(
         'div',
-        { 'class': 'ih-item circle effect15 left_to_right' },
+        { className: 'ih-item circle effect15 left_to_right' },
         _react2.default.createElement(
           'li',
           { className: window.location.pathname === "/members" ? "active" : "" },
@@ -33795,15 +33795,15 @@ var Navpills = function Navpills(_ref) {
             { to: '/members' },
             _react2.default.createElement(
               'div',
-              { 'class': 'img' },
+              { className: 'img' },
               _react2.default.createElement('img', { src: _memberIcon2.default, alt: "logo" })
             ),
             _react2.default.createElement(
               'div',
-              { 'class': 'info' },
+              { className: 'info' },
               _react2.default.createElement(
                 'h3',
-                { 'class': 'iconName' },
+                { className: 'iconName' },
                 'Members'
               )
             )
@@ -33812,7 +33812,7 @@ var Navpills = function Navpills(_ref) {
       ),
       _react2.default.createElement(
         'div',
-        { 'class': 'ih-item circle effect15 left_to_right' },
+        { className: 'ih-item circle effect15 left_to_right' },
         _react2.default.createElement(
           'li',
           { className: window.location.pathname === "/games" ? "active" : "" },
@@ -33821,15 +33821,15 @@ var Navpills = function Navpills(_ref) {
             { to: '/games' },
             _react2.default.createElement(
               'div',
-              { 'class': 'img' },
+              { className: 'img' },
               _react2.default.createElement('img', { src: _gameIcon2.default, alt: "logo" })
             ),
             _react2.default.createElement(
               'div',
-              { 'class': 'info' },
+              { className: 'info' },
               _react2.default.createElement(
                 'h3',
-                { 'class': 'iconName' },
+                { className: 'iconName' },
                 'Games'
               )
             )
@@ -33838,7 +33838,7 @@ var Navpills = function Navpills(_ref) {
       ),
       _react2.default.createElement(
         'div',
-        { 'class': 'ih-item circle effect15 left_to_right' },
+        { className: 'ih-item circle effect15 left_to_right' },
         _react2.default.createElement(
           'li',
           {
@@ -33849,15 +33849,15 @@ var Navpills = function Navpills(_ref) {
             { to: '/videos' },
             _react2.default.createElement(
               'div',
-              { 'class': 'img' },
+              { className: 'img' },
               _react2.default.createElement('img', { src: _videoIcon2.default, alt: "logo" })
             ),
             _react2.default.createElement(
               'div',
-              { 'class': 'info' },
+              { className: 'info' },
               _react2.default.createElement(
                 'h3',
-                { 'class': 'iconName' },
+                { className: 'iconName' },
                 'Videos'
               )
             )
@@ -33866,7 +33866,7 @@ var Navpills = function Navpills(_ref) {
       ),
       _react2.default.createElement(
         'div',
-        { 'class': 'ih-item circle effect15 left_to_right' },
+        { className: 'ih-item circle effect15 left_to_right' },
         _react2.default.createElement(
           'li',
           { className: window.location.pathname === "/logout" ? "active" : "" },
@@ -33875,15 +33875,15 @@ var Navpills = function Navpills(_ref) {
             { to: '/logout' },
             _react2.default.createElement(
               'div',
-              { 'class': 'img' },
+              { className: 'img' },
               _react2.default.createElement('img', { src: _logoutIcon2.default, alt: "logo" })
             ),
             _react2.default.createElement(
               'div',
-              { 'class': 'info' },
+              { className: 'info' },
               _react2.default.createElement(
                 'h3',
-                { 'class': 'iconName' },
+                { className: 'iconName' },
                 'Log Out'
               )
             )
@@ -34639,58 +34639,193 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactstrap = __webpack_require__(8);
 
 __webpack_require__(129);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Videos = function Videos() {
-  return _react2.default.createElement(
-    "div",
-    { className: "container" },
-    _react2.default.createElement(
-      "h3",
-      { className: "tabTitle" },
-      _react2.default.createElement(
-        "span",
-        { className: "blink" },
-        "["
-      ),
-      "Videos",
-      _react2.default.createElement(
-        "span",
-        { className: "blink" },
-        "]"
-      )
-    ),
-    _react2.default.createElement(
-      "div",
-      { className: "row justify-content-md-center" },
-      _react2.default.createElement(
-        "form",
-        { className: "form-inline", id: "search-term" },
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Videos = function (_React$Component) {
+  _inherits(Videos, _React$Component);
+
+  function Videos() {
+    _classCallCheck(this, Videos);
+
+    var _this = _possibleConstructorReturn(this, (Videos.__proto__ || Object.getPrototypeOf(Videos)).call(this));
+
+    _this.state = {
+      query: '',
+      searchResult: [],
+      modal: false,
+      currentVideoId: ''
+    };
+
+    _this.handleInput = _this.handleInput.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.toggle = _this.toggle.bind(_this);
+
+    return _this;
+  }
+
+  _createClass(Videos, [{
+    key: 'handleInput',
+    value: function handleInput(event) {
+      event.preventDefault();
+      this.setState({ query: event.target.value });
+    }
+  }, {
+    key: 'handleSubmit',
+    value: function handleSubmit(event) {
+      event.preventDefault();
+      console.log(this.state.query);
+      this.getRequest(this.state.query);
+    }
+  }, {
+    key: 'getRequest',
+    value: function getRequest(searchTerm) {
+      var _this2 = this;
+
+      var url = 'https://www.googleapis.com/youtube/v3/search';
+      var params = {
+        part: 'snippet',
+        key: 'AIzaSyBTeugYT-3-lxvuPKnDKPojsbisl_wknqA',
+        q: searchTerm,
+        safeSearch: 'strict',
+        maxResults: 20,
+        order: 'viewCount',
+        type: 'video',
+        videoEmbeddable: true
+      };
+
+      $.getJSON(url, params, function (searchResult) {
+        _this2.setState({ searchResult: searchResult.items });
+        console.log(_this2.state.searchResult);
+        console.log(_this2.state.snippet.title);
+      });
+    }
+  }, {
+    key: 'toggle',
+    value: function toggle() {
+      console.log(this.state.currentVideoId);
+      this.setState({
+        modal: !this.state.modal
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      return _react2.default.createElement(
+        'div',
+        null,
         _react2.default.createElement(
-          "div",
-          { className: "form-group mx-sm-3" },
-          _react2.default.createElement("input", { type: "text", className: "form-control", id: "query", placeholder: "" })
+          'h3',
+          { className: 'tabTitle' },
+          _react2.default.createElement(
+            'span',
+            { className: 'blink' },
+            '['
+          ),
+          'Videos',
+          _react2.default.createElement(
+            'span',
+            { className: 'blink' },
+            ']'
+          )
         ),
         _react2.default.createElement(
-          "button",
-          { type: "submit", value: "Submit", className: "btn btn-primary", id: "video-btn" },
-          "Enter"
+          'div',
+          { className: 'row justify-content-md-center' },
+          _react2.default.createElement(
+            'form',
+            { className: 'form-inline', id: 'search-term' },
+            _react2.default.createElement(
+              'div',
+              { className: 'form-group mx-sm-3' },
+              _react2.default.createElement('input', {
+                name: 'query',
+                onChange: this.handleInput,
+                type: 'text', className: 'form-control', id: 'query', placeholder: 'Search for a video' })
+            ),
+            _react2.default.createElement(
+              'button',
+              {
+                onClick: this.handleSubmit,
+                type: 'submit', value: 'Submit', className: 'btn btn-primary' },
+              'Search'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _reactstrap.Row,
+          { id: 'videos-row' },
+          this.state.searchResult.length ? this.state.searchResult.map(function (videoItem) {
+            return _react2.default.createElement(
+              'div',
+              { className: 'col-md-3 videos', key: videoItem.id.videoId, onClick: function onClick() {
+                  return _this3.setState({ currentVideoId: videoItem.id.videoId });
+                } },
+              _react2.default.createElement(
+                'a',
+                {
+                  onClick: _this3.toggle
+                },
+                _react2.default.createElement('img', { src: videoItem.snippet.thumbnails.medium.url, className: 'media-fluid' })
+              )
+            );
+          }) : ""
+        ),
+        _react2.default.createElement(
+          _reactstrap.Modal,
+          { isOpen: this.state.modal, toggle: this.toggle },
+          _react2.default.createElement(
+            _reactstrap.ModalHeader,
+            { toggle: this.toggle },
+            'Video'
+          ),
+          _react2.default.createElement(
+            _reactstrap.ModalBody,
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: 'modal-video' },
+              _react2.default.createElement(
+                'div',
+                { className: 'embed-responsive embed-responsive-16by9' },
+                _react2.default.createElement('iframe', { className: 'embed-responsive-item', src: 'https://www.youtube.com/embed/' + this.state.currentVideoId + '?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0'
+                })
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _reactstrap.ModalFooter,
+            null,
+            _react2.default.createElement(
+              _reactstrap.Button,
+              { color: 'secondary', onClick: this.toggle },
+              'Cancel'
+            )
+          )
         )
-      )
-    ),
-    _react2.default.createElement(
-      "div",
-      { className: "row" },
-      _react2.default.createElement("div", { id: "videos-row" })
-    )
-  );
-};
+      );
+    }
+  }]);
+
+  return Videos;
+}(_react2.default.Component);
 
 exports.default = Videos;
 
@@ -34734,7 +34869,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".blink {\r\n  animation: blinker 2s linear infinite;\r\n    padding-left: 2rem;\r\n    padding-right: 2rem;\r\n    font-size: 5rem;\r\n    color: #16a085;\r\n    font-family: 'Lato';\r\n}\r\n\r\n@keyframes blinker {  \r\n  50% { opacity: 0; }\r\n}", ""]);
+exports.push([module.i, ".blink {\r\n  animation: blinker 2s linear infinite;\r\n    padding-left: 2rem;\r\n    padding-right: 2rem;\r\n    font-size: 5rem;\r\n    color: #16a085;\r\n    font-family: 'Lato';\r\n}\r\n\r\n@keyframes blinker {  \r\n  50% { opacity: 0; }\r\n}\r\n\r\n.videos {\r\n  margin: 2.5% 0 0 0;\r\n}\r\n\r\n#videos-row {\r\n  margin-bottom: 2.5%;\r\n}\r\n\r\n.media-fluid {\r\n  max-height: 100%;\r\n  max-width: 100%\r\n}", ""]);
 
 // exports
 

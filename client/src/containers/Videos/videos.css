@@ -10,3 +10,16 @@
 @keyframes blinker {  
   50% { opacity: 0; }
 }
+
+.videos {
+  margin: 2.5% 0 0 0;
+}
+
+#videos-row {
+  margin-bottom: 2.5%;
+}
+
+.media-fluid {
+  max-height: 100%;
+  max-width: 100%
+}
