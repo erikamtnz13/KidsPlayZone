@@ -33833,6 +33833,8 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactstrap = __webpack_require__(8);
+
 var _Image = __webpack_require__(115);
 
 var _Image2 = _interopRequireDefault(_Image);
@@ -33855,17 +33857,50 @@ var UserProfile = function (_React$Component) {
   }
 
   _createClass(UserProfile, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "container" },
+        'div',
+        null,
         _react2.default.createElement(
-          "h3",
-          { "class": "tabTitle" },
-          "User Profile"
-        ),
-        _react2.default.createElement(_Image2.default, null)
+          _reactstrap.Container,
+          null,
+          _react2.default.createElement(
+            'h3',
+            { 'class': 'tabTitle' },
+            'User Profile'
+          ),
+          _react2.default.createElement(
+            _reactstrap.Row,
+            null,
+            _react2.default.createElement(_Image2.default, null),
+            _react2.default.createElement(
+              _reactstrap.FormGroup,
+              null,
+              _react2.default.createElement(
+                _reactstrap.Label,
+                { 'for': 'exampleFile' },
+                'Upload Profile Photo'
+              ),
+              _react2.default.createElement(_reactstrap.Input, { type: 'file', name: 'file', id: 'exampleFile' })
+            ),
+            _react2.default.createElement(
+              _reactstrap.FormGroup,
+              null,
+              _react2.default.createElement(
+                _reactstrap.Label,
+                { 'for': 'exampleText' },
+                'Bio'
+              ),
+              _react2.default.createElement(_reactstrap.Input, { type: 'textarea', name: 'text', id: 'exampleText' })
+            ),
+            _react2.default.createElement(
+              _reactstrap.Button,
+              { color: 'primary' },
+              'Save'
+            )
+          )
+        )
       );
     }
   }]);
@@ -34328,11 +34363,13 @@ var Videos = function (_React$Component) {
         _react2.default.createElement(
           _reactstrap.Modal,
           { isOpen: this.state.modal, toggle: this.toggle },
-          _react2.default.createElement(
-            _reactstrap.ModalHeader,
-            { toggle: this.toggle },
-            'Video'
-          ),
+          this.state.searchResult.length ? this.state.searchResult.map(function (videoItem) {
+            return _react2.default.createElement(
+              _reactstrap.ModalHeader,
+              { toggle: _this3.toggle },
+              videoItem.snippet.title
+            );
+          }) : "",
           _react2.default.createElement(
             _reactstrap.ModalBody,
             null,
@@ -34655,7 +34692,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "h3 {\r\n    margin: 5% 0 5% 0;\r\n    text-align: center;\r\n    font-family: 'Lato';\r\n}\r\n\r\n.tabTitle {\r\n    font-size: 4em;\r\n}\r\n\r\nbody {\r\n    background-color: #00880052;\r\n}", ""]);
+exports.push([module.i, "h3 {\r\n    margin: 5% 0 5% 0;\r\n    text-align: center;\r\n    font-family: 'Lato';\r\n}\r\n\r\n.tabTitle {\r\n    font-size: 4em;\r\n}\r\n\r\nbody {\r\n    background-color: #25b7d36b;\r\n}", ""]);
 
 // exports
 
