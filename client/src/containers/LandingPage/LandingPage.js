@@ -135,7 +135,7 @@ class LandingPage extends Component {
             });
     
             // save the token
-            Auth.authenticateUser(xhr.response.token);
+            Auth.authenticateUser(xhr.response);
     
     
             // change the current URL to /

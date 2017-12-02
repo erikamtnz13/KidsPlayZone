@@ -30,6 +30,8 @@ class UserProfile extends React.Component {
           encType="multipart/form-data"
           onSubmit= {this.processUpload}>
             <input type="file" name="sampleFile"/>
+            <input type= "hidden" name= "id" value={localStorage.getItem('id')}/>
+            <input type= "hidden" name= "name" value={localStorage.getItem('name')}/>
             <input type='submit' value='Upload!' id="upload"/>
         </form> 
         <Image />

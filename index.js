@@ -1,13 +1,22 @@
+const mongoose = require("mongoose");
+// const kidsController = require("./server/controllers/kidsController.js");
+
+const fileUpload = require('express-fileupload');
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const mongoose = require("mongoose");
+
+const Kid = require('./server/models/Kid.js');
+const kidsController = require("./server/controllers/kidsController");
+
+
 const config = require('./config');
 
-const fileUpload = require('express-fileupload');
 const path = require("path");
 
 const app = express();
+
+app.use(fileUpload());
 // tell the app to look for static files in these directories
 app.use(express.static('./server/static/'));
 app.use(express.static('./client/dist/'));
@@ -33,33 +42,13 @@ app.use('/api', authCheckMiddleware);
 // routes
 const authRoutes = require('./server/routes/auth');
 const apiRoutes = require('./server/routes/api');
+const uploadRoute = require('./server/routes/upload.js')
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
+// app.use('/upload', uploadRoute);
 
-// default options
-app.use(fileUpload());
+app.post('/upload', kidsController.update)
 
-// app.get("/", function(req, res){
-//     res.sendFile(path.join(__dirname, "client/src/containers/UserProfile.js"));
-// })
- 
-app.post('/upload', function(req, res) {
-    // console.log(req);
-  if (!req.files)
-    return res.status(400).send('No files were uploaded.');
- 
-  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-  let sampleFile = req.files.sampleFile;
-  console.log(sampleFile);
- 
-  // Use the mv() method to place the file somewhere on your server
-  sampleFile.mv('./client/src/imgs/'+ sampleFile.name , function(err) {
-    if (err)
-      return res.status(500).send(err);
- 
-    res.send('File uploaded!');
-  });
-});
 
 // start the server
 app.listen(3000, () => {

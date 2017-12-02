@@ -1619,8 +1619,10 @@ var Auth = function () {
      *
      * @param {string} token
      */
-    value: function authenticateUser(token) {
-      localStorage.setItem('token', token);
+    value: function authenticateUser(authInfo) {
+      localStorage.setItem('token', authInfo.kid.token);
+      localStorage.setItem('name', authInfo.kid.name);
+      localStorage.setItem('id', authInfo.kid.id);
     }
 
     /**
@@ -1644,6 +1646,8 @@ var Auth = function () {
     key: 'deauthenticateUser',
     value: function deauthenticateUser() {
       localStorage.removeItem('token');
+      localStorage.removeItem('name');
+      localStorage.removeItem('id');
     }
 
     /**
@@ -9302,7 +9306,7 @@ var LandingPage = function (_Component) {
                     });
 
                     // save the token
-                    _Auth2.default.authenticateUser(xhr.response.token);
+                    _Auth2.default.authenticateUser(xhr.response);
 
                     // change the current URL to /
                     _this3.context.router.history.push('/');
@@ -34789,6 +34793,8 @@ var UserProfile = function (_React$Component) {
             encType: "multipart/form-data",
             onSubmit: this.processUpload },
           _react2.default.createElement("input", { type: "file", name: "sampleFile" }),
+          _react2.default.createElement("input", { type: "hidden", name: "id", value: localStorage.getItem('id') }),
+          _react2.default.createElement("input", { type: "hidden", name: "name", value: localStorage.getItem('name') }),
           _react2.default.createElement("input", { type: "submit", value: "Upload!", id: "upload" })
         ),
         _react2.default.createElement(_Image2.default, null),
