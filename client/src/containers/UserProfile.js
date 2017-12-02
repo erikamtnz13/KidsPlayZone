@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Button, Form, Row, FormGroup, Label, Input, FormText } from 'reactstrap';
 import Image from '../components/Image.jsx'
+import './userprofile.css';
 
 
 class UserProfile extends React.Component {
@@ -16,12 +17,12 @@ class UserProfile extends React.Component {
           <Row>
             <Image />
             <FormGroup>
-              <Label for="exampleFile">Upload Profile Photo</Label>
-              <Input type="file" name="file" id="exampleFile" />
+              <Label for="file" className="profile-text">Upload Profile Photo</Label>
+              <Input type="file" name="file" id="file" />
             </FormGroup>
             <FormGroup>
-              <Label for="exampleText">Bio</Label>
-              <Input type="textarea" name="text" id="exampleText" />
+              <Label for="text" className="profile-text">Bio</Label>
+              <Input type="textarea" name="text" id="bio-text" className="profile-text" />
             </FormGroup>
             <Button color="primary">Save</Button>
           </Row>

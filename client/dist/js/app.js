@@ -33839,6 +33839,8 @@ var _Image = __webpack_require__(115);
 
 var _Image2 = _interopRequireDefault(_Image);
 
+__webpack_require__(160);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -33879,20 +33881,20 @@ var UserProfile = function (_React$Component) {
               null,
               _react2.default.createElement(
                 _reactstrap.Label,
-                { 'for': 'exampleFile' },
+                { 'for': 'file', className: 'profile-text' },
                 'Upload Profile Photo'
               ),
-              _react2.default.createElement(_reactstrap.Input, { type: 'file', name: 'file', id: 'exampleFile' })
+              _react2.default.createElement(_reactstrap.Input, { type: 'file', name: 'file', id: 'file' })
             ),
             _react2.default.createElement(
               _reactstrap.FormGroup,
               null,
               _react2.default.createElement(
                 _reactstrap.Label,
-                { 'for': 'exampleText' },
+                { 'for': 'text', className: 'profile-text' },
                 'Bio'
               ),
-              _react2.default.createElement(_reactstrap.Input, { type: 'textarea', name: 'text', id: 'exampleText' })
+              _react2.default.createElement(_reactstrap.Input, { type: 'textarea', name: 'text', id: 'bio-text', className: 'profile-text' })
             ),
             _react2.default.createElement(
               _reactstrap.Button,
@@ -34690,7 +34692,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "h3 {\r\n    margin: 5% 0 5% 0;\r\n    text-align: center;\r\n    font-family: 'Lato';\r\n}\r\n\r\n.tabTitle {\r\n    font-size: 4em;\r\n}\r\n\r\nbody {\r\n    background-color: #25b7d36b;\r\n}", ""]);
+exports.push([module.i, "h3 {\r\n    margin: 5% 0 5% 0;\r\n    text-align: center;\r\n    font-family: 'Lato';\r\n}\r\n\r\n.tabTitle {\r\n    font-size: 4em;\r\n    color: white;\r\n}\r\n\r\nbody {\r\n    background-color: #34495E;\r\n}", ""]);
 
 // exports
 
@@ -35710,6 +35712,51 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 // module
 exports.push([module.i, ".flexcontainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    height: 100vh;\r\n }\r\n\r\n\r\n .field-line {\r\n     margin-bottom: 2%;\r\n }\r\n\r\n .card-heading, \r\n .success-message, \r\n .error-message, \r\n .cardText {\r\n     text-align: center;\r\n }\r\n\r\n .login-card {\r\n     padding: 5%;\r\n }", ""]);
+
+// exports
+
+
+/***/ }),
+/* 160 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(161);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(5)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!./userprofile.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!./userprofile.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 161 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".profile-text {\r\n    color: white;\r\n}", ""]);
 
 // exports
 
