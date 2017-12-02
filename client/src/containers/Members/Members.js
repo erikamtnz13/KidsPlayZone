@@ -1,5 +1,5 @@
 import React from 'react';
-import Auth from '../modules/Auth'
+import Auth from '../../modules/Auth'
 import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 import './members.css';
@@ -36,10 +36,10 @@ class Members extends React.Component{
     let members = this.state.members
     return (
       <div>
-        <h3 class="tabTitle">Members</h3>
+        <h3 className="tabTitle">Members</h3>
         <Row>
           {members.map(members =>
-            <Col md="4">
+            <Col xs="12" md="4">
               <Card>
                 <CardBody>
                   <CardTitle key={members.name}>{members.name}</CardTitle>

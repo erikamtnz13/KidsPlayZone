@@ -2,9 +2,9 @@ import React from 'react'
 import { BrowserRouter as Router, Route, browserHistory, Redirect} from 'react-router-dom';
 import Auth from '../modules/Auth'
 import Dashboard from '../components/Dashboard.jsx'
-import Navpills from '../components/Navpills.jsx'
+import Navpills from '../components/Navpills/Navpills.jsx'
 import Jumbotron from '../components/Jumbotron'
-import Members from './Members';
+import Members from './Members/Members';
 import Profile from './UserProfile';
 import Games from './Games/Games';
 import Videos from './Videos/Videos';

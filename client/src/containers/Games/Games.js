@@ -18,17 +18,17 @@ const Games = () =>
     <div className="row">
       <div className="col-md-4">
   
-          <a href="https://www.miniclip.com/games/squaddio/en/#t-s-f-C"><CardImg  top width="100%" className="img-responsive" src={squaddioLogo} alt="Card image cap" /></a>
+          <a href="https://www.miniclip.com/games/squaddio/en/#t-s-f-C" target="_blank"><CardImg  top width="100%" className="img-responsive" src={squaddioLogo} alt="Card image cap" /></a>
  
       </div>
       <div className="col-md-4">
     
-          <a href="https://www.miniclip.com/games/nobrakesio/en/#t-s-f-C"><CardImg  top width="100%" className="img-responsive" src={nobrakesLogo} alt="Card image cap" /></a>
+          <a href="https://www.miniclip.com/games/nobrakesio/en/#t-s-f-C" target="_blank"><CardImg  top width="100%" className="img-responsive" src={nobrakesLogo} alt="Card image cap" /></a>
   
       </div>
       <div className="col-md-4">
 
-          <a href="https://www.miniclip.com/games/ovario/en/#t-s-f-C"><CardImg  top width="100%" className="img-responsive" src={ovarioLogo} alt="Card image cap" /></a>
+          <a href="https://www.miniclip.com/games/ovario/en/#t-s-f-C" target="_blank"><CardImg  top width="100%" className="img-responsive" src={ovarioLogo} alt="Card image cap" /></a>
   
       </div>
     </div>
@@ -36,33 +36,33 @@ const Games = () =>
     <div className="row">
       <div className="col-md-4">
 
-          <a href="https://www.miniclip.com/games/empire/en/#t-s-f-C"><CardImg className="img-responsive" top width="100%" src={empireLogo} alt="Card image cap" /></a>
+          <a href="https://www.miniclip.com/games/empire/en/#t-s-f-C" target="_blank"><CardImg className="img-responsive" top width="100%" src={empireLogo} alt="Card image cap" /></a>
 
       </div>
       <div className="col-md-4">
 
-          <a href="https://www.miniclip.com/games/braains-io/en/#t-s-f-C"><CardImg className="img-responsive" top width="100%" src={brainsLogo} alt="Card image cap" /></a>
+          <a href="https://www.miniclip.com/games/braains-io/en/#t-s-f-C" target="_blank"><CardImg className="img-responsive" top width="100%" src={brainsLogo} alt="Card image cap" /></a>
 
       </div>
       <div className="col-md-4">
 
-          <a href="https://www.miniclip.com/games/battle-golf-online/en/#t-s-f-C"><CardImg className="img-responsive" top width="100%" src={golfLogo} alt="Card image cap" /></a>
+          <a href="https://www.miniclip.com/games/battle-golf-online/en/#t-s-f-C" target="_blank"><CardImg className="img-responsive" top width="100%" src={golfLogo} alt="Card image cap" /></a>
  
       </div>
     </div>
 
     <div className="row">
       <div className="col-md-4">
-          <a href="https://www.miniclip.com/games/lazerdriveio/en/#t-s-f-C"><CardImg top width="100%" src={lazerLogo} alt="Card image cap" /></a>
+          <a href="https://www.miniclip.com/games/lazerdriveio/en/#t-s-f-C" target="_blank"><CardImg top width="100%" src={lazerLogo} alt="Card image cap" /></a>
       </div>
       <div className="col-md-4">
 
-          <a href="https://www.miniclip.com/games/starve-io/en/#t-s-f-C"><CardImg top width="100%" src={starveLogo} alt="Card image cap" /></a>
+          <a href="https://www.miniclip.com/games/starve-io/en/#t-s-f-C" target="_blank"><CardImg top width="100%" src={starveLogo} alt="Card image cap" /></a>
 
       </div>
       <div className="col-md-4">
 
-          <a href="https://www.miniclip.com/games/paper-io/en/#t-s-f-C"><CardImg top width="100%" src={paperLogo} alt="Card image cap" /></a>
+          <a href="https://www.miniclip.com/games/paper-io/en/#t-s-f-C" target="_blank"><CardImg top width="100%" src={paperLogo} alt="Card image cap" /></a>
 
       </div>
     </div>

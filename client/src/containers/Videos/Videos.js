@@ -60,7 +60,7 @@ class Videos extends React.Component{
 
   render(){
     return (
-      <div>
+      <div className="container">
         <h3 className="tabTitle">Videos</h3>
         <div className="row justify-content-md-center">
           <form className="form-inline" id="search-term">
@@ -72,7 +72,7 @@ class Videos extends React.Component{
               </div>
               <button 
                 onClick={this.handleSubmit}  
-                type="submit" value="Submit" className="btn btn-dangerg">Search</button>
+                type="submit" value="Submit" className="btn btn-danger">Search</button>
           </form>
         </div>
 
@@ -80,13 +80,13 @@ class Videos extends React.Component{
         <Row id="videos-row">
             {this.state.searchResult.length ? 
               this.state.searchResult.map(videoItem => 
-              <div className="col-md-3 videos" key={videoItem.id.videoId}  onClick={() => this.setState({currentVideoId:videoItem.id.videoId})}>
+              <Col md="3" className="videos" key={videoItem.id.videoId}  onClick={() => this.setState({currentVideoId:videoItem.id.videoId})}>
               <a 
               onClick={this.toggle}
                 ><img src={videoItem.snippet.thumbnails.medium.url} className="media-fluid"/>
               </a>
               <div className="video-title">{videoItem.snippet.title}</div>
-              </div>)
+              </Col>)
               : ""}
         </Row>
         

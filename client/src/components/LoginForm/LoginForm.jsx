@@ -14,7 +14,7 @@ const LoginForm = ({
   user
 }) => (
   <Container className="flexcontainer">
-    <Card>
+    <Card className="login-card">
       <form action="/" onSubmit={onSubmit}>
         <h2 className="card-heading">Login</h2>
 

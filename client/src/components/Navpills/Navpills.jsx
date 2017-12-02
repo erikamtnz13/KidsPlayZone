@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import homeIcon from '../imgs/home-icon.png';
-import profileIcon from '../imgs/profile-icon.png';
-import memberIcon from '../imgs/member-icon.png';
-import gameIcon from '../imgs/game-icon.png';
-import videoIcon from '../imgs/video-icon.png';
-import logoutIcon from '../imgs/logout-icon.png';
+import homeIcon from '../../imgs/home-icon.png';
+import profileIcon from '../../imgs/profile-icon.png';
+import memberIcon from '../../imgs/member-icon.png';
+import gameIcon from '../../imgs/game-icon.png';
+import videoIcon from '../../imgs/video-icon.png';
+import logoutIcon from '../../imgs/logout-icon.png';
 import "./navpills.css";
 console.log(homeIcon)
 
