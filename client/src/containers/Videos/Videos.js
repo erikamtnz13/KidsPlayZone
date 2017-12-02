@@ -61,7 +61,7 @@ class Videos extends React.Component{
   render(){
     return (
       <div>
-        <h3 className="tabTitle"><span className="blink">[</span>Videos<span className="blink">]</span></h3>
+        <h3 className="tabTitle">Videos</h3>
         <div className="row justify-content-md-center">
           <form className="form-inline" id="search-term">
               <div className="form-group mx-sm-3">
@@ -72,7 +72,7 @@ class Videos extends React.Component{
               </div>
               <button 
                 onClick={this.handleSubmit}  
-                type="submit" value="Submit" className="btn btn-primary">Search</button>
+                type="submit" value="Submit" className="btn btn-dangerg">Search</button>
           </form>
         </div>
 

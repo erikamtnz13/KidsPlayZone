@@ -1,9 +1,8 @@
-import React from "react";
+import React from 'react';
 import Auth from '../modules/Auth'
-import { Row, Col, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
-  import './members.css';
+import './members.css';
 
 class Members extends React.Component{
 
@@ -46,7 +45,7 @@ class Members extends React.Component{
                   <CardTitle key={members.name}>{members.name}</CardTitle>
                   {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
                   <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                  <Button color="primary">Chat</Button> 
+                  <Button color="warning">Chat</Button> 
                 </CardBody>
               </Card>
             </Col>

@@ -34181,7 +34181,7 @@ var Members = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     _reactstrap.Button,
-                    { color: 'primary' },
+                    { color: 'warning' },
                     'Chat'
                   )
                 )
@@ -34238,7 +34238,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".card {\r\n    margin: 0 0 5% 0 !important;\r\n}", ""]);
 
 // exports
 
@@ -34697,17 +34697,7 @@ var Videos = function (_React$Component) {
         _react2.default.createElement(
           'h3',
           { className: 'tabTitle' },
-          _react2.default.createElement(
-            'span',
-            { className: 'blink' },
-            '['
-          ),
-          'Videos',
-          _react2.default.createElement(
-            'span',
-            { className: 'blink' },
-            ']'
-          )
+          'Videos'
         ),
         _react2.default.createElement(
           'div',
@@ -34727,7 +34717,7 @@ var Videos = function (_React$Component) {
               'button',
               {
                 onClick: this.handleSubmit,
-                type: 'submit', value: 'Submit', className: 'btn btn-primary' },
+                type: 'submit', value: 'Submit', className: 'btn btn-dangerg' },
               'Search'
             )
           )
