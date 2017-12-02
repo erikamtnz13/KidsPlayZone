@@ -34712,7 +34712,6 @@ var Videos = function (_React$Component) {
       $.getJSON(url, params, function (searchResult) {
         _this2.setState({ searchResult: searchResult.items });
         console.log(_this2.state.searchResult);
-        console.log(_this2.state.snippet.title);
       });
     }
   }, {
@@ -34784,6 +34783,11 @@ var Videos = function (_React$Component) {
                   onClick: _this3.toggle
                 },
                 _react2.default.createElement('img', { src: videoItem.snippet.thumbnails.medium.url, className: 'media-fluid' })
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'video-title' },
+                videoItem.snippet.title
               )
             );
           }) : ""

@@ -42,12 +42,10 @@ class Videos extends React.Component{
         type: 'video',
         videoEmbeddable: true
     };
-  
+    
         $.getJSON(url, params,  (searchResult) => {
             this.setState({searchResult: searchResult.items })
-            console.log(this.state.searchResult)
-            console.log(this.state.snippet.title)
-            
+            console.log(this.state.searchResult)            
     });
   }
 
@@ -87,11 +85,12 @@ class Videos extends React.Component{
               onClick={this.toggle}
                 ><img src={videoItem.snippet.thumbnails.medium.url} className="media-fluid"/>
               </a>
+              <div className="video-title">{videoItem.snippet.title}</div>
               </div>)
               : ""}
         </Row>
-
-        <Modal isOpen={this.state.modal} toggle={this.toggle} >
+        
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Video</ModalHeader>      
           <ModalBody>
             <div className="modal-video">
