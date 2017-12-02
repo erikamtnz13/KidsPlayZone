@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoginForm from './LoginForm'
+// import LoginForm from './LoginForm'
 import ChatContainer from './chat/ChatContainer'
 import { USER_CONNECTED, LOGOUT } from '../../../server/Events'
 
