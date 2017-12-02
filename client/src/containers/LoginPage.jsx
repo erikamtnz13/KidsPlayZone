@@ -56,7 +56,8 @@ class LoginPage extends React.Component {
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
         // success
-        console.log(xhr.response.message)
+        // console.log(xhr.response.message)
+        console.log(xhr.response.kid)
         // change the component-container state
         this.setState({
           errors: {}

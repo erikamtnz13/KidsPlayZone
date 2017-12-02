@@ -6426,8 +6426,10 @@ var Auth = function () {
      *
      * @param {string} token
      */
-    value: function authenticateUser(token) {
-      localStorage.setItem('token', token);
+    value: function authenticateUser(authInfo) {
+      localStorage.setItem('token', authInfo.token);
+      localStorage.setItem('name', authInfo.kid.name);
+      localStorage.setItem('id', authInfo.kid.id);
     }
 
     /**
@@ -6451,6 +6453,8 @@ var Auth = function () {
     key: 'deauthenticateUser',
     value: function deauthenticateUser() {
       localStorage.removeItem('token');
+      localStorage.removeItem('name');
+      localStorage.removeItem('id');
     }
 
     /**
@@ -8617,13 +8621,14 @@ var LandingPage = function (_Component) {
                 if (xhr.status === 200) {
                     // success
                     console.log(xhr.response.message);
+                    console.log(xhr.response.kid);
                     // change the component-container state
                     _this3.setState({
                         errors: {}
                     });
 
                     // save the token
-                    _Auth2.default.authenticateUser(xhr.response.token);
+                    _Auth2.default.authenticateUser(xhr.response);
 
                     // change the current URL to /
                     _this3.context.router.history.push('/');
@@ -30172,6 +30177,10 @@ var _LandingPage = __webpack_require__(41);
 
 var _LandingPage2 = _interopRequireDefault(_LandingPage);
 
+var _HomePage = __webpack_require__(139);
+
+var _HomePage2 = _interopRequireDefault(_HomePage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30243,6 +30252,7 @@ var DashboardPage = function (_React$Component) {
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render() {
                 return _Auth2.default.isUserAuthenticated() ? _react2.default.createElement(_reactRouterDom.Redirect, { to: '/dashboard' }) : _react2.default.createElement(_LandingPage2.default, null);
               } }),
+            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/home', component: _HomePage2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/profile', component: _UserProfile2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/members', component: _Members2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/games', component: _Games2.default }),
@@ -33732,10 +33742,10 @@ var Navpills = function Navpills(_ref) {
       { className: 'nav nav-tabs' },
       _react2.default.createElement(
         'li',
-        { className: window.location.pathname === "/" ? "active" : "" },
+        { className: window.location.pathname === "/home" ? "active" : "" },
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { to: '/' },
+          { to: '/home' },
           '    ',
           _react2.default.createElement('img', { src: _homeIcon2.default, alt: "logo" })
         )
@@ -34500,6 +34510,8 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactstrap = __webpack_require__(8);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34517,11 +34529,16 @@ var Videos = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Videos.__proto__ || Object.getPrototypeOf(Videos)).call(this));
 
     _this.state = {
-      query: ''
+      query: '',
+      searchResult: [],
+      modal: false,
+      currentVideoId: ''
     };
 
     _this.handleInput = _this.handleInput.bind(_this);
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.toggle = _this.toggle.bind(_this);
+
     return _this;
   }
 
@@ -34541,7 +34558,9 @@ var Videos = function (_React$Component) {
   }, {
     key: 'getRequest',
     value: function getRequest(searchTerm) {
-      url = 'https://www.googleapis.com/youtube/v3/search';
+      var _this2 = this;
+
+      var url = 'https://www.googleapis.com/youtube/v3/search';
       var params = {
         part: 'snippet',
         key: 'AIzaSyBTeugYT-3-lxvuPKnDKPojsbisl_wknqA',
@@ -34553,13 +34572,24 @@ var Videos = function (_React$Component) {
         videoEmbeddable: true
       };
 
-      $.getJSON(url, params, function (searchTerm) {
-        onSearchResponse(searchTerm);
+      $.getJSON(url, params, function (searchResult) {
+        _this2.setState({ searchResult: searchResult.items });
+        console.log(_this2.state.searchResult);
+      });
+    }
+  }, {
+    key: 'toggle',
+    value: function toggle() {
+      console.log(this.state.currentVideoId);
+      this.setState({
+        modal: !this.state.modal
       });
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       return _react2.default.createElement(
         'div',
         { className: 'container' },
@@ -34590,7 +34620,57 @@ var Videos = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'row' },
-          _react2.default.createElement('div', { id: 'videos-row' })
+          _react2.default.createElement(
+            'div',
+            { id: 'videos-row' },
+            this.state.searchResult.length ? this.state.searchResult.map(function (videoItem) {
+              return _react2.default.createElement(
+                'div',
+                { key: videoItem.id.videoId, onClick: function onClick() {
+                    return _this3.setState({ currentVideoId: videoItem.id.videoId });
+                  } },
+                _react2.default.createElement(
+                  'a',
+                  {
+                    onClick: _this3.toggle
+                  },
+                  _react2.default.createElement('img', { src: videoItem.snippet.thumbnails.medium.url, className: 'media-fluid' })
+                )
+              );
+            }) : "Enter your search"
+          )
+        ),
+        _react2.default.createElement(
+          _reactstrap.Modal,
+          { isOpen: this.state.modal, toggle: this.toggle },
+          _react2.default.createElement(
+            _reactstrap.ModalHeader,
+            { toggle: this.toggle },
+            'Video'
+          ),
+          _react2.default.createElement(
+            _reactstrap.ModalBody,
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: 'modal-video' },
+              _react2.default.createElement(
+                'div',
+                { className: 'embed-responsive embed-responsive-16by9' },
+                _react2.default.createElement('iframe', { className: 'embed-responsive-item', src: 'https://www.youtube.com/embed/' + this.state.currentVideoId + '?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0'
+                })
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _reactstrap.ModalFooter,
+            null,
+            _react2.default.createElement(
+              _reactstrap.Button,
+              { color: 'secondary', onClick: this.toggle },
+              'Cancel'
+            )
+          )
         )
       );
     }
@@ -34806,8 +34886,242 @@ exports.push([module.i, "<<<<<<< HEAD\n=======\n\n\n>>>>>>> master\n#sec3header 
 
 
 /***/ }),
-/* 139 */,
-/* 140 */,
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _HomeChatroom = __webpack_require__(140);
+
+var _HomeChatroom2 = _interopRequireDefault(_HomeChatroom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HomePage = function (_React$Component) {
+  _inherits(HomePage, _React$Component);
+
+  function HomePage() {
+    _classCallCheck(this, HomePage);
+
+    return _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).call(this));
+  }
+
+  _createClass(HomePage, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "container" },
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Home Page"
+        ),
+        _react2.default.createElement(_HomeChatroom2.default, null)
+      );
+    }
+  }]);
+
+  return HomePage;
+}(_react2.default.Component);
+
+exports.default = HomePage;
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactstrap = __webpack_require__(8);
+
+var _Auth = __webpack_require__(9);
+
+var _Auth2 = _interopRequireDefault(_Auth);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HomeChatroom = function (_React$Component) {
+    _inherits(HomeChatroom, _React$Component);
+
+    function HomeChatroom() {
+        _classCallCheck(this, HomeChatroom);
+
+        var _this = _possibleConstructorReturn(this, (HomeChatroom.__proto__ || Object.getPrototypeOf(HomeChatroom)).call(this));
+
+        _this.state = {
+            chat: [],
+            name: '',
+            message: ''
+        };
+
+        _this.handleInput = _this.handleInput.bind(_this);
+        _this.submitMessage = _this.submitMessage.bind(_this);
+
+        return _this;
+    }
+
+    _createClass(HomeChatroom, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.getChat();
+        }
+    }, {
+        key: 'handleInput',
+        value: function handleInput(event) {
+            this.setState({ message: event.target.value });
+        }
+    }, {
+        key: 'submitMessage',
+        value: function submitMessage(event) {
+            event.preventDefault();
+            this.insertChat();
+            this.getChat();
+            this.setState({ message: '' });
+        }
+    }, {
+        key: 'insertChat',
+        value: function insertChat() {
+            // create a string for an HTTP body message
+            var name = encodeURIComponent(this.state.name);
+            var message = encodeURIComponent(this.state.message);
+            var formData = 'name=' + name + '&message=' + message;
+            // create an AJAX request
+            var xhr = new XMLHttpRequest();
+            xhr.open('post', '/api/chat');
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            // set the authorization HTTP header
+            xhr.setRequestHeader('Authorization', 'bearer ' + _Auth2.default.getToken());
+            xhr.responseType = 'json';
+            xhr.addEventListener('load', function () {
+                if (xhr.status === 200) {
+                    // success
+                    console.log(xhr.response);
+                    // set a message
+                    localStorage.setItem('successMessage', xhr.response.message);
+                } else {
+                    // failure
+                    console.log(xhr.response);
+                }
+            });
+            xhr.send(formData);
+        }
+    }, {
+        key: 'getChat',
+        value: function getChat() {
+            var _this2 = this;
+
+            this.setState({ name: localStorage.getItem('name') });
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', '/api/chat');
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            // set the authorization HTTP header
+            xhr.setRequestHeader('Authorization', 'bearer ' + _Auth2.default.getToken());
+            xhr.responseType = 'json';
+            xhr.addEventListener('load', function () {
+                if (xhr.status === 200) {
+                    _this2.setState({
+                        chat: xhr.response.chat
+                    });
+                    console.log(_this2.state.chat);
+                }
+            });
+            xhr.send();
+        }
+
+        // shouldComponentUpdate(nextProps, nextState) {
+        //     if (this.state.chat !== nextState.chat) {
+        //         console.log('component updated')
+        //       return true;
+        //     }
+        //     if (this.state.message !== nextState.message){
+        //         console.log('component did not update')
+        //         return false;
+        //     }
+        //     console.log('component did not update')
+        //     return false;
+        //   }
+
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { id: 'chat',
+                        name: 'chat',
+                        value: this.state.chat },
+                    this.state.chat.map(function (message) {
+                        return _react2.default.createElement(
+                            'p',
+                            { key: message._id },
+                            message.name + ': ' + message.message
+                        );
+                    })
+                ),
+                _react2.default.createElement(
+                    'form',
+                    null,
+                    _react2.default.createElement(_reactstrap.Input, {
+                        type: 'text',
+                        name: 'message',
+                        value: this.state.message,
+                        onChange: this.handleInput
+                    }),
+                    _react2.default.createElement(
+                        'button',
+                        {
+                            onClick: this.submitMessage,
+                            type: 'submit', value: 'Submit', className: 'btn btn-primary' },
+                        'Send'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return HomeChatroom;
+}(_react2.default.Component);
+
+exports.default = HomeChatroom;
+
+/***/ }),
 /* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34906,7 +35220,8 @@ var LoginPage = function (_React$Component) {
       xhr.addEventListener('load', function () {
         if (xhr.status === 200) {
           // success
-          console.log(xhr.response.message);
+          // console.log(xhr.response.message)
+          console.log(xhr.response.kid);
           // change the component-container state
           _this2.setState({
             errors: {}
