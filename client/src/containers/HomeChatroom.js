@@ -16,9 +16,9 @@ class HomeChatroom extends React.Component{
 
     }
 
-    componentDidMount(){
-       this.getChat()
-    }
+    // componentDidMount(){
+    //    this.getChat()
+    // }
 
     
     handleInput(event){
@@ -28,57 +28,57 @@ class HomeChatroom extends React.Component{
 
     submitMessage(event){
         event.preventDefault()
-        this.insertChat()
-        this.getChat()
-        this.setState({message: ''})
+        // this.insertChat()
+        // this.getChat()
+        // this.setState({message: ''})
     }
 
-    insertChat(){
-        // create a string for an HTTP body message
-        const name = encodeURIComponent(this.state.name);
-        const message = encodeURIComponent(this.state.message);
-        const formData = `name=${name}&message=${message}`;
-        // create an AJAX request
-        const xhr = new XMLHttpRequest();
-        xhr.open('post', '/api/chat');
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        // set the authorization HTTP header
-        xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
-        xhr.responseType = 'json';
-        xhr.addEventListener('load', () => {
-        if (xhr.status === 200) {
-            // success
-            console.log(xhr.response)
-            // set a message
-            localStorage.setItem('successMessage', xhr.response.message);
+    // insertChat(){
+    //     // create a string for an HTTP body message
+    //     const name = encodeURIComponent(this.state.name);
+    //     const message = encodeURIComponent(this.state.message);
+    //     const formData = `name=${name}&message=${message}`;
+    //     // create an AJAX request
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open('post', '/api/chat');
+    //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //     // set the authorization HTTP header
+    //     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+    //     xhr.responseType = 'json';
+    //     xhr.addEventListener('load', () => {
+    //     if (xhr.status === 200) {
+    //         // success
+    //         console.log(xhr.response)
+    //         // set a message
+    //         localStorage.setItem('successMessage', xhr.response.message);
         
-        } else {
-            // failure
-            console.log(xhr.response)
-        }
-        });
-        xhr.send(formData);  
+    //     } else {
+    //         // failure
+    //         console.log(xhr.response)
+    //     }
+    //     });
+    //     xhr.send(formData);  
 
-    }
+    // }
 
-    getChat(){
-        this.setState({name: localStorage.getItem('name') })
-        const xhr = new XMLHttpRequest();
-        xhr.open('get', '/api/chat');
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        // set the authorization HTTP header
-        xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
-        xhr.responseType = 'json';
-        xhr.addEventListener('load', () => {
-          if (xhr.status === 200) {
-            this.setState({
-              chat: xhr.response.chat
-            });
-            console.log(this.state.chat)
-          }
-        });
-        xhr.send();
-    }
+    // getChat(){
+    //     this.setState({name: localStorage.getItem('name') })
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open('get', '/api/chat');
+    //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //     // set the authorization HTTP header
+    //     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+    //     xhr.responseType = 'json';
+    //     xhr.addEventListener('load', () => {
+    //       if (xhr.status === 200) {
+    //         this.setState({
+    //           chat: xhr.response.chat
+    //         });
+    //         console.log(this.state.chat)
+    //       }
+    //     });
+    //     xhr.send();
+    // }
 
     // shouldComponentUpdate(nextProps, nextState) {
     //     if (this.state.chat !== nextState.chat) {
