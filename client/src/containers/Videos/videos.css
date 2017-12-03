@@ -1,0 +1,27 @@
+.videos {
+  margin: 2.5% 0 0 0;
+}
+
+#videos-row {
+  margin-bottom: 2.5%;
+}
+
+.media-fluid {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.video-title {
+  font-size: 1em;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.video-card-body {
+  padding: 5px 5px;
+  height: 230px;
+}
+
+.card-body {
+  overflow: hidden;
+}

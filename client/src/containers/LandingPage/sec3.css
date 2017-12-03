@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-=======
 
-
->>>>>>> master
 #sec3header {
     color: #00c544;
 }
@@ -14,7 +10,7 @@
     background-color: #fff;
 }
 
-.form-group {
+.signUpForm {
     margin-top: 20px;
 }
 
@@ -157,12 +153,11 @@
   margin-top: -10px;
 }
 
-<<<<<<< HEAD
+
 .locket, #KAP {
   padding-top: 5px
 }
-=======
->>>>>>> master
+
 .belt .dot {
   width: 10px;
   height: 10px;
