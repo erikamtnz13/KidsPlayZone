@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Auth from '../modules/Auth';
 import LoginForm from '../components/LoginForm/LoginForm.jsx';
+import ReactDOM from 'react-dom';
 
 class LoginPage extends React.Component {
 
@@ -63,7 +64,7 @@ class LoginPage extends React.Component {
         });
 
         // save the token
-        Auth.authenticateUser(xhr.response.token);
+        Auth.authenticateUser(xhr.response);
 
 
         // change the current URL to /
