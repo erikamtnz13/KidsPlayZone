@@ -6,7 +6,7 @@ const {
   USER_CONNECTED, USER_DISCONNECTED, TYPING, 
   STOP_TYPING, VERIFY_USER, LOGOUT
         } = require('./Events')
-const { createUser, createChat, createMessage } = require('./Factory')
+const { /*createUser,*/ createChat, createMessage } = require('./Factory')
 
 let communityChat = createChat()
 
@@ -24,7 +24,7 @@ module.exports = function(socket){
   //Verify Username 1 this functin is supposed to be called from the login form
   socket.on(VERIFY_USER, function(newUser, callback){
     if(!isUser(connectedUsers, newUser)){
-      
+      ///if this is not a user create user by this function getting from the factory
       callback({isUser:false, user:createUser({name:newUser})})
 
     }else{

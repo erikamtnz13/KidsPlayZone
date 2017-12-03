@@ -141,6 +141,7 @@ class LandingPage extends Component {
     
             // change the current URL to /
             this.context.router.history.push('/');
+            
           } else {
             // failure
     

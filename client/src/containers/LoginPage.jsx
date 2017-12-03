@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Auth from '../modules/Auth';
+import ReactDOM from 'react-dom';
 import LoginForm from '../components/LoginForm.jsx';
 
 
@@ -64,7 +65,7 @@ class LoginPage extends React.Component {
         });
 
         // save the token
-        Auth.authenticateUser(xhr.response.token);
+        Auth.authenticateUser(xhr.response);
 
 
         // change the current URL to /
