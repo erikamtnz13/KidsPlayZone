@@ -1025,7 +1025,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash_isfunction___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_lodash_isfunction__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash_isobject__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_lodash_isobject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_lodash_isobject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_dom__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_dom__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_popper__ = __webpack_require__(90);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_popper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_popper__);
@@ -6781,7 +6781,7 @@ var Auth = function () {
      * @param {string} token
      */
     value: function authenticateUser(authInfo) {
-      localStorage.setItem('token', authInfo.token);
+      localStorage.setItem('token', authInfo.kid.token);
       localStorage.setItem('name', authInfo.kid.name);
       localStorage.setItem('id', authInfo.kid.id);
     }
@@ -6924,6 +6924,52 @@ module.exports = warning;
 
 /***/ }),
 /* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+function checkDCE() {
+  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+  if (
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
+  ) {
+    return;
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    // This branch is unreachable because this function is only called
+    // in production, but the condition is true only in development.
+    // Therefore if the branch is still here, dead code elimination wasn't
+    // properly applied.
+    // Don't change the message. React DevTools relies on it. Also make sure
+    // this message doesn't occur elsewhere in this function, or it will cause
+    // a false positive.
+    throw new Error('^_^');
+  }
+  try {
+    // Verify that the code above has been dead code eliminated (DCE'd).
+    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+  } catch (err) {
+    // DevTools shouldn't crash React, no matter what.
+    // We should still report in case we break this code.
+    console.error(err);
+  }
+}
+
+if (process.env.NODE_ENV === 'production') {
+  // DCE check should happen before ReactDOM bundle executes so that
+  // DevTools can report bad minification during injection.
+  checkDCE();
+  module.exports = __webpack_require__(45);
+} else {
+  module.exports = __webpack_require__(48);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ }),
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6999,7 +7045,7 @@ var locationsAreEqual = function locationsAreEqual(a, b) {
 };
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7015,7 +7061,7 @@ var locationsAreEqual = function locationsAreEqual(a, b) {
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(10);
   var warning = __webpack_require__(16);
-  var ReactPropTypesSecret = __webpack_require__(19);
+  var ReactPropTypesSecret = __webpack_require__(20);
   var loggedTypeFailures = {};
 }
 
@@ -7066,7 +7112,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7083,52 +7129,6 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-function checkDCE() {
-  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-  if (
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
-  ) {
-    return;
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    // This branch is unreachable because this function is only called
-    // in production, but the condition is true only in development.
-    // Therefore if the branch is still here, dead code elimination wasn't
-    // properly applied.
-    // Don't change the message. React DevTools relies on it. Also make sure
-    // this message doesn't occur elsewhere in this function, or it will cause
-    // a false positive.
-    throw new Error('^_^');
-  }
-  try {
-    // Verify that the code above has been dead code eliminated (DCE'd).
-    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-  } catch (err) {
-    // DevTools shouldn't crash React, no matter what.
-    // We should still report in case we break this code.
-    console.error(err);
-  }
-}
-
-if (process.env.NODE_ENV === 'production') {
-  // DCE check should happen before ReactDOM bundle executes so that
-  // DevTools can report bad minification during injection.
-  checkDCE();
-  module.exports = __webpack_require__(45);
-} else {
-  module.exports = __webpack_require__(48);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
 /* 21 */
@@ -8449,7 +8449,7 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(20);
+var _reactDom = __webpack_require__(17);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -9030,7 +9030,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(20);
+var _reactDom = __webpack_require__(17);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -9099,7 +9099,7 @@ var emptyObject = __webpack_require__(15);
 var invariant = __webpack_require__(10);
 var warning = __webpack_require__(16);
 var emptyFunction = __webpack_require__(7);
-var checkPropTypes = __webpack_require__(18);
+var checkPropTypes = __webpack_require__(19);
 
 // TODO: this is special because it gets imported during build.
 
@@ -10763,7 +10763,7 @@ var shallowEqual = __webpack_require__(30);
 var containsNode = __webpack_require__(31);
 var focusNode = __webpack_require__(32);
 var emptyObject = __webpack_require__(15);
-var checkPropTypes = __webpack_require__(18);
+var checkPropTypes = __webpack_require__(19);
 var hyphenateStyleName = __webpack_require__(49);
 var camelizeStyleName = __webpack_require__(51);
 
@@ -26571,8 +26571,8 @@ var invariant = __webpack_require__(10);
 var warning = __webpack_require__(16);
 var assign = __webpack_require__(9);
 
-var ReactPropTypesSecret = __webpack_require__(19);
-var checkPropTypes = __webpack_require__(18);
+var ReactPropTypesSecret = __webpack_require__(20);
+var checkPropTypes = __webpack_require__(19);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -27118,7 +27118,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 var emptyFunction = __webpack_require__(7);
 var invariant = __webpack_require__(10);
-var ReactPropTypesSecret = __webpack_require__(19);
+var ReactPropTypesSecret = __webpack_require__(20);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -28884,7 +28884,7 @@ Redirect.contextTypes = {
 /* unused harmony reexport createHashHistory */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(76);
 /* unused harmony reexport createMemoryHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(18);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(13);
@@ -28909,7 +28909,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(39);
@@ -29213,7 +29213,7 @@ var createBrowserHistory = function createBrowserHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(39);
@@ -29533,7 +29533,7 @@ var createHashHistory = function createHashHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PathUtils__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(26);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -34260,173 +34260,15 @@ exports.push([module.i, ".card {\n    margin: 0 0 5% 0 !important;\n}", ""]);
 
 /***/ }),
 /* 114 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactstrap = __webpack_require__(8);
-
-var _Image = __webpack_require__(115);
-
-var _Image2 = _interopRequireDefault(_Image);
-
-__webpack_require__(116);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var UserProfile = function (_React$Component) {
-  _inherits(UserProfile, _React$Component);
-
-  function UserProfile() {
-    _classCallCheck(this, UserProfile);
-
-    return _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this));
-  }
-
-  _createClass(UserProfile, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          _reactstrap.Container,
-          null,
-          _react2.default.createElement(
-            'h3',
-            { 'class': 'tabTitle' },
-            'User Profile'
-          ),
-          _react2.default.createElement(
-            _reactstrap.Row,
-            null,
-            _react2.default.createElement(_Image2.default, null),
-            _react2.default.createElement(
-              _reactstrap.FormGroup,
-              null,
-              _react2.default.createElement(
-                _reactstrap.Label,
-                { 'for': 'file', className: 'profile-text' },
-                'Upload Profile Photo'
-              ),
-              _react2.default.createElement(_reactstrap.Input, { type: 'file', name: 'file', id: 'file' })
-            ),
-            _react2.default.createElement(
-              _reactstrap.FormGroup,
-              null,
-              _react2.default.createElement(
-                _reactstrap.Label,
-                { 'for': 'text', className: 'profile-text' },
-                'Bio'
-              ),
-              _react2.default.createElement(_reactstrap.Input, { type: 'textarea', name: 'text', id: 'bio-text', className: 'profile-text' })
-            ),
-            _react2.default.createElement(
-              _reactstrap.Button,
-              { color: 'primary' },
-              'Save'
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return UserProfile;
-}(_react2.default.Component);
-
-exports.default = UserProfile;
+throw new Error("Module build failed: SyntaxError: Unexpected token, expected ; (13:11)\n\n\u001b[0m \u001b[90m 11 | \u001b[39m\n \u001b[90m 12 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 13 | \u001b[39m  render() {\n \u001b[90m    | \u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 14 | \u001b[39m    \u001b[36mreturn\u001b[39m (\n \u001b[90m 15 | \u001b[39m      \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"container\"\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 16 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mh1\u001b[39m\u001b[33m>\u001b[39m\u001b[33mUser\u001b[39m \u001b[33mProfile\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mh1\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n");
 
 /***/ }),
-/* 115 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _profileIcon = __webpack_require__(40);
-
-var _profileIcon2 = _interopRequireDefault(_profileIcon);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Image = function Image() {
-    return _react2.default.createElement('img', { src: _profileIcon2.default, alt: '' });
-};
-
-exports.default = Image;
-
-/***/ }),
-/* 116 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(117);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {"hmr":true}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(5)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js!./userprofile.css", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js!./userprofile.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 117 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(4)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".profile-text {\n    color: white;\n}", ""]);
-
-// exports
-
-
-/***/ }),
+/* 115 */,
+/* 116 */,
+/* 117 */,
 /* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -35000,7 +34842,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "h1{\n    font-size: 5em;\n    font-family: catamaran;\n    color: #fff;\n    margin:0;\n    padding:0;\n    font-size: 6em;\n    text-shadow: 2px 2px #000;\n}\n\n/* Centered texts in each section\n* --------------------------------------- */\n.section{\n    text-align:center;\n}\n\n\n#section0 {\n    height: 110vh;\n}\n\n/* Defining each section background and styles\n* --------------------------------------- */\n\n#section2{\n\tbackground: #0094d5;\n\tpadding: 6% 0 0 0;\n}\n\n#section3{\n\tbackground: #0094d5;\n\tpadding: 6% 0 0 0;\n}\n\n*{ margin: 0; padding: 0;}\n\nhtml, body {\n    height: 100%;\n    width: 100%;\n    /*To hide the horizontal scroller appearing during the animation*/\n    overflow-x: hidden;\n}\n\n#clouds{\n    padding: 40px 0;\n    background: #0094d5;\n    height: 100%;\n    width: 100%;\n}\n\n/*Time to finalise the cloud shape*/\n.cloud {\n    width: 200px; height: 60px;\n    background: #fff;\n\n    border-radius: 200px;\n    -moz-border-radius: 200px;\n    -webkit-border-radius: 200px;\n\n    position: relative;\n}\n\n.cloud:before, .cloud:after {\n    content: '';\n    position: absolute;\n    background: #fff;\n    width: 100px; height: 80px;\n    position: absolute; top: -15px; left: 10px;\n\n    border-radius: 100px;\n    -moz-border-radius: 100px;\n    -webkit-border-radius: 100px;\n\n    -webkit-transform: rotate(30deg);\n    transform: rotate(30deg);\n    -moz-transform: rotate(30deg);\n}\n\n.cloud:after {\n    width: 120px; height: 120px;\n    top: -55px; left: auto; right: 15px;\n}\n\n/*Time to animate*/\n.x1 {\n    left: 100px;\n\n    -webkit-animation: moveclouds 130s linear infinite;\n    -moz-animation: moveclouds 130s linear infinite;\n    -o-animation: moveclouds 130s linear infinite;\n}\n\n/*variable speed, opacity, and position of clouds for realistic effect*/\n.x2 {\n    left: 500px;\n\n    -webkit-transform: scale(0.6);\n    -moz-transform: scale(0.6);\n    transform: scale(0.6);\n    opacity: 0.6; /*opacity proportional to the size*/\n\n    /*Speed will also be proportional to the size and opacity*/\n    /*More the speed. Less the time in 's' = seconds*/\n    -webkit-animation: moveclouds 370s linear infinite;\n    -moz-animation: moveclouds 370s linear infinite;\n    -o-animation: moveclouds 370s linear infinite;\n}\n\n.x3 {\n    left: 900px; top: -300px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 275s linear infinite;\n    -moz-animation: moveclouds 275s linear infinite;\n    -o-animation: moveclouds 275s linear infinite;\n}\n\n.x4 {\n    left: -450px; top: -275px;\n\n    -webkit-transform: scale(0.75);\n    -moz-transform: scale(0.75);\n    transform: scale(0.75);\n    opacity: 0.75; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 88s linear infinite;\n    -moz-animation: moveclouds 88s linear infinite;\n    -o-animation: moveclouds 88s linear infinite;\n}\n\n.x5 {\n    left: 350px; top: -820px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 225s linear infinite;\n    -moz-animation: moveclouds 225s linear infinite;\n    -o-animation: moveclouds 225s linear infinite;\n}\n\n.x6 {\n    left: 750px; top: -170px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 120s linear infinite;\n    -moz-animation: moveclouds 120s linear infinite;\n    -o-animation: moveclouds 120s linear infinite;\n}\n\n.x7 {\n    left: 500px; top: -650px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 38s linear infinite;\n    -moz-animation: moveclouds 38s linear infinite;\n    -o-animation: moveclouds 38s linear infinite;\n}\n\n@-webkit-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n@-moz-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n@-o-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n\n#header1,\n#header2,\n#header3 {\n    font-family: 'Sniglet', cursive;\n    font-size: 8em;\n    margin-top: -60px;\n    color: #ffb140;\n    text-shadow: 4px 4px #000;\n}\n\n<<<<<<< HEAD\n.title {\n    margin-top: 10px;\n}\n\n=======\n>>>>>>> origin/carie\n#smallheader,\n#smallheader2 {\n    font-family: 'Catamaran', cursive;\n\n}\n\n#smallheader {\n    font-size: 3em;\n    margin-bottom: 10px;\n    padding-top: 70px;\n}\n\n#smallheader2 {\n    font-size: 1.8em;\n    margin-bottom: 25px;\n    color: #fff;\n}\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "h1{\n    font-size: 5em;\n    font-family: catamaran;\n    color: #fff;\n    margin:0;\n    padding:0;\n    font-size: 6em;\n    text-shadow: 2px 2px #000;\n}\n\n/* Centered texts in each section\n* --------------------------------------- */\n.section{\n    text-align:center;\n}\n\n\n#section0 {\n    height: 110vh;\n}\n\n/* Defining each section background and styles\n* --------------------------------------- */\n\n#section2{\n\tbackground: #0094d5;\n\tpadding: 6% 0 0 0;\n}\n\n#section3{\n\tbackground: #0094d5;\n\tpadding: 6% 0 0 0;\n}\n\n*{ margin: 0; padding: 0;}\n\nhtml, body {\n    height: 100%;\n    width: 100%;\n    /*To hide the horizontal scroller appearing during the animation*/\n    overflow-x: hidden;\n}\n\n#clouds{\n    padding: 40px 0;\n    background: #0094d5;\n    height: 100%;\n    width: 100%;\n}\n\n/*Time to finalise the cloud shape*/\n.cloud {\n    width: 200px; height: 60px;\n    background: #fff;\n\n    border-radius: 200px;\n    -moz-border-radius: 200px;\n    -webkit-border-radius: 200px;\n\n    position: relative;\n}\n\n.cloud:before, .cloud:after {\n    content: '';\n    position: absolute;\n    background: #fff;\n    width: 100px; height: 80px;\n    position: absolute; top: -15px; left: 10px;\n\n    border-radius: 100px;\n    -moz-border-radius: 100px;\n    -webkit-border-radius: 100px;\n\n    -webkit-transform: rotate(30deg);\n    transform: rotate(30deg);\n    -moz-transform: rotate(30deg);\n}\n\n.cloud:after {\n    width: 120px; height: 120px;\n    top: -55px; left: auto; right: 15px;\n}\n\n/*Time to animate*/\n.x1 {\n    left: 100px;\n\n    -webkit-animation: moveclouds 130s linear infinite;\n    -moz-animation: moveclouds 130s linear infinite;\n    -o-animation: moveclouds 130s linear infinite;\n}\n\n/*variable speed, opacity, and position of clouds for realistic effect*/\n.x2 {\n    left: 500px;\n\n    -webkit-transform: scale(0.6);\n    -moz-transform: scale(0.6);\n    transform: scale(0.6);\n    opacity: 0.6; /*opacity proportional to the size*/\n\n    /*Speed will also be proportional to the size and opacity*/\n    /*More the speed. Less the time in 's' = seconds*/\n    -webkit-animation: moveclouds 370s linear infinite;\n    -moz-animation: moveclouds 370s linear infinite;\n    -o-animation: moveclouds 370s linear infinite;\n}\n\n.x3 {\n    left: 900px; top: -300px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 275s linear infinite;\n    -moz-animation: moveclouds 275s linear infinite;\n    -o-animation: moveclouds 275s linear infinite;\n}\n\n.x4 {\n    left: -450px; top: -275px;\n\n    -webkit-transform: scale(0.75);\n    -moz-transform: scale(0.75);\n    transform: scale(0.75);\n    opacity: 0.75; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 88s linear infinite;\n    -moz-animation: moveclouds 88s linear infinite;\n    -o-animation: moveclouds 88s linear infinite;\n}\n\n.x5 {\n    left: 350px; top: -820px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 225s linear infinite;\n    -moz-animation: moveclouds 225s linear infinite;\n    -o-animation: moveclouds 225s linear infinite;\n}\n\n.x6 {\n    left: 750px; top: -170px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 120s linear infinite;\n    -moz-animation: moveclouds 120s linear infinite;\n    -o-animation: moveclouds 120s linear infinite;\n}\n\n.x7 {\n    left: 500px; top: -650px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 38s linear infinite;\n    -moz-animation: moveclouds 38s linear infinite;\n    -o-animation: moveclouds 38s linear infinite;\n}\n\n@-webkit-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n@-moz-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n@-o-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n\n#header1,\n#header2,\n#header3 {\n    font-family: 'Sniglet', cursive;\n    font-size: 8em;\n    margin-top: -60px;\n    color: #ffb140;\n    text-shadow: 4px 4px #000;\n}\n\n#smallheader,\n#smallheader2 {\n    font-family: 'Catamaran', cursive;\n\n}\n\n#smallheader {\n    font-size: 3em;\n    margin-bottom: 10px;\n    padding-top: 70px;\n}\n\n#smallheader2 {\n    font-size: 1.8em;\n    margin-bottom: 25px;\n    color: #fff;\n}\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -35214,7 +35056,7 @@ var _LoginForm = __webpack_require__(148);
 
 var _LoginForm2 = _interopRequireDefault(_LoginForm);
 
-var _reactDom = __webpack_require__(20);
+var _reactDom = __webpack_require__(17);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 

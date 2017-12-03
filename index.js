@@ -1,12 +1,24 @@
+const mongoose = require("mongoose");
+// const kidsController = require("./server/controllers/kidsController.js");
+
+const fileUpload = require('express-fileupload');
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const mongoose = require("mongoose");
-const config = require('./config')
 
+const Kid = require('./server/models/Kid.js');
+const kidsController = require("./server/controllers/kidsController");
+
+
+const config = require('./config');
+
+const path = require("path");
 
 const app = express();
 
+<<<<<<< HEAD
+app.use(fileUpload());
+=======
 const PORT = process.env.PORT || 3000
 
 var server = require('http').createServer(app);
@@ -14,6 +26,7 @@ var io = require('socket.io')(server);
 io.on('connection', function(socket){console.log("a user connected") });
 server.listen(PORT);
 
+>>>>>>> master
 // tell the app to look for static files in these directories
 app.use(express.static('./server/static/'));
 app.use(express.static('./client/dist/'));
@@ -39,8 +52,13 @@ app.use('/api', authCheckMiddleware);
 // routes
 const authRoutes = require('./server/routes/auth');
 const apiRoutes = require('./server/routes/api');
+const uploadRoute = require('./server/routes/upload.js')
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
+// app.use('/upload', uploadRoute);
+
+app.post('/upload', kidsController.update)
+
 
 // // start the server
 // app.listen(3000, () => {
