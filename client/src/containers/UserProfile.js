@@ -9,7 +9,7 @@ class UserProfile extends React.Component {
   constructor(){
     super()
 
-
+  }
   render() {
     return (
       <div className="container">
@@ -39,10 +39,10 @@ class UserProfile extends React.Component {
           primis in faucibus.
         </p>
     </div>
-    )
+    );
   }
 }
-}
+
   
 
 export default UserProfile;

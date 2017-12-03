@@ -16,9 +16,7 @@ const path = require("path");
 
 const app = express();
 
-<<<<<<< HEAD
 app.use(fileUpload());
-=======
 const PORT = process.env.PORT || 3000
 
 var server = require('http').createServer(app);
@@ -26,7 +24,6 @@ var io = require('socket.io')(server);
 io.on('connection', function(socket){console.log("a user connected") });
 server.listen(PORT);
 
->>>>>>> master
 // tell the app to look for static files in these directories
 app.use(express.static('./server/static/'));
 app.use(express.static('./client/dist/'));
