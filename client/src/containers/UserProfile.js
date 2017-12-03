@@ -1,23 +1,14 @@
 import React from "react";
 import Image from '../components/Image.jsx';
 import axios from "axios";
+import { Container, Button, Form, Row, FormGroup, Label, Input, FormText } from 'reactstrap';
+import './userprofile.css';
 
 
 class UserProfile extends React.Component {
   constructor(){
     super()
-    // this.processUpload = this.processUpload.bind(this),
-    // this.test = this.test.bind(this)
-  }
 
-  // processUpload(event) {
-  //   event.preventDefault();
-  //  console.log(event.target.fileName)
-  // }
-
-  // test(event){
-  //   console.log(event.target)
-  // }
 
   render() {
     return (
@@ -55,3 +46,6 @@ class UserProfile extends React.Component {
   
 
 export default UserProfile;
+
+
+

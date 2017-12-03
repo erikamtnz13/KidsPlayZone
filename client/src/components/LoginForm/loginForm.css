@@ -1,0 +1,22 @@
+.flexcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+ }
+
+
+ .field-line {
+     margin-bottom: 2%;
+ }
+
+ .card-heading, 
+ .success-message, 
+ .error-message, 
+ .cardText {
+     text-align: center;
+ }
+
+ .login-card {
+     padding: 5%;
+ }

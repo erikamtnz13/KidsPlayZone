@@ -1,7 +1,8 @@
-import React from "react";
-import Auth from '../modules/Auth'
-import { Container, Row, Col, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+import React from 'react';
+import Auth from '../../modules/Auth'
+import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+
+import './members.css';
 
 class Members extends React.Component{
 
@@ -35,20 +36,21 @@ class Members extends React.Component{
     let members = this.state.members
     return (
       <div>
-        <h3>Members</h3>
+        <h3 className="tabTitle">Members</h3>
         <Row>
-          <Col md="4">
-            {members.map(members =>
+          {members.map(members =>
+            <Col xs="12" md="4">
               <Card>
                 <CardBody>
+                  <CardImg></CardImg>
                   <CardTitle key={members.name}>{members.name}</CardTitle>
-                  <CardSubtitle>Card subtitle</CardSubtitle>
+                  {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
                   <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                  <Button>Button</Button> 
+                  <Button color="warning">Chat</Button> 
                 </CardBody>
               </Card>
-            )}
-          </Col>
+            </Col>
+          )}
         </Row>
       </div>
     )

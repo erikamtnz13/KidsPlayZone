@@ -1,5 +1,4 @@
 
-
 #sec3header {
     color: #00c544;
 }
@@ -11,7 +10,7 @@
     background-color: #fff;
 }
 
-.form-group {
+.signUpForm {
     margin-top: 20px;
 }
 
@@ -152,6 +151,11 @@
   border-radius: 50%;
   font-size: 13px;
   margin-top: -10px;
+}
+
+
+.locket, #KAP {
+  padding-top: 5px
 }
 
 .belt .dot {
