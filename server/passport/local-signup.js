@@ -13,6 +13,7 @@ module.exports = new PassportLocalStrategy({
     const kidData = {
         name: req.body.name.trim(),
         password: req.body.password.trim(),
+        img: "placeholder"
     };
 
     const newKid = new Kid(kidData);
@@ -22,3 +23,4 @@ module.exports = new PassportLocalStrategy({
       return done(null);
     });
   });
+
