@@ -1,12 +1,21 @@
 import React from 'react'
 import {Input, Button } from 'reactstrap'
 import Auth from '../modules/Auth'
+import io from 'socket.io-client'
+const socket = io();
+var arr = []
+socket.on('chat message', function(msg){
+    arr.push(msg)
+})
+
+// import openSocket from 'socket.io-client';
+// const socket = openSocket('http://localhost:3000');
 
 class HomeChatroom extends React.Component{
     constructor(){
         super()
         this.state = {
-            chat:[],
+            chat:arr,
             name: '',
             message: ''
         }
@@ -28,10 +37,16 @@ class HomeChatroom extends React.Component{
 
     submitMessage(event){
         event.preventDefault()
+        socket.emit('chat message', this.state.message)
+        // return false
+
+     
         // this.insertChat()
         // this.getChat()
         // this.setState({message: ''})
     }
+
+   
 
     // insertChat(){
     //     // create a string for an HTTP body message
@@ -100,7 +115,7 @@ class HomeChatroom extends React.Component{
                 <div id="chat" 
                     name="chat" 
                     value={this.state.chat}>
-                    {this.state.chat.map((message) => <p key={message._id}>{message.name+': '+message.message}</p>)}
+                    {this.state.chat.map((message, i) => <p key={i}>{message}</p>)}
                 </div>
                 <form>
                 <Input 

@@ -7,13 +7,12 @@ import gameIcon from '../imgs/game-icon.png';
 import videoIcon from '../imgs/video-icon.png';
 import logoutIcon from '../imgs/logout-icon.png';
 import "./navpills.css";
-console.log(homeIcon)
 
 const Navpills = ({children}) =>
   <div className="container">
     <ul className="nav nav-tabs">
       <li className={window.location.pathname === "/home" ? "active" : ""}>
-        <Link to="/home">    <img src={homeIcon} alt={"logo"}/></Link>
+        <Link to="/home"><img src={homeIcon} alt={"logo"}/></Link>
       </li>
       <li className={window.location.pathname === "/profile" ? "active" : ""}>
         <Link to="/profile"><img src={profileIcon} alt={"logo"}/></Link>
