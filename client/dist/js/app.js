@@ -37536,6 +37536,29 @@ var UserProfile = function (_React$Component) {
   }
 
   _createClass(UserProfile, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var currentId = localStorage.getItem('id');
+      console.log(currentId);
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', '/api/members/' + currentId);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      // set the authorization HTTP header
+      xhr.setRequestHeader('Authorization', 'bearer ' + Auth.getToken());
+      xhr.responseType = 'json';
+      xhr.addEventListener('load', function () {
+        if (xhr.status === 200) {
+          _this2.setState({
+            members: xhr.response.message
+          });
+          console.log(_this2.state.members);
+        }
+      });
+      xhr.send();
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(

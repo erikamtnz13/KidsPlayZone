@@ -9,6 +9,27 @@ class UserProfile extends React.Component {
     super()
   }
 
+  componentDidMount(){
+    var currentId = localStorage.getItem('id')
+    console.log(currentId)
+    const xhr = new XMLHttpRequest();
+    xhr.open('get', '/api/members/'+currentId);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    // set the authorization HTTP header
+    xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+    xhr.responseType = 'json';
+    xhr.addEventListener('load', () => {
+      if (xhr.status === 200) {
+        this.setState({
+          members: xhr.response.message
+        });
+        console.log(this.state.members)
+      }
+    });
+    xhr.send();
+
+  }
+
   render() {
     return (
       <div>
