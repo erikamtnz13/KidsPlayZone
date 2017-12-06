@@ -15,7 +15,7 @@ const Navpills = ({children}) =>
 
       <div className="ih-item circle effect15 left_to_right">
         <li className={window.location.pathname === "/" ? "active" : ""}>
-          <Link to="/"><div className="img"><img src={homeIcon} alt={"logo"}/></div><div className="info"><h3 className="iconName">Home</h3></div></Link>
+          <Link to="/home"><div className="img"><img src={homeIcon} alt={"logo"}/></div><div className="info"><h3 className="iconName">Home</h3></div></Link>
         </li>
       </div>
 

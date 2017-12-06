@@ -2,22 +2,15 @@ import React from 'react'
 import {Input, Button } from 'reactstrap'
 import Auth from '../modules/Auth'
 import io from 'socket.io-client'
-const socket = io();
-var arr = []
-socket.on('chat message', function(msg){
-    arr.push(msg)
-})
-
-// import openSocket from 'socket.io-client';
-// const socket = openSocket('http://localhost:3000');
 
 class HomeChatroom extends React.Component{
     constructor(){
         super()
         this.state = {
-            chat:arr,
+            chats:[],
             name: '',
-            message: ''
+            message: '',
+            socket:''
         }
 
         this.handleInput = this.handleInput.bind(this)
@@ -25,9 +18,14 @@ class HomeChatroom extends React.Component{
 
     }
 
-    // componentDidMount(){
-    //    this.getChat()
-    // }
+    componentDidMount(){
+
+        const socket = io();
+        this.setState(socket)
+       this.getChat()
+    }
+
+   
 
     
     handleInput(event){
@@ -39,11 +37,15 @@ class HomeChatroom extends React.Component{
         event.preventDefault()
         socket.emit('chat message', this.state.message)
         // return false
-
-     
+        var newChat = this.state.chats
+        socket.on('chat message', function(msg){
+            newChat.push(msg)
+        
+        })
+        this.setState({chats: newChat})
         // this.insertChat()
         // this.getChat()
-        // this.setState({message: ''})
+        this.setState({message: ''})
     }
 
    
@@ -76,27 +78,27 @@ class HomeChatroom extends React.Component{
 
     // }
 
-    // getChat(){
-    //     this.setState({name: localStorage.getItem('name') })
-    //     const xhr = new XMLHttpRequest();
-    //     xhr.open('get', '/api/chat');
-    //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    //     // set the authorization HTTP header
-    //     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
-    //     xhr.responseType = 'json';
-    //     xhr.addEventListener('load', () => {
-    //       if (xhr.status === 200) {
-    //         this.setState({
-    //           chat: xhr.response.chat
-    //         });
-    //         console.log(this.state.chat)
-    //       }
-    //     });
-    //     xhr.send();
-    // }
+    getChat(){
+        this.setState({name: localStorage.getItem('name') })
+        const xhr = new XMLHttpRequest();
+        xhr.open('get', '/api/chat');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        // set the authorization HTTP header
+        xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+        xhr.responseType = 'json';
+        xhr.addEventListener('load', () => {
+          if (xhr.status === 200) {
+            this.setState({
+              chats: xhr.response.chat
+            });
+            console.log(this.state.chat)
+          }
+        });
+        xhr.send();
+    }
 
     // shouldComponentUpdate(nextProps, nextState) {
-    //     if (this.state.chat !== nextState.chat) {
+    //     if (this.state.chats !== nextState.chat) {
     //         console.log('component updated')
     //       return true;
     //     }
@@ -115,7 +117,9 @@ class HomeChatroom extends React.Component{
                 <div id="chat" 
                     name="chat" 
                     value={this.state.chat}>
-                    {this.state.chat.map((message, i) => <p key={i}>{message}</p>)}
+                    hello
+                    {this.state.chats}
+                    {this.state.chats.map((message, i) => <p key={i}>{message}</p>)}
                 </div>
                 <form>
                 <Input 

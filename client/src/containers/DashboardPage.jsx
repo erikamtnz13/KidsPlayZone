@@ -10,7 +10,7 @@ import HomePage from './HomePage';
 import Games from './Games/Games';
 import Videos from './Videos/Videos';
 import LandingPage from './LandingPage/LandingPage'
-import HomeChatroom from './HomeChatroom'
+
 
 import './dashboard.css';
 
@@ -58,7 +58,7 @@ class DashboardPage extends React.Component {
       <div>
         <Jumbotron />
         <Navpills >
-        <HomeChatroom/>
+        
           <Route exact path='/'  render={() => 
             (Auth.isUserAuthenticated() ? (<Redirect to='/dashboard'/>) : (<LandingPage/>))}/>
           <Route exact path='/home' component={HomePage} />  
