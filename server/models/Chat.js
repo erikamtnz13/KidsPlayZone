@@ -8,7 +8,7 @@ const ChatSchema = new mongoose.Schema({
     message: {
       type: String,
     },
-    createdAt: { type: Date, default: Date.now, expires: '1h' }
+    createdAt: { type: Date, default: Date.now, expires: '1d' }
 
   });
 

@@ -1,14 +1,16 @@
 import React from 'react'
 import {Input, Button } from 'reactstrap'
 import Auth from '../modules/Auth'
+import io from 'socket.io-client'
 
 class HomeChatroom extends React.Component{
     constructor(){
         super()
         this.state = {
-            chat:[],
+            chats:[],
             name: '',
-            message: ''
+            message: '',
+            socket:''
         }
 
         this.handleInput = this.handleInput.bind(this)
@@ -17,8 +19,13 @@ class HomeChatroom extends React.Component{
     }
 
     componentDidMount(){
+
+        const socket = io();
+        this.setState(socket)
        this.getChat()
     }
+
+   
 
     
     handleInput(event){
@@ -28,38 +35,48 @@ class HomeChatroom extends React.Component{
 
     submitMessage(event){
         event.preventDefault()
-        this.insertChat()
-        this.getChat()
+        socket.emit('chat message', this.state.message)
+        // return false
+        var newChat = this.state.chats
+        socket.on('chat message', function(msg){
+            newChat.push(msg)
+        
+        })
+        this.setState({chats: newChat})
+        // this.insertChat()
+        // this.getChat()
         this.setState({message: ''})
     }
 
-    insertChat(){
-        // create a string for an HTTP body message
-        const name = encodeURIComponent(this.state.name);
-        const message = encodeURIComponent(this.state.message);
-        const formData = `name=${name}&message=${message}`;
-        // create an AJAX request
-        const xhr = new XMLHttpRequest();
-        xhr.open('post', '/api/chat');
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        // set the authorization HTTP header
-        xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
-        xhr.responseType = 'json';
-        xhr.addEventListener('load', () => {
-        if (xhr.status === 200) {
-            // success
-            console.log(xhr.response)
-            // set a message
-            localStorage.setItem('successMessage', xhr.response.message);
-        
-        } else {
-            // failure
-            console.log(xhr.response)
-        }
-        });
-        xhr.send(formData);  
+   
 
-    }
+    // insertChat(){
+    //     // create a string for an HTTP body message
+    //     const name = encodeURIComponent(this.state.name);
+    //     const message = encodeURIComponent(this.state.message);
+    //     const formData = `name=${name}&message=${message}`;
+    //     // create an AJAX request
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open('post', '/api/chat');
+    //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //     // set the authorization HTTP header
+    //     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+    //     xhr.responseType = 'json';
+    //     xhr.addEventListener('load', () => {
+    //     if (xhr.status === 200) {
+    //         // success
+    //         console.log(xhr.response)
+    //         // set a message
+    //         localStorage.setItem('successMessage', xhr.response.message);
+        
+    //     } else {
+    //         // failure
+    //         console.log(xhr.response)
+    //     }
+    //     });
+    //     xhr.send(formData);  
+
+    // }
 
     getChat(){
         this.setState({name: localStorage.getItem('name') })
@@ -72,7 +89,7 @@ class HomeChatroom extends React.Component{
         xhr.addEventListener('load', () => {
           if (xhr.status === 200) {
             this.setState({
-              chat: xhr.response.chat
+              chats: xhr.response.chat
             });
             console.log(this.state.chat)
           }
@@ -81,7 +98,7 @@ class HomeChatroom extends React.Component{
     }
 
     // shouldComponentUpdate(nextProps, nextState) {
-    //     if (this.state.chat !== nextState.chat) {
+    //     if (this.state.chats !== nextState.chat) {
     //         console.log('component updated')
     //       return true;
     //     }
@@ -100,7 +117,9 @@ class HomeChatroom extends React.Component{
                 <div id="chat" 
                     name="chat" 
                     value={this.state.chat}>
-                    {this.state.chat.map((message) => <p key={message._id}>{message.name+': '+message.message}</p>)}
+                    hello
+                    {this.state.chats}
+                    {this.state.chats.map((message, i) => <p key={i}>{message}</p>)}
                 </div>
                 <form>
                 <Input 

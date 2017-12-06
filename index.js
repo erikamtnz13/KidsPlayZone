@@ -22,8 +22,8 @@ const PORT = process.env.PORT || 3000
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
-io.on('connection', function(socket){console.log("a user connected") });
-server.listen(PORT);
+
+
 
 // tell the app to look for static files in these directories
 app.use(express.static('./server/static/'));
@@ -62,3 +62,22 @@ app.post('/upload', kidsController.update)
 // app.listen(3000, () => {
 //   console.log('Server is running on http://localhost:3000 or http://127.0.0.1:3000');
 // });
+
+io.on('connection', function(socket){
+    console.log('a user connected');
+
+    socket.on('chat message', function(msg){
+        // console.log(msg)
+        socket.emit('chat message', msg)
+        socket.broadcast.emit('chat message', msg)
+    })
+
+   
+
+    socket.on('disconnect', function(){
+        console.log('user disconnected')
+    })
+ 
+    
+})
+server.listen(PORT);
