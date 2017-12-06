@@ -16,7 +16,7 @@ class UserProfile extends React.Component {
   componentDidMount(){
     var currentId = localStorage.getItem('id')
     const xhr = new XMLHttpRequest();
-    xhr.open('get', '/api/members/'+currentId);
+    xhr.open('get', '/api/members/'+ currentId);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     // set the authorization HTTP header
     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);

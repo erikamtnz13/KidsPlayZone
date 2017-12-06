@@ -47,7 +47,10 @@ module.exports = {
 
   findOne: (req, res) => {
     Kid.findById(req.params.id, (err, kid) => {
-      console.log(kid)
+      if (err) console.log(err)
+      res.json({
+        message: kid
+      })
     })
   }
 }
