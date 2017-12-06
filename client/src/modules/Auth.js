@@ -6,7 +6,7 @@ class Auth {
      * @param {string} token
      */
     static authenticateUser(authInfo) {
-      localStorage.setItem('token', authInfo.kid.token);
+      localStorage.setItem('token', authInfo.token);
       localStorage.setItem('name', authInfo.kid.name)
       localStorage.setItem('id', authInfo.kid.id)
     }
