@@ -42,4 +42,10 @@ module.exports = {
       })
     }
 
+  ,
+  findOne: (req, res) => {
+    Kid.findById(req.params.id, (err, kid) => {
+      
+    })
   }
+}
