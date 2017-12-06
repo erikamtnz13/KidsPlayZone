@@ -11,9 +11,12 @@ router.get('/dashboard', (req, res) => {
   });
 });
 
+
+router.get('/member/?:id', kidsController.findOne)
+
 router.get('/members', kidsController.findAll)
 
-router.get('/member/:id', kidsController.findOne)
+
 
 router.get('/chat', chatController.findAll)
 

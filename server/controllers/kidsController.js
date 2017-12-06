@@ -1,5 +1,6 @@
 const Kid = require('mongoose').model('Kid');
 const path = require('path');
+const models = require('../models');
 
 module.exports = {
 
@@ -32,20 +33,21 @@ module.exports = {
                   return res.status(500).send(err);
               }
   
-            Kid.findOneAndUpdate({_id: kidId}, {img: imgPath}, (err, kids) => {
+            Kid.findOneAndUpdate({_id: kidId}, {img: imgPath}, (err, kid) => {
+              console.log(kid)
               res.json({
-                message: kids
+                message: kid
               })
               
           })
         
       })
-    }
 
-  ,
+    },
+
   findOne: (req, res) => {
     Kid.findById(req.params.id, (err, kid) => {
-      
+      console.log(kid)
     })
   }
 }

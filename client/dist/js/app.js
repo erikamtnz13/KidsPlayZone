@@ -38219,7 +38219,12 @@ var UserProfile = function (_React$Component) {
   function UserProfile() {
     _classCallCheck(this, UserProfile);
 
-    return _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this));
+    var _this = _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this));
+
+    _this.state = {
+      kid: {}
+    };
+    return _this;
   }
 
   _createClass(UserProfile, [{
@@ -38228,7 +38233,6 @@ var UserProfile = function (_React$Component) {
       var _this2 = this;
 
       var currentId = localStorage.getItem('id');
-      console.log(currentId);
       var xhr = new XMLHttpRequest();
       xhr.open('get', '/api/members/' + currentId);
       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -38237,10 +38241,11 @@ var UserProfile = function (_React$Component) {
       xhr.responseType = 'json';
       xhr.addEventListener('load', function () {
         if (xhr.status === 200) {
+          console.log('success');
           _this2.setState({
-            members: xhr.response.message
+            kid: xhr.response.message
           });
-          console.log(_this2.state.members);
+          console.log(_this2.state.kid);
         }
       });
       xhr.send();

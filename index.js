@@ -17,13 +17,11 @@ const path = require("path");
 const app = express();
 
 app.use(fileUpload());
+
 const PORT = process.env.PORT || 3000
 
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-
-
-
 
 // tell the app to look for static files in these directories
 app.use(express.static('./server/static/'));
@@ -53,7 +51,7 @@ const apiRoutes = require('./server/routes/api');
 const uploadRoute = require('./server/routes/upload.js')
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
-// app.use('/upload', uploadRoute);
+app.use('/upload', uploadRoute);
 
 app.post('/upload', kidsController.update)
 

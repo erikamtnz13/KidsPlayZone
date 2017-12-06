@@ -9,10 +9,12 @@ import './userprofile.css';
 class UserProfile extends React.Component {
   constructor(){
     super()
+    this.state = {
+      kid:{}
+    }
   }
   componentDidMount(){
     var currentId = localStorage.getItem('id')
-    console.log(currentId)
     const xhr = new XMLHttpRequest();
     xhr.open('get', '/api/members/'+currentId);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -21,10 +23,11 @@ class UserProfile extends React.Component {
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
+        console.log('success')
         this.setState({
-          members: xhr.response.message
+          kid: xhr.response.message
         });
-        console.log(this.state.members)
+        console.log(this.state.kid)
       }
     });
     xhr.send();
