@@ -39370,12 +39370,12 @@ var HomeChatroom = function (_React$Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
+            this.setState({ name: localStorage.getItem('name') });
             var socket = (0, _socket2.default)();
             socket.on('chat message', function (msg) {
                 _this2._addMessage(msg);
             });
             this.setState({ socket: socket });
-            //    this.getChat()
         }
     }, {
         key: '_addMessage',
@@ -39395,7 +39395,7 @@ var HomeChatroom = function (_React$Component) {
         key: 'submitMessage',
         value: function submitMessage(event) {
             event.preventDefault();
-            this.state.socket.emit('chat message', this.state.message);
+            this.state.socket.emit('chat message', this.state.name + ": " + this.state.message);
             this.setState({ message: '' });
         }
     }, {
@@ -39431,7 +39431,7 @@ var HomeChatroom = function (_React$Component) {
                     { id: 'chat',
                         name: 'chat',
                         value: this.state.chat },
-                    'hello',
+                    'Chat Room',
                     this.state.chats.map(function (message, i) {
                         return _react2.default.createElement(
                             'p',

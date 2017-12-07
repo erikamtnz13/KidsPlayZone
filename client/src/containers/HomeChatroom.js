@@ -21,12 +21,12 @@ class HomeChatroom extends React.Component{
 
     componentDidMount(){
 
+        this.setState({name: localStorage.getItem('name')})
         const socket = io();
         socket.on('chat message', msg=>{
             this._addMessage(msg)
         })
         this.setState({socket})
-    //    this.getChat()
     }
 
    _addMessage(msg){
@@ -45,7 +45,7 @@ class HomeChatroom extends React.Component{
 
     submitMessage(event){
         event.preventDefault()
-        this.state.socket.emit('chat message', this.state.message)
+        this.state.socket.emit('chat message', this.state.name + ": " +this.state.message)
         this.setState({message: ''})
     }
 
@@ -77,7 +77,8 @@ class HomeChatroom extends React.Component{
                 <div id="chat" 
                     name="chat" 
                     value={this.state.chat}>
-                    hello
+                    Chat Room
+                    
                     {this.state.chats.map((message, i) => <p key={i}>{message}</p>)}
                 </div>
                 <form>
