@@ -38109,7 +38109,7 @@ var Members = function (_React$Component) {
                   _react2.default.createElement(_reactstrap.CardImg, null),
                   _react2.default.createElement(
                     _reactstrap.CardTitle,
-                    { key: members.name },
+                    { className: 'memberNames', key: members.name },
                     members.name
                   ),
                   _react2.default.createElement(
@@ -38171,7 +38171,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, ".card {\n    margin: 0 0 5% 0 !important;\n}", ""]);
+exports.push([module.i, ".card {\n    margin: 0 0 5% 0 !important;\n}\n\n.memberNames {\n    text-align: center;\n}", ""]);
 
 // exports
 
@@ -39297,8 +39297,8 @@ var HomePage = function (_React$Component) {
         { className: "container" },
         _react2.default.createElement(
           "h3",
-          null,
-          "Home Page"
+          { className: "tabTitle" },
+          "Home"
         ),
         _react2.default.createElement(_HomeChatroom2.default, null)
       );
