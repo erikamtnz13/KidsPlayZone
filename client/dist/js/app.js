@@ -12787,51 +12787,59 @@ var LandingPage = function (_Component) {
                         { className: 'justify-content-center', id: 'sec2columns' },
                         _react2.default.createElement(
                             _reactstrap.Col,
-                            { className: 'md-2', id: 'column1' },
+                            { sm: '6', md: '2', id: 'column1' },
                             _react2.default.createElement(
-                                'b',
-                                null,
+                                'h2',
+                                { className: 'step' },
                                 'STEP 1'
                             ),
-                            _react2.default.createElement('br', null),
-                            _react2.default.createElement('br', null),
-                            'A parent (Administrator) will sign up for an exclusive family module.'
+                            _react2.default.createElement(
+                                'p',
+                                { className: 'stepText' },
+                                'A parent (Administrator) will sign up for an exclusive family module.'
+                            )
                         ),
                         _react2.default.createElement(
                             _reactstrap.Col,
-                            { className: 'md-2', id: 'column2' },
+                            { sm: '6', md: '2', id: 'column2' },
                             _react2.default.createElement(
-                                'b',
-                                null,
+                                'h2',
+                                { className: 'step' },
                                 'STEP 2'
                             ),
-                            _react2.default.createElement('br', null),
-                            _react2.default.createElement('br', null),
-                            'Parent can invite friends or family of their child into their exclusive module.'
+                            _react2.default.createElement(
+                                'p',
+                                { className: 'stepText' },
+                                'Parent can invite friends or family of their child into their exclusive module.'
+                            )
                         ),
                         _react2.default.createElement(
                             _reactstrap.Col,
-                            { className: 'md-2', id: 'column3' },
+                            { sm: '6', md: '2', id: 'column3' },
                             _react2.default.createElement(
-                                'b',
-                                null,
+                                'h2',
+                                { className: 'step' },
                                 'STEP 3'
                             ),
-                            _react2.default.createElement('br', null),
-                            _react2.default.createElement('br', null),
-                            'Parents of friends or family who create an account must enter an exclusive code to join your family module.'
+                            _react2.default.createElement(
+                                'p',
+                                { className: 'stepText' },
+                                'Parents of friends or family who create an account must enter an exclusive code to join your family module.'
+                            )
                         ),
                         _react2.default.createElement(
                             _reactstrap.Col,
-                            { className: 'md-2', id: 'column4' },
+                            { sm: '6', md: '2', id: 'column4' },
                             _react2.default.createElement(
-                                'b',
-                                null,
+                                'h2',
+                                { className: 'step' },
                                 'STEP 4'
                             ),
-                            _react2.default.createElement('br', null),
-                            _react2.default.createElement('br', null),
-                            'Parents automatically become Moderators and are able to see children\'s activities via the dashboard.'
+                            _react2.default.createElement(
+                                'p',
+                                { className: 'stepText' },
+                                'Parents automatically become Moderators and are able to see children\'s activities via the dashboard.'
+                            )
                         )
                     ),
                     _react2.default.createElement(
@@ -43183,7 +43191,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, "h1{\n    font-size: 5em;\n    font-family: catamaran;\n    color: #fff;\n    margin:0;\n    padding:0;\n    font-size: 6em;\n    text-shadow: 2px 2px #000;\n}\n\n/* Centered texts in each section\n* --------------------------------------- */\n.section{\n    text-align:center;\n}\n\n\n#section0 {\n    height: 110vh;\n}\n\n/* Defining each section background and styles\n* --------------------------------------- */\n\n#section2{\n\tbackground: #0094d5;\n\tpadding: 6% 0 0 0;\n}\n\n#section3{\n\tbackground: #0094d5;\n\tpadding: 6% 0 0 0;\n}\n\n*{ margin: 0; padding: 0;}\n\nhtml, body {\n    height: 100%;\n    width: 100%;\n    /*To hide the horizontal scroller appearing during the animation*/\n    overflow-x: hidden;\n}\n\n#clouds{\n    padding: 40px 0;\n    background: #0094d5;\n    height: 100%;\n    width: 100%;\n}\n\n/*Time to finalise the cloud shape*/\n.cloud {\n    width: 200px; height: 60px;\n    background: #fff;\n\n    border-radius: 200px;\n    -moz-border-radius: 200px;\n    -webkit-border-radius: 200px;\n\n    position: relative;\n}\n\n.cloud:before, .cloud:after {\n    content: '';\n    position: absolute;\n    background: #fff;\n    width: 100px; height: 80px;\n    position: absolute; top: -15px; left: 10px;\n\n    border-radius: 100px;\n    -moz-border-radius: 100px;\n    -webkit-border-radius: 100px;\n\n    -webkit-transform: rotate(30deg);\n    transform: rotate(30deg);\n    -moz-transform: rotate(30deg);\n}\n\n.cloud:after {\n    width: 120px; height: 120px;\n    top: -55px; left: auto; right: 15px;\n}\n\n/*Time to animate*/\n.x1 {\n    left: 100px;\n\n    -webkit-animation: moveclouds 130s linear infinite;\n    -moz-animation: moveclouds 130s linear infinite;\n    -o-animation: moveclouds 130s linear infinite;\n}\n\n/*variable speed, opacity, and position of clouds for realistic effect*/\n.x2 {\n    left: 500px;\n\n    -webkit-transform: scale(0.6);\n    -moz-transform: scale(0.6);\n    transform: scale(0.6);\n    opacity: 0.6; /*opacity proportional to the size*/\n\n    /*Speed will also be proportional to the size and opacity*/\n    /*More the speed. Less the time in 's' = seconds*/\n    -webkit-animation: moveclouds 370s linear infinite;\n    -moz-animation: moveclouds 370s linear infinite;\n    -o-animation: moveclouds 370s linear infinite;\n}\n\n.x3 {\n    left: 900px; top: -300px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 275s linear infinite;\n    -moz-animation: moveclouds 275s linear infinite;\n    -o-animation: moveclouds 275s linear infinite;\n}\n\n.x4 {\n    left: -450px; top: -275px;\n\n    -webkit-transform: scale(0.75);\n    -moz-transform: scale(0.75);\n    transform: scale(0.75);\n    opacity: 0.75; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 88s linear infinite;\n    -moz-animation: moveclouds 88s linear infinite;\n    -o-animation: moveclouds 88s linear infinite;\n}\n\n.x5 {\n    left: 350px; top: -820px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 225s linear infinite;\n    -moz-animation: moveclouds 225s linear infinite;\n    -o-animation: moveclouds 225s linear infinite;\n}\n\n.x6 {\n    left: 750px; top: -170px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 120s linear infinite;\n    -moz-animation: moveclouds 120s linear infinite;\n    -o-animation: moveclouds 120s linear infinite;\n}\n\n.x7 {\n    left: 500px; top: -650px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 38s linear infinite;\n    -moz-animation: moveclouds 38s linear infinite;\n    -o-animation: moveclouds 38s linear infinite;\n}\n\n@-webkit-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n@-moz-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n@-o-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n\n#header1,\n#header2,\n#header3 {\n    font-family: 'Sniglet', cursive;\n    font-size: 8em;\n    margin-top: -60px;\n    color: #ffb140;\n    text-shadow: 4px 4px #000;\n}\n\n#smallheader,\n#smallheader2 {\n    font-family: 'Catamaran', cursive;\n\n}\n\n#smallheader {\n    font-size: 3em;\n    margin-bottom: 10px;\n    padding-top: 70px;\n}\n\n#smallheader2 {\n    font-size: 1.8em;\n    margin-bottom: 25px;\n    color: #fff;\n}\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "h1{\n    font-size: 5em;\n    font-family: catamaran;\n    color: #fff;\n    margin:0;\n    padding:0;\n    font-size: 6em;\n    text-shadow: 2px 2px #000;\n}\n\n/* Centered texts in each section\n* --------------------------------------- */\n.section{\n    text-align:center;\n}\n\n\n#section0 {\n    height: 110vh;\n}\n\n/* Defining each section background and styles\n* --------------------------------------- */\n\n#section2{\n\tbackground: #0094d5;\n\tpadding: 6% 0 0 0;\n}\n\n#section3{\n\tbackground: #0094d5;\n\tpadding: 6% 0 0 0;\n}\n\n*{ margin: 0; padding: 0;}\n\nhtml, body {\n    height: 100%;\n    width: 100%;\n    /*To hide the horizontal scroller appearing during the animation*/\n    overflow-x: hidden;\n}\n\n#clouds{\n    padding: 40px 0;\n    background: #0094d5;\n    height: 100%;\n    width: 100%;\n}\n\n/*Time to finalise the cloud shape*/\n.cloud {\n    width: 200px; height: 60px;\n    background: #fff;\n\n    border-radius: 200px;\n    -moz-border-radius: 200px;\n    -webkit-border-radius: 200px;\n\n    position: relative;\n}\n\n.cloud:before, .cloud:after {\n    content: '';\n    position: absolute;\n    background: #fff;\n    width: 100px; height: 80px;\n    position: absolute; top: -15px; left: 10px;\n\n    border-radius: 100px;\n    -moz-border-radius: 100px;\n    -webkit-border-radius: 100px;\n\n    -webkit-transform: rotate(30deg);\n    transform: rotate(30deg);\n    -moz-transform: rotate(30deg);\n}\n\n.cloud:after {\n    width: 120px; height: 120px;\n    top: -55px; left: auto; right: 15px;\n}\n\n/*Time to animate*/\n.x1 {\n    left: 100px;\n\n    -webkit-animation: moveclouds 130s linear infinite;\n    -moz-animation: moveclouds 130s linear infinite;\n    -o-animation: moveclouds 130s linear infinite;\n}\n\n/*variable speed, opacity, and position of clouds for realistic effect*/\n.x2 {\n    left: 500px;\n\n    -webkit-transform: scale(0.6);\n    -moz-transform: scale(0.6);\n    transform: scale(0.6);\n    opacity: 0.6; /*opacity proportional to the size*/\n\n    /*Speed will also be proportional to the size and opacity*/\n    /*More the speed. Less the time in 's' = seconds*/\n    -webkit-animation: moveclouds 370s linear infinite;\n    -moz-animation: moveclouds 370s linear infinite;\n    -o-animation: moveclouds 370s linear infinite;\n}\n\n.x3 {\n    left: 900px; top: -300px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 275s linear infinite;\n    -moz-animation: moveclouds 275s linear infinite;\n    -o-animation: moveclouds 275s linear infinite;\n}\n\n.x4 {\n    left: -450px; top: -275px;\n\n    -webkit-transform: scale(0.75);\n    -moz-transform: scale(0.75);\n    transform: scale(0.75);\n    opacity: 0.75; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 88s linear infinite;\n    -moz-animation: moveclouds 88s linear infinite;\n    -o-animation: moveclouds 88s linear infinite;\n}\n\n.x5 {\n    left: 350px; top: -820px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 225s linear infinite;\n    -moz-animation: moveclouds 225s linear infinite;\n    -o-animation: moveclouds 225s linear infinite;\n}\n\n.x6 {\n    left: 750px; top: -170px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 120s linear infinite;\n    -moz-animation: moveclouds 120s linear infinite;\n    -o-animation: moveclouds 120s linear infinite;\n}\n\n.x7 {\n    left: 500px; top: -650px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 38s linear infinite;\n    -moz-animation: moveclouds 38s linear infinite;\n    -o-animation: moveclouds 38s linear infinite;\n}\n\n@-webkit-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n@-moz-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n@-o-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n\n#header1,\n#header2,\n#header3 {\n    font-family: 'Sniglet', cursive;\n    font-size: 8em;\n    margin-top: -60px;\n    color: #ffb140;\n    text-shadow: 4px 4px #000;\n}\n\n#smallheader,\n#smallheader2 {\n    font-family: 'Catamaran', cursive;\n\n}\n\n#smallheader {\n    font-size: 3em;\n    margin-bottom: 10px;\n    padding-top: 70px;\n}\n\n#smallheader2 {\n    font-size: 1.8em;\n    margin-bottom: 25px;\n    color: #fff;\n}\n\n@media screen and (max-width: 1200px) { \n    .stepText {\n        font-size: 0.90em;\n    }\n }\n\n @media screen and (max-width: 1200px) { \n    .stepText {\n        font-size: 0.80em;\n    }\n }\n\n @media screen and (max-width: 890px) { \n    .stepText {\n        font-size: 0.70em;\n    }\n }", ""]);
 
 // exports
 
@@ -43273,7 +43281,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, "#column1 {\n    background: #e21b2d;\n}\n\n\n#column2 {\n    background: #ffb140;\n}\n\n#column3 {\n    background: #73AD21;\n}\n\n#column4 {\n    background: #fe799f ;\n}\n\n#column1,\n#column2,\n#column3,\n#column4 {\n    border-radius: 25px;\n    margin: 30px;\n    margin-top: 50px;\n    padding-top: 30px;\n    height: 400px;\n    font-size: 1.6em;\n}", ""]);
+exports.push([module.i, "#column1 {\n    background: #e21b2d;\n}\n\n\n#column2 {\n    background: #ffb140;\n}\n\n#column3 {\n    background: #73AD21;\n}\n\n#column4 {\n    background: #fe799f ;\n}\n\n#column1,\n#column2,\n#column3,\n#column4 {\n    border-radius: 25px;\n    margin: 20px;\n    margin-top: 50px;\n    padding-top: 30px;\n    height: 400px;\n    font-size: 1.6em;\n}\n\n.step {\n    margin-bottom: 10%; \n}", ""]);
 
 // exports
 
