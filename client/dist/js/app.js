@@ -39342,6 +39342,8 @@ var _socket = __webpack_require__(165);
 
 var _socket2 = _interopRequireDefault(_socket);
 
+__webpack_require__(223);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -39454,7 +39456,7 @@ var HomeChatroom = function (_React$Component) {
                     null,
                     _react2.default.createElement(
                         _reactstrap.InputGroup,
-                        null,
+                        { id: 'chatInput' },
                         _react2.default.createElement(_reactstrap.Input, {
                             type: 'text',
                             name: 'message',
@@ -43957,6 +43959,51 @@ SignUpForm.propTypes = {
 };
 
 exports.default = SignUpForm;
+
+/***/ }),
+/* 223 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(224);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(6)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!./homechatroom.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!./homechatroom.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 224 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "#chat {\r\n    background-color: white;\r\n    color: black;\r\n    height: 25em;\r\n    overflow-y: scroll;\r\n    overflow-wrap: break-word;\r\n    margin-bottom: 1em;\r\n    padding: 1em;\r\n}\r\n\r\n#chatInput {\r\n    margin-bottom: 1em;\r\n}", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

@@ -2,6 +2,7 @@ import React from 'react'
 import { InputGroup, InputGroupButton, Input } from 'reactstrap'
 import Auth from '../modules/Auth'
 import io from 'socket.io-client'
+import './homechatroom.css'
 
 class HomeChatroom extends React.Component{
     constructor(){
@@ -82,7 +83,7 @@ class HomeChatroom extends React.Component{
                     {this.state.chats.map((message, i) => <p key={i}>{message}</p>)}
                 </div>
                 <form>
-                <InputGroup>
+                <InputGroup id="chatInput">
                     <Input 
                         type="text"
                         name="message"

@@ -1,0 +1,13 @@
+#chat {
+    background-color: white;
+    color: black;
+    height: 25em;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+#chatInput {
+    margin-bottom: 1em;
+}
