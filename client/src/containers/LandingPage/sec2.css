@@ -20,9 +20,13 @@
 #column3,
 #column4 {
     border-radius: 25px;
-    margin: 30px;
+    margin: 20px;
     margin-top: 50px;
     padding-top: 30px;
     height: 400px;
     font-size: 1.6em;
+}
+
+.step {
+    margin-bottom: 10%; 
 }

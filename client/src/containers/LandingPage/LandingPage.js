@@ -237,10 +237,10 @@ class LandingPage extends Component {
               <div className="section" id="section2">
                   <h1 id="section2header">HOW DOES IT WORK?</h1>
                   <Row className="justify-content-center" id="sec2columns">
-                      <Col className="md-2" id="column1"><b>STEP 1</b><br/><br/>A parent (Administrator) will sign up for an exclusive family module.</Col>
-                      <Col className="md-2" id="column2"><b>STEP 2</b><br/><br/>Parent can invite friends or family of their child into their exclusive module.</Col>
-                      <Col className="md-2" id="column3"><b>STEP 3</b><br/><br/>Parents of friends or family who create an account must enter an exclusive code to join your family module.</Col>
-                      <Col className="md-2" id="column4"><b>STEP 4</b><br/><br/>Parents automatically become Moderators and are able to see children's activities via the dashboard.</Col>
+                      <Col sm="6" md="2" id="column1"><h2 className="step">STEP 1</h2><p className="stepText">A parent (Administrator) will sign up for an exclusive family module.</p></Col>
+                      <Col sm="6" md="2" id="column2"><h2 className="step">STEP 2</h2><p className="stepText">Parent can invite friends or family of their child into their exclusive module.</p></Col>
+                      <Col sm="6" md="2" id="column3"><h2 className="step">STEP 3</h2><p className="stepText">Parents of friends or family who create an account must enter an exclusive code to join your family module.</p></Col>
+                      <Col sm="6" md="2" id="column4"><h2 className="step">STEP 4</h2><p className="stepText">Parents automatically become Moderators and are able to see children's activities via the dashboard.</p></Col>
                   </Row>
                   <Row className="justify-content-center" id="bottomheader">
                       <h2>Ready to join?</h2>

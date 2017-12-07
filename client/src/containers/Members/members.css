@@ -1,3 +1,7 @@
 .card {
     margin: 0 0 5% 0 !important;
 }
+
+.memberNames {
+    text-align: center;
+}

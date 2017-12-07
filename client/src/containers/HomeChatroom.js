@@ -1,7 +1,8 @@
 import React from 'react'
-import {Input, Button } from 'reactstrap'
+import { InputGroup, InputGroupButton, Input } from 'reactstrap'
 import Auth from '../modules/Auth'
 import io from 'socket.io-client'
+import './homechatroom.css'
 
 class HomeChatroom extends React.Component{
     constructor(){
@@ -82,16 +83,18 @@ class HomeChatroom extends React.Component{
                     {this.state.chats.map((message, i) => <p key={i}>{message}</p>)}
                 </div>
                 <form>
-                <Input 
-                    type="text"
-                    name="message"
-                    value={this.state.message}
-                    onChange={this.handleInput}
-                    />
+                <InputGroup id="chatInput">
+                    <Input 
+                        type="text"
+                        name="message"
+                        value={this.state.message}
+                        onChange={this.handleInput}
+                        />
 
-                    <button 
-                    onClick={this.submitMessage}  
-                    type="submit" value="Submit" className="btn btn-primary">Send</button>
+                        <InputGroupButton 
+                        onClick={this.submitMessage}  
+                        type="submit" value="Submit" color="primary">Send</InputGroupButton>
+                </InputGroup>
                 </form>
             </div>
         )
