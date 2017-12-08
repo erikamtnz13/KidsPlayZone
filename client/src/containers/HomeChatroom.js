@@ -78,7 +78,6 @@ class HomeChatroom extends React.Component{
                 <div id="chat" 
                     name="chat" 
                     value={this.state.chat}>
-                    Chat Room
                     
                     {this.state.chats.map((message, i) => <p key={i}>{message}</p>)}
                 </div>
