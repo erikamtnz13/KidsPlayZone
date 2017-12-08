@@ -53,8 +53,9 @@ app.use('/api', authCheckMiddleware);
 const authRoutes = require('./server/routes/auth');
 const apiRoutes = require('./server/routes/api');
 const uploadRoute = require('./server/routes/upload.js')
-const parentAuthRoutes = require
+const parentAuthRoutes = require('./server/routes/parent-auth.js')
 app.use('/auth', authRoutes);
+app.use('/parent-auth', parentAuthRoutes);
 app.use('/api', apiRoutes);
 app.use('/upload', uploadRoute);
 

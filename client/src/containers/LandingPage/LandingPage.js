@@ -174,7 +174,7 @@ class LandingPage extends Component {
         // create a string for an HTTP body message
         const parentEmail = encodeURIComponent(this.state.parent.parentEmail);
         const parentPassword = encodeURIComponent(this.state.parent.parentPassword);
-        const formData = `name=${parentEmail}&password=${parentPassword}`;
+        const formData = `email=${parentEmail}&password=${parentPassword}`;
 
         // create an AJAX request
         const xhr = new XMLHttpRequest();
@@ -231,7 +231,7 @@ class LandingPage extends Component {
         // create a string for an HTTP body message
         const parentEmail = encodeURIComponent(this.state.parent.parentEmail);
         const parentPassword = encodeURIComponent(this.state.parent.parentPassword);
-        const formData = `name=${parentEmail}&password=${parentPassword}`;
+        const formData = `email=${parentEmail}&password=${parentPassword}`;
     
         // create an AJAX request
         const xhr = new XMLHttpRequest();
@@ -392,6 +392,7 @@ class LandingPage extends Component {
                                     onChange={this.onParentInput}
                                     value={this.state.parent.parentEmail}
                                     type="email" name="parentEmail" id="emailInput" placeholder="Enter Parent's Email" />
+                                  <Label>{this.state.errors.name}</Label>  
                               </FormGroup>
                               <FormGroup className="signUpForm">
                                   <Label for="pwInput">Parent's Password</Label>
@@ -399,7 +400,8 @@ class LandingPage extends Component {
                                     onChange={this.onParentInput}
                                     value={this.state.parent.parentPassword}
                                     type="password" name="parentPassword" id="pwInput" placeholder="Enter Parent's Password" />
-                              </FormGroup>
+                                  <Label>{this.state.errors.password}</Label>
+                                </FormGroup>
                               <Button className="btn btn-primary d-flex justify-content-center" type="submit">Submit</Button>                              
                           </Form>
                           </Col>

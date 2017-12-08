@@ -10,9 +10,9 @@ module.exports = new PassportLocalStrategy({
   passReqToCallback: true
 }, (req, email, password, done) => {
 
-    const Data = {
-        email: req.body.parentEmail.trim(),
-        password: req.body.parentPassword.trim(),
+    const parentData = {
+        email: req.body.email.trim(),
+        password: req.body.password.trim(),
         group: "placeholder"
     };
 

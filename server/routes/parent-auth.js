@@ -7,11 +7,12 @@ const router = new express.Router();
 //Validate the sign up form
 
 function validateSignupForm(payload) {
+  console.log(payload)
   const errors = {};
   let isFormValid = true;
   let message = '';
 
-  if (!payload || typeof payload.name !== 'string' || payload.parentEmail.trim().length === 0) {
+  if (!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0) {
     isFormValid = false;
     errors.email = 'Please provide your email.';
   }
@@ -37,13 +38,14 @@ function validateLoginForm(payload) {
   const errors = {};
   let isFormValid = true;
   let message = '';
+ 
 
-  if (!payload || typeof payload.parentEmail !== 'email' || payload.parentEmail.trim().length === 0) {
+  if (!payload || typeof payload.email !== 'email' || payload.email.trim().length === 0) {
     isFormValid = false;
     errors.rmail = 'Please provide your email.';
   }
 
-  if (!payload || typeof payload.parentPassword !== 'string' || payload.parentPassword.trim().length === 0) {
+  if (!payload || typeof payload.password !== 'string' || payload.password.trim().length === 0) {
     isFormValid = false;
     errors.password = 'Please provide your password.';
   }

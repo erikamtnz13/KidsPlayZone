@@ -14,4 +14,5 @@ module.exports.connect = (uri) => {
   // load models
   require('./Kid');
   require('./Chat')
+  require('./Parent')
 };

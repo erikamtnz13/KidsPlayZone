@@ -11,7 +11,8 @@ const LoginForm = ({
   onChange,
   errors,
   successMessage,
-  user
+  user,
+  parent
 }) => (
   <Container className="flexcontainer">
     <Card className="login-card">
@@ -24,10 +25,10 @@ const LoginForm = ({
         <div className="field-line">
           <Input
             type="text"
-            name="name"
+            name={user? "name" : "email"}
             errorText={errors.email}
             onChange={onChange}
-            value={user.email}
+            value={user ? user.name : parent.email}
           />
         </div>
 
@@ -37,7 +38,7 @@ const LoginForm = ({
             name="password"
             onChange={onChange}
             errorText={errors.password}
-            value={user.password}
+            value={user? user.password : parent.password}
           />
         </div>
 
@@ -56,7 +57,7 @@ LoginForm.propTypes = {
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   successMessage: PropTypes.string.isRequired,
-  user: PropTypes.object.isRequired
+  // user: PropTypes.object.isRequired
 };
 
 export default LoginForm;
