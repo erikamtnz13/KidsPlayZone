@@ -43698,7 +43698,8 @@ var LoginForm = function LoginForm(_ref) {
             name: 'name',
             errorText: errors.email,
             onChange: onChange,
-            value: user.email
+            value: user.email,
+            placeholder: 'Child Username'
           })
         ),
         _react2.default.createElement(
@@ -43709,7 +43710,8 @@ var LoginForm = function LoginForm(_ref) {
             name: 'password',
             onChange: onChange,
             errorText: errors.password,
-            value: user.password
+            value: user.password,
+            placeholder: 'Child Password'
           })
         ),
         _react2.default.createElement(
@@ -43787,7 +43789,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".flexcontainer {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n }\n\n\n .field-line {\n     margin-bottom: 2%;\n }\n\n .card-heading, \n .success-message, \n .error-message, \n .cardText {\n     text-align: center;\n }\n\n .login-card {\n     padding: 5%;\n }", ""]);
+exports.push([module.i, ".flexcontainer {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n }\n\n\n .field-line {\n     margin-bottom: 2%;\n }\n\n .card-heading, \n .success-message, \n .error-message, \n .cardText {\n     text-align: center;\n }\n\n .login-card {\n     padding: 5%;\n     width: 30em;\n }", ""]);
 
 // exports
 
@@ -43969,6 +43971,8 @@ var _reactRouterDom = __webpack_require__(17);
 
 var _reactstrap = __webpack_require__(9);
 
+__webpack_require__(225);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SignUpForm = function SignUpForm(_ref) {
@@ -43977,60 +43981,66 @@ var SignUpForm = function SignUpForm(_ref) {
       errors = _ref.errors,
       user = _ref.user;
   return _react2.default.createElement(
-    _reactstrap.Card,
-    { className: 'container' },
+    _reactstrap.Container,
+    { className: 'flexcontainer' },
     _react2.default.createElement(
-      'form',
-      { action: '/', onSubmit: onSubmit },
+      _reactstrap.Card,
+      { className: 'signup-card' },
       _react2.default.createElement(
-        'h2',
-        { className: 'card-heading' },
-        'Sign Up'
-      ),
-      errors.summary && _react2.default.createElement(
-        'p',
-        { className: 'error-message' },
-        errors.summary
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'field-line' },
-        _react2.default.createElement(_reactstrap.Input, {
-          type: 'text',
-          name: 'name',
-          errorText: errors.name,
-          onChange: onChange,
-          value: user.name
-        })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'field-line' },
-        _react2.default.createElement(_reactstrap.Input, {
-          type: 'password',
-          name: 'password',
-          onChange: onChange,
-          errorText: errors.password,
-          value: user.password
-        })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'button-line' },
+        'form',
+        { action: '/', onSubmit: onSubmit },
         _react2.default.createElement(
-          _reactstrap.Button,
-          { color: 'info' },
-          'Create New Account'
-        )
-      ),
-      _react2.default.createElement(
-        _reactstrap.CardText,
-        null,
-        'Already have an account? ',
+          'h2',
+          { className: 'card-heading' },
+          'Sign Up'
+        ),
+        errors.summary && _react2.default.createElement(
+          'p',
+          { className: 'error-message' },
+          errors.summary
+        ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/login' },
-          'Log in'
+          'div',
+          { className: 'field-line' },
+          _react2.default.createElement(_reactstrap.Input, {
+            type: 'text',
+            name: 'name',
+            errorText: errors.name,
+            onChange: onChange,
+            value: user.name,
+            placeholder: 'Child\'s Username'
+          })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'field-line' },
+          _react2.default.createElement(_reactstrap.Input, {
+            type: 'password',
+            name: 'password',
+            onChange: onChange,
+            errorText: errors.password,
+            value: user.password,
+            placeholder: 'Child\'s Password'
+          })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'button-line' },
+          _react2.default.createElement(
+            _reactstrap.Button,
+            { color: 'primary', className: 'btn-block' },
+            'Create New Account'
+          )
+        ),
+        _react2.default.createElement(
+          _reactstrap.CardText,
+          { className: 'cardText' },
+          'Already have an account? ',
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/login' },
+            'Log in'
+          )
         )
       )
     )
@@ -44045,6 +44055,51 @@ SignUpForm.propTypes = {
 };
 
 exports.default = SignUpForm;
+
+/***/ }),
+/* 225 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(226);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(5)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!./signUpForm.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!./signUpForm.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 226 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".flexcontainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    height: 100vh;\r\n }\r\n\r\n\r\n .field-line {\r\n     margin-bottom: 2%;\r\n }\r\n\r\n .card-heading, \r\n .success-message, \r\n .error-message, \r\n .cardText {\r\n     text-align: center;\r\n }\r\n\r\n .signup-card {\r\n     padding: 5%;\r\n     width: 30em;\r\n }", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);

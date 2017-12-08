@@ -28,6 +28,7 @@ const LoginForm = ({
             errorText={errors.email}
             onChange={onChange}
             value={user.email}
+            placeholder="Child Username"
           />
         </div>
 
@@ -38,6 +39,7 @@ const LoginForm = ({
             onChange={onChange}
             errorText={errors.password}
             value={user.password}
+            placeholder="Child Password"
           />
         </div>
 
