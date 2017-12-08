@@ -26,15 +26,22 @@ class LandingPage extends Component {
       user: {
           name: '',
           password: ''
-      }
+      },
+      parent: {
+        parentEmail: '',
+        parentPassword: ''
+    }
     };
 
     this.toggle = this.toggle.bind(this);
 
     this.onSignupSubmit = this.onSignupSubmit.bind(this)
     this.onLoginSubmit =  this.onLoginSubmit.bind(this)
-
     this.onInputChange = this.onInputChange.bind(this)
+
+    this.onParentSignup = this.onParentSignup.bind(this)
+    this.onParentLogin =  this.onParentLogin.bind(this)
+    this.onParentInput = this.onParentInput.bind(this)
   
 
     }
@@ -157,6 +164,110 @@ class LandingPage extends Component {
         });
         xhr.send(formData);
     }
+
+    //////////////Parents form handling///////////////////
+     //Handle parent sign up
+     onParentSignup(event) {
+        event.preventDefault()
+        console.log(this.state.parent.parentEmail, this.state.parent.parentPassword)
+        
+        // create a string for an HTTP body message
+        const parentEmail = encodeURIComponent(this.state.parent.parentEmail);
+        const parentPassword = encodeURIComponent(this.state.parent.parentPassword);
+        const formData = `name=${parentEmail}&password=${parentPassword}`;
+
+        // create an AJAX request
+        const xhr = new XMLHttpRequest();
+        xhr.open('post', '/parent-auth/signup');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.responseType = 'json';
+        xhr.addEventListener('load', () => {
+        if (xhr.status === 200) {
+            // success
+            console.log('you successfully signed up')
+            // change the component-container state
+            this.setState({
+            errors: {}
+            });
+
+            // set a message
+            localStorage.setItem('successMessage', xhr.response.message);
+
+            // make a redirect
+            this.context.router.history.push('/parent-login');
+        
+        } else {
+            // failure
+
+            const errors = xhr.response.errors ? xhr.response.errors : {};
+            errors.summary = xhr.response.message;
+
+            this.setState({
+            errors
+            });
+            console.log(this.state.errors)
+        }
+        });
+        xhr.send(formData);
+    }
+
+    //Handle Parent Login/Signup Input Change
+    onParentInput(event) {
+        const field = event.target.name;
+        const parent = this.state.parent;
+        parent[field] = event.target.value;
+    
+        this.setState({
+          parent
+        });
+       
+    }
+
+    ///Handling parent Login
+    onParentLogin(event){
+            // prevent default action. in this case, action is the form submission event
+    event.preventDefault();
+    
+        // create a string for an HTTP body message
+        const parentEmail = encodeURIComponent(this.state.parent.parentEmail);
+        const parentPassword = encodeURIComponent(this.state.parent.parentPassword);
+        const formData = `name=${parentEmail}&password=${parentPassword}`;
+    
+        // create an AJAX request
+        const xhr = new XMLHttpRequest();
+        xhr.open('post', '/parent-auth/login');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.responseType = 'json';
+        xhr.addEventListener('load', () => {
+          if (xhr.status === 200) {
+            // success
+            // change the component-container state
+            this.setState({
+              errors: {}
+            });
+    
+            // save the token
+            Auth.authenticateUser(xhr.response);
+    
+    
+            // change the current URL to /
+            this.context.router.history.push('/parent');
+          } else {
+            // failure
+    
+            // change the component state
+            const errors = xhr.response.errors ? xhr.response.errors : {};
+            errors.summary = xhr.response.message;
+    
+            this.setState({
+              errors
+            });
+
+            console.log(this.state.errors)
+          }
+        });
+        xhr.send(formData);
+    }
     render() {
         return (
             <div>
@@ -255,18 +366,6 @@ class LandingPage extends Component {
                       <Row className="d-flex justify-content-center">
                           <Col md="6" id="rec">
                               <Form  onSubmit={this.onSignupSubmit}>
-                                  {/* <FormGroup className="signUpForm">
-                                      <Label for="nameInput">Parent's Name</Label>
-                                      <Input type="name" name="name" id="nameInput" placeholder="Enter Parent's Name" />
-                                  </FormGroup>
-                                  <FormGroup className="signUpForm">
-                                      <Label for="emailInput">Parent's Email</Label>
-                                      <Input type="email" name="email" id="emailInput" placeholder="Enter Parent's Email" />
-                                  </FormGroup>
-                                  <FormGroup className="signUpForm">
-                                      <Label for="pwInput">Parent's Password</Label>
-                                      <Input type="password" name="password" id="pwInput" placeholder="Enter Parent's Password" />
-                                  </FormGroup> */}
                                   <FormGroup className="signUpForm">
                                       <Label for="childNameInput">Child's Name (This will be the child's UserName)</Label>
                                       <Input 
@@ -284,8 +383,25 @@ class LandingPage extends Component {
                                         <Label>{this.state.errors.password}</Label>
                                   </FormGroup>
                                   <Button className="btn btn-primary d-flex justify-content-center" type="submit">Submit</Button>
-  
                               </Form>
+                              
+                              <Form onSubmit={this.onParentSignup}>
+                              <FormGroup className="signUpForm">
+                                  <Label for="emailInput">Parent's Email</Label>
+                                  <Input 
+                                    onChange={this.onParentInput}
+                                    value={this.state.parent.parentEmail}
+                                    type="email" name="parentEmail" id="emailInput" placeholder="Enter Parent's Email" />
+                              </FormGroup>
+                              <FormGroup className="signUpForm">
+                                  <Label for="pwInput">Parent's Password</Label>
+                                  <Input 
+                                    onChange={this.onParentInput}
+                                    value={this.state.parent.parentPassword}
+                                    type="password" name="parentPassword" id="pwInput" placeholder="Enter Parent's Password" />
+                              </FormGroup>
+                              <Button className="btn btn-primary d-flex justify-content-center" type="submit">Submit</Button>                              
+                          </Form>
                           </Col>
                       </Row>
   
@@ -314,7 +430,7 @@ class LandingPage extends Component {
                       </div>
                       <div className="tail"></div>
                   </div>
-              </div>
+              </div>     
           </div>
           
     );
