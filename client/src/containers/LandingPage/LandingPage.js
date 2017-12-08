@@ -221,14 +221,18 @@ class LandingPage extends Component {
                       </Col>
                   </Row>
                   <Row>
-                      <Col md="4" id="leftcol">SAFE HAVEN</Col>
-                      <Col md="4" id="midcol">LEARN & PLAY</Col>
-                      <Col md="4" id="rightcol">SOCIALIZE</Col>
-                  </Row>
-                  <Row>
-                      <Col md="4" id="leftcolmn">Parents create children's accounts and are able to moderate and have the ability to view their child's activities and messages posted in the chatroom.  This means no unapproved interactions with strangers, unapproved links, or private messages.  </Col>
-                      <Col md="4" id="midcolmn">Kids Play Zone offers safe Youtube videos to view and learn from, in addition to safe and fun games.</Col>
-                      <Col md="4" id="rightcolmn">Young children are online and want to join social media sites.  Kids Play Zone can teach your child how to use a social media site in a safe and responsible manner.</Col>
+                      <Col md="4" id="leftcol">
+                        <p>SAFE HAVEN</p>
+                        <p id="leftcolmn">Parents create children's accounts and are able to moderate and have the ability to view their child's activities and messages posted in the chatroom.  This means no unapproved interactions with strangers, unapproved links, or private messages.  </p>
+                      </Col>
+                      <Col md="4" id="midcol">
+                        <p>LEARN & PLAY</p>
+                        <p id="midcolmn">Kids Play Zone offers safe Youtube videos to view and learn from, in addition to safe and fun games.</p>
+                      </Col>
+                      <Col md="4" id="rightcol">
+                        <p>SOCIALIZE</p>
+                        <p id="rightcolmn">Young children are online and want to join social media sites.  Kids Play Zone can teach your child how to use a social media site in a safe and responsible manner.</p>
+                      </Col>
                   </Row>
               </div>
   
