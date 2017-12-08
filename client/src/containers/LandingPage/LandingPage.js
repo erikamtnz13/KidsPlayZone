@@ -220,7 +220,7 @@ class LandingPage extends Component {
                       <Col><img id="right" src={rightImage} className="img-fluid" alt="Responsive image" />
                       </Col>
                   </Row>
-                  <Row>
+                  <Row className="rowPadding">
                       <Col md="4" id="leftcol">
                         <p>SAFE HAVEN</p>
                         <p id="leftcolmn">Parents create children's accounts and are able to moderate and have the ability to view their child's activities and messages posted in the chatroom.  This means no unapproved interactions with strangers, unapproved links, or private messages.  </p>
