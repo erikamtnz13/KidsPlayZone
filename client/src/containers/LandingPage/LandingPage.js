@@ -226,9 +226,9 @@ class LandingPage extends Component {
                       <Col md="4" id="rightcol">SOCIALIZE</Col>
                   </Row>
                   <Row>
-                      <Col md="4" id="leftcolmn">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.  </Col>
-                      <Col md="4" id="midcolmn">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </Col>
-                      <Col md="4" id="rightcolmn">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.  </Col>
+                      <Col md="4" id="leftcolmn">Parents create children's accounts and are able to moderate and have the ability to view their child's activities and messages posted in the chatroom.  This means no unapproved interactions with strangers, unapproved links, or private messages.  </Col>
+                      <Col md="4" id="midcolmn">Kids Play Zone offers safe Youtube videos to view and learn from, in addition to safe and fun games.</Col>
+                      <Col md="4" id="rightcolmn">Young children are online and want to join social media sites.  Kids Play Zone can teach your child how to use a social media site in a safe and responsible manner.</Col>
                   </Row>
               </div>
   
@@ -237,10 +237,10 @@ class LandingPage extends Component {
               <div className="section" id="section2">
                   <h1 id="section2header">HOW DOES IT WORK?</h1>
                   <Row className="justify-content-center" id="sec2columns">
-                      <Col sm="6" md="2" id="column1"><h2 className="step">STEP 1</h2><p className="stepText">A parent (Administrator) will sign up for an exclusive family module.</p></Col>
-                      <Col sm="6" md="2" id="column2"><h2 className="step">STEP 2</h2><p className="stepText">Parent can invite friends or family of their child into their exclusive module.</p></Col>
-                      <Col sm="6" md="2" id="column3"><h2 className="step">STEP 3</h2><p className="stepText">Parents of friends or family who create an account must enter an exclusive code to join your family module.</p></Col>
-                      <Col sm="6" md="2" id="column4"><h2 className="step">STEP 4</h2><p className="stepText">Parents automatically become Moderators and are able to see children's activities via the dashboard.</p></Col>
+                      <Col sm="6" md="3" id="column1"><h2 className="step">STEP 1</h2><p className="stepText">A parent (Administrator) will sign up for an exclusive family module.</p></Col>
+                      <Col sm="6" md="3" id="column2"><h2 className="step">STEP 2</h2><p className="stepText">Parent can invite friends or family of their child into their exclusive module.</p></Col>
+                      <Col sm="6" md="3" id="column3"><h2 className="step">STEP 3</h2><p className="stepText">Parents of friends or family who create an account must enter an exclusive code to join your family module.</p></Col>
+                      <Col sm="6" md="3" id="column4"><h2 className="step">STEP 4</h2><p className="stepText">Parents automatically become Moderators and are able to see children's activities via the dashboard.</p></Col>
                   </Row>
                   <Row className="justify-content-center" id="bottomheader">
                       <h2>Ready to join?</h2>
