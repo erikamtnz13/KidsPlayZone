@@ -14,6 +14,7 @@ import './sec2.css';
 import './sec3.css';
 
 import Auth from '../../modules/Auth'
+import ParentAuth from '../../modules/ParentAuth'
 
  
 class LandingPage extends Component {
@@ -22,19 +23,28 @@ class LandingPage extends Component {
     this.state = {
       current: 0,
       modal: false,
+      modal2: false,
       errors: {},
       user: {
           name: '',
           password: ''
-      }
+      },
+      parent: {
+        parentEmail: '',
+        parentPassword: ''
+    }
     };
 
     this.toggle = this.toggle.bind(this);
+    this.toggle2 = this.toggle2.bind(this);
 
     this.onSignupSubmit = this.onSignupSubmit.bind(this)
     this.onLoginSubmit =  this.onLoginSubmit.bind(this)
-
     this.onInputChange = this.onInputChange.bind(this)
+
+    this.onParentSignup = this.onParentSignup.bind(this)
+    this.onParentLogin =  this.onParentLogin.bind(this)
+    this.onParentInput = this.onParentInput.bind(this)
   
 
     }
@@ -47,6 +57,12 @@ class LandingPage extends Component {
     toggle() {
         this.setState({
         modal: !this.state.modal
+        });
+    }
+
+    toggle2() {
+        this.setState({
+        modal2: !this.state.modal2
         });
     }
 
@@ -114,7 +130,7 @@ class LandingPage extends Component {
     onLoginSubmit(event){
             // prevent default action. in this case, action is the form submission event
     event.preventDefault();
-    
+    console.log("is parent authenticated "+ParentAuth.isUserAuthenticated())
         // create a string for an HTTP body message
         const name = encodeURIComponent(this.state.user.name);
         const password = encodeURIComponent(this.state.user.password);
@@ -137,10 +153,115 @@ class LandingPage extends Component {
     
             // save the token
             Auth.authenticateUser(xhr.response);
+                // change the current URL to /
+            this.context.router.history.push('/');
+            // window.location.replace('/') 
+          } else {
+            // failure
+    
+            // change the component state
+            const errors = xhr.response.errors ? xhr.response.errors : {};
+            errors.summary = xhr.response.message;
+    
+            this.setState({
+              errors
+            });
+
+            console.log(this.state.errors)
+          }
+        });
+        xhr.send(formData);
+    }
+
+    //////////////Parents form handling///////////////////
+     //Handle parent sign up
+     onParentSignup(event) {
+        event.preventDefault()
+        console.log(this.state.parent.parentEmail, this.state.parent.parentPassword)
+        
+        // create a string for an HTTP body message
+        const parentEmail = encodeURIComponent(this.state.parent.parentEmail);
+        const parentPassword = encodeURIComponent(this.state.parent.parentPassword);
+        const formData = `email=${parentEmail}&password=${parentPassword}`;
+
+        // create an AJAX request
+        const xhr = new XMLHttpRequest();
+        xhr.open('post', '/parent-auth/signup');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.responseType = 'json';
+        xhr.addEventListener('load', () => {
+        if (xhr.status === 200) {
+            // success
+            console.log('you successfully signed up')
+            // change the component-container state
+            this.setState({
+            errors: {}
+            });
+
+            // set a message
+            localStorage.setItem('successMessage', xhr.response.message);
+
+            // make a redirect
+            this.context.router.history.push('/parent-login');
+        
+        } else {
+            // failure
+
+            const errors = xhr.response.errors ? xhr.response.errors : {};
+            errors.summary = xhr.response.message;
+
+            this.setState({
+            errors
+            });
+            console.log(this.state.errors)
+        }
+        });
+        xhr.send(formData);
+    }
+
+    //Handle Parent Login/Signup Input Change
+    onParentInput(event) {
+        const field = event.target.name;
+        const parent = this.state.parent;
+        parent[field] = event.target.value;
+    
+        this.setState({
+          parent
+        });
+       
+    }
+
+    ///Handling parent Login
+    onParentLogin(event){
+            // prevent default action. in this case, action is the form submission event
+    event.preventDefault();
+    
+        // create a string for an HTTP body message
+        const parentEmail = encodeURIComponent(this.state.parent.parentEmail);
+        const parentPassword = encodeURIComponent(this.state.parent.parentPassword);
+        const formData = `email=${parentEmail}&password=${parentPassword}`;
+    
+        // create an AJAX request
+        const xhr = new XMLHttpRequest();
+        xhr.open('post', '/parent-auth/login');
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.responseType = 'json';
+        xhr.addEventListener('load', () => {
+          if (xhr.status === 200) {
+            // success
+            // change the component-container state
+            this.setState({
+              errors: {}
+            });
+    
+            // save the token
+            ParentAuth.authenticateUser(xhr.response);
     
     
             // change the current URL to /
-            this.context.router.history.push('/');
+            this.context.router.history.push('/parent');
+            // window.location.replace('/') 
+
           } else {
             // failure
     
@@ -185,6 +306,30 @@ class LandingPage extends Component {
                           </ModalFooter>
                         </Modal>
                     </div>
+                 
+                    <div>
+                    <Button color="primary" onClick={this.toggle2}>{this.props.buttonLabel}Parent Sign In</Button>
+                    <Modal isOpen={this.state.modal2} toggle={this.toggle2} className={this.props.className}>
+                      <ModalHeader toggle={this.toggle2}>Log In As A Parent</ModalHeader>
+                      <ModalBody>
+                          <form className="form" onSubmit={this.onParentLogin}>
+                            <input 
+                                onChange={this.onParentInput}
+                                errorText={this.state.errors.name}
+                                className="form-control" id="userID" type="text" name="parentEmail" placeholder="Username" /><br />
+
+                            <input 
+                                onChange={this.onParentInput}
+                                className="form-control" type="password" name="parentPassword" placeholder="Password" /><br />
+                            <Label>{this.state.errors.summary}</Label>
+                          </form>
+                      </ModalBody>
+                      <ModalFooter>
+                        <Button color="primary" type="submit" onClick={this.onParentLogin}>Sign In</Button>{' '}
+                        <Button color="secondary" onClick={this.toggle2}>Cancel</Button>
+                      </ModalFooter>
+                    </Modal>
+                </div>
                     <div className="title">
                         <div className="d-flex justify-content-center" id="smallheader"><img src={MCEDLogo} /></div>
                         <div className="d-flex justify-content-center" id="smallheader2">presents</div><br/>
@@ -259,18 +404,6 @@ class LandingPage extends Component {
                       <Row className="d-flex justify-content-center">
                           <Col md="6" id="rec">
                               <Form  onSubmit={this.onSignupSubmit}>
-                                  {/* <FormGroup className="signUpForm">
-                                      <Label for="nameInput">Parent's Name</Label>
-                                      <Input type="name" name="name" id="nameInput" placeholder="Enter Parent's Name" />
-                                  </FormGroup>
-                                  <FormGroup className="signUpForm">
-                                      <Label for="emailInput">Parent's Email</Label>
-                                      <Input type="email" name="email" id="emailInput" placeholder="Enter Parent's Email" />
-                                  </FormGroup>
-                                  <FormGroup className="signUpForm">
-                                      <Label for="pwInput">Parent's Password</Label>
-                                      <Input type="password" name="password" id="pwInput" placeholder="Enter Parent's Password" />
-                                  </FormGroup> */}
                                   <FormGroup className="signUpForm">
                                       <Label for="childNameInput">Child's Name (This will be the child's UserName)</Label>
                                       <Input 
@@ -288,8 +421,27 @@ class LandingPage extends Component {
                                         <Label>{this.state.errors.password}</Label>
                                   </FormGroup>
                                   <Button className="btn btn-primary d-flex justify-content-center" type="submit">Submit</Button>
-  
                               </Form>
+                              
+                              <Form onSubmit={this.onParentSignup}>
+                              <FormGroup className="signUpForm">
+                                  <Label for="emailInput">Parent's Email</Label>
+                                  <Input 
+                                    onChange={this.onParentInput}
+                                    value={this.state.parent.parentEmail}
+                                    type="email" name="parentEmail" id="emailInput" placeholder="Enter Parent's Email" />
+                                  <Label>{this.state.errors.name}</Label>  
+                              </FormGroup>
+                              <FormGroup className="signUpForm">
+                                  <Label for="pwInput">Parent's Password</Label>
+                                  <Input 
+                                    onChange={this.onParentInput}
+                                    value={this.state.parent.parentPassword}
+                                    type="password" name="parentPassword" id="pwInput" placeholder="Enter Parent's Password" />
+                                  <Label>{this.state.errors.password}</Label>
+                                </FormGroup>
+                              <Button className="btn btn-primary d-flex justify-content-center" type="submit">Submit</Button>                              
+                          </Form>
                           </Col>
                       </Row>
   
@@ -318,7 +470,7 @@ class LandingPage extends Component {
                       </div>
                       <div className="tail"></div>
                   </div>
-              </div>
+              </div>     
           </div>
           
     );

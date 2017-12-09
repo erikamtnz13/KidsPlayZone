@@ -20,6 +20,7 @@ router.get('/members/:id', kidsController.findOne)
 
 
 
+
 router.get('/chat', chatController.findAll)
 
 router.post('/chat', chatController.insertMessage)
