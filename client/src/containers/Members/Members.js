@@ -3,6 +3,7 @@ import Auth from '../../modules/Auth'
 import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 
 import './members.css';
+import profileIcon from '../../imgs/profile-icon.png';
 
 class Members extends React.Component{
 
@@ -43,6 +44,7 @@ class Members extends React.Component{
               <Card>
                 <CardBody>
                   <CardImg></CardImg>
+                  <img src =  {(members.img === 'placeholder') ? members.img &&  profileIcon : members.img && require("../../../../server/kidsPictures" + members.img)} />
                   <CardTitle className="memberNames" key={members.name}>{members.name}</CardTitle>
                   {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
                   <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
