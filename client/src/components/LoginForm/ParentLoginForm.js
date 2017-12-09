@@ -6,12 +6,12 @@ import './loginForm.css';
 
 
 
-const LoginForm = ({
+const ParentLoginForm = ({
   onSubmit,
   onChange,
   errors,
   successMessage,
-  user,
+  parent
 }) => (
   <Container className="flexcontainer">
     <Card className="login-card">
@@ -24,10 +24,10 @@ const LoginForm = ({
         <div className="field-line">
           <Input
             type="text"
-            name="name"
+            name="email"
             errorText={errors.email}
             onChange={onChange}
-            value={user.name}
+            value={parent.email}
           />
         </div>
 
@@ -37,7 +37,7 @@ const LoginForm = ({
             name="password"
             onChange={onChange}
             errorText={errors.password}
-            value={user.password}
+            value={parent.password}
           />
         </div>
 
@@ -51,12 +51,12 @@ const LoginForm = ({
   </Container>
 );
 
-LoginForm.propTypes = {
+ParentLoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   successMessage: PropTypes.string.isRequired,
-  user: PropTypes.object.isRequired
+  parent: PropTypes.object.isRequired
 };
 
-export default LoginForm;
+export default ParentLoginForm;

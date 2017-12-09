@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Auth from '../modules/Auth';
-import LoginForm from '../components/LoginForm/LoginForm.jsx';
+import ParentAuth from '../modules/ParentAuth';
+import ParentLoginForm from '../components/LoginForm/ParentLoginForm';
 import ReactDOM from 'react-dom';
 
-class LoginPage extends React.Component {
+class ParentLoginPage extends React.Component {
 
   /**
    * Class constructor.
@@ -56,15 +56,15 @@ class LoginPage extends React.Component {
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
         // success
-        // console.log(xhr.response.message)
-        console.log(xhr.response.kid)
+        console.log(xhr.response.message)
+        console.log(xhr.response)
         // change the component-container state
         this.setState({
           errors: {}
         });
 
         // save the token
-        Auth.authenticateUser(xhr.response);
+        ParentAuth.authenticateUser(xhr.response);
 
 
         // change the current URL to /
@@ -104,7 +104,7 @@ class LoginPage extends React.Component {
    */
   render() {
     return (
-      <LoginForm
+      <ParentLoginForm
         onSubmit={this.processForm}
         onChange={this.changeUser}
         errors={this.state.errors}
@@ -116,8 +116,8 @@ class LoginPage extends React.Component {
 
 }
 
-LoginPage.contextTypes = {
+ParentLoginPage.contextTypes = {
   router: PropTypes.object.isRequired
 };
 
-export default LoginPage;
+export default ParentLoginPage;

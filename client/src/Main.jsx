@@ -6,13 +6,12 @@ import ParentLogin from './containers/ParentLogin';
 import SignUpPage from './containers/SignUpPage.jsx';
 import ParentDashboard from './containers/ParentDashboard'
 import Auth from './modules/Auth';
+import ParentAuth from './modules/ParentAuth'
 
 import LandingPage from './containers/LandingPage/LandingPage'
 
-
 const Main = () => (
-
-  <Router history={browserHistory} >
+  <Router history={browserHistory} > 
   <div>
       <Route exact path="/"  render={() => 
         (Auth.isUserAuthenticated() ? (<Redirect to="/dashboard"/>) : (<LandingPage/>))}/>
@@ -21,6 +20,7 @@ const Main = () => (
       <Route exact path="/parent-login" component={ParentLogin} />
       <Route exact path="/parent" component={ParentDashboard} />
       <Route exact path="/dashboard" component={DashboardPage} />
+      
   </div>
   </Router>
 )

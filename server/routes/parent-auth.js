@@ -40,9 +40,9 @@ function validateLoginForm(payload) {
   let message = '';
  
 
-  if (!payload || typeof payload.email !== 'email' || payload.email.trim().length === 0) {
+  if (!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0) {
     isFormValid = false;
-    errors.rmail = 'Please provide your email.';
+    errors.email = 'Please provide your email.';
   }
 
   if (!payload || typeof payload.password !== 'string' || payload.password.trim().length === 0) {
@@ -111,7 +111,9 @@ router.post('/login', (req, res, next) => {
   }
 
   return passport.authenticate('parent-login', (err, token, parentData) => {
+
     if (err) {
+      console.log(err)
       if (err.name === 'IncorrectCredentialsError') {
         return res.status(400).json({
           success: false,
@@ -124,7 +126,6 @@ router.post('/login', (req, res, next) => {
         message: 'Could not process the form.'
       });
     }
-
 
     return res.json({
       success: true,

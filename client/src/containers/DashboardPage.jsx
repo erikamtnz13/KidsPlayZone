@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, browserHistory, Redirect} from 'react-router-dom';
 import Auth from '../modules/Auth'
+import ParentAuth from '../modules/ParentAuth'
 import Dashboard from '../components/Dashboard.jsx'
 import Navpills from '../components/Navpills/Navpills.jsx'
 import Jumbotron from '../components/Jumbotron'
@@ -58,7 +59,6 @@ class DashboardPage extends React.Component {
       <div>
         <Jumbotron />
         <Navpills >
-        
           <Route exact path='/'  render={() => 
             (Auth.isUserAuthenticated() ? (<Redirect to='/dashboard'/>) : (<LandingPage/>))}/>
           <Route exact path='/home' component={HomePage} />  

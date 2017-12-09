@@ -47,7 +47,9 @@ passport.use('parent-login', parentLoginStrategy);
 
 // pass the authenticaion checker middleware
 const authCheckMiddleware = require('./server/middleware/auth-check');
+const parentCheckMiddleware = require('./server/middleware/parent-check')
 app.use('/api', authCheckMiddleware);
+app.use('/parentapi', parentCheckMiddleware)
 
 // routes
 const authRoutes = require('./server/routes/auth');
@@ -57,6 +59,7 @@ const parentAuthRoutes = require('./server/routes/parent-auth.js')
 app.use('/auth', authRoutes);
 app.use('/parent-auth', parentAuthRoutes);
 app.use('/api', apiRoutes);
+app.use('/parentapi', apiRoutes)
 app.use('/upload', uploadRoute);
 
 app.post('/upload', kidsController.update)

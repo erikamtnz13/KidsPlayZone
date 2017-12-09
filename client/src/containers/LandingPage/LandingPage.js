@@ -14,6 +14,7 @@ import './sec2.css';
 import './sec3.css';
 
 import Auth from '../../modules/Auth'
+import ParentAuth from '../../modules/ParentAuth'
 
  
 class LandingPage extends Component {
@@ -22,6 +23,7 @@ class LandingPage extends Component {
     this.state = {
       current: 0,
       modal: false,
+      modal2: false,
       errors: {},
       user: {
           name: '',
@@ -34,6 +36,7 @@ class LandingPage extends Component {
     };
 
     this.toggle = this.toggle.bind(this);
+    this.toggle2 = this.toggle2.bind(this);
 
     this.onSignupSubmit = this.onSignupSubmit.bind(this)
     this.onLoginSubmit =  this.onLoginSubmit.bind(this)
@@ -54,6 +57,12 @@ class LandingPage extends Component {
     toggle() {
         this.setState({
         modal: !this.state.modal
+        });
+    }
+
+    toggle2() {
+        this.setState({
+        modal2: !this.state.modal2
         });
     }
 
@@ -121,7 +130,7 @@ class LandingPage extends Component {
     onLoginSubmit(event){
             // prevent default action. in this case, action is the form submission event
     event.preventDefault();
-    
+    console.log("is parent authenticated "+ParentAuth.isUserAuthenticated())
         // create a string for an HTTP body message
         const name = encodeURIComponent(this.state.user.name);
         const password = encodeURIComponent(this.state.user.password);
@@ -144,10 +153,9 @@ class LandingPage extends Component {
     
             // save the token
             Auth.authenticateUser(xhr.response);
-    
-    
-            // change the current URL to /
+                // change the current URL to /
             this.context.router.history.push('/');
+            // window.location.replace('/') 
           } else {
             // failure
     
@@ -247,11 +255,13 @@ class LandingPage extends Component {
             });
     
             // save the token
-            Auth.authenticateUser(xhr.response);
+            ParentAuth.authenticateUser(xhr.response);
     
     
             // change the current URL to /
             this.context.router.history.push('/parent');
+            // window.location.replace('/') 
+
           } else {
             // failure
     
@@ -296,6 +306,30 @@ class LandingPage extends Component {
                           </ModalFooter>
                         </Modal>
                     </div>
+                 
+                    <div>
+                    <Button color="primary" onClick={this.toggle2}>{this.props.buttonLabel}Parent Sign In</Button>
+                    <Modal isOpen={this.state.modal2} toggle={this.toggle2} className={this.props.className}>
+                      <ModalHeader toggle={this.toggle2}>Log In As A Parent</ModalHeader>
+                      <ModalBody>
+                          <form className="form" onSubmit={this.onParentLogin}>
+                            <input 
+                                onChange={this.onParentInput}
+                                errorText={this.state.errors.name}
+                                className="form-control" id="userID" type="text" name="parentEmail" placeholder="Username" /><br />
+
+                            <input 
+                                onChange={this.onParentInput}
+                                className="form-control" type="password" name="parentPassword" placeholder="Password" /><br />
+                            <Label>{this.state.errors.summary}</Label>
+                          </form>
+                      </ModalBody>
+                      <ModalFooter>
+                        <Button color="primary" type="submit" onClick={this.onParentLogin}>Sign In</Button>{' '}
+                        <Button color="secondary" onClick={this.toggle2}>Cancel</Button>
+                      </ModalFooter>
+                    </Modal>
+                </div>
                     <div className="title">
                         <div className="d-flex justify-content-center" id="smallheader"><img src={MCEDLogo} /></div>
                         <div className="d-flex justify-content-center" id="smallheader2">presents</div><br/>

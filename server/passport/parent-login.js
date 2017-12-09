@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const Kid = require('mongoose').model('Kid');
+const Parent = require('mongoose').model('Parent');
 const PassportLocalStrategy = require('passport-local').Strategy;
 const config = require('../../config');
 
@@ -16,11 +16,13 @@ module.exports = new PassportLocalStrategy({
     password: req.body.password.trim()
   };
 
-  // find a kid by name
+  // find a parent by email
   return Parent.findOne({ email: parentData.email }, (err, parent) => {
+   
     if (err) { return done(err); }
 
     if (!parent) {
+
       const error = new Error('Incorrect name or password');
       error.name = 'IncorrectCredentialsError';
 
@@ -48,6 +50,7 @@ module.exports = new PassportLocalStrategy({
         email: parent.email,
         id: parent._id
       };
+    
 
       return done(null, token, data);
     });
