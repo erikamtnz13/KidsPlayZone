@@ -229,3 +229,30 @@ html, body {
         font-size: 0.70em;
     }
  }
+
+
+ /* Mobile Devices */
+ @media only screen and (max-device-width: 480px) {
+
+    #section0 {
+        height: 95vh;
+    }
+    
+    #section1 {
+        height: 50vh !important;
+    }
+
+    #smallheader {
+        font-size: 1em;
+    }
+    
+    #smallheader2 {
+        font-size: 2em;
+    }
+
+    #header1,
+    #header2,
+    #header3 {
+        font-size: 15em;
+    }
+}

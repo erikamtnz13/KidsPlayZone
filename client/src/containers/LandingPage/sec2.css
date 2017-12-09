@@ -30,6 +30,11 @@
 #sec2columns {
     padding: 0 5%;
 }
+
 .step {
     margin-bottom: 10%; 
+}
+
+#join-text {
+    margin-bottom: 2em;
 }

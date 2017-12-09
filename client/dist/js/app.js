@@ -12855,7 +12855,7 @@ var LandingPage = function (_Component) {
                         { className: 'justify-content-center', id: 'bottomheader' },
                         _react2.default.createElement(
                             'h2',
-                            null,
+                            { id: 'join-text' },
                             'Ready to join?'
                         )
                     )
@@ -43274,7 +43274,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "h1{\n    font-size: 5em;\n    font-family: catamaran;\n    color: #685ce9;\n    margin:0;\n    padding:0;\n    font-size: 6em;\n    text-shadow: 2px 2px #000;\n}\n\n/* Centered texts in each section\n* --------------------------------------- */\n.section{\n    text-align:center;\n}\n\n\n#section0 {\n    height: 110vh;\n}\n\n/* Defining each section background and styles\n* --------------------------------------- */\n\n#section2{\n\tbackground: #0094d5;\n\tpadding: 6% 0 0 0;\n}\n\n#section3{\n\tbackground: #0094d5;\n\tpadding: 6% 0 0 0;\n}\n\n*{ margin: 0; padding: 0;}\n\nhtml, body {\n    height: 100%;\n    width: 100%;\n    /*To hide the horizontal scroller appearing during the animation*/\n    overflow-x: hidden;\n}\n\n#clouds{\n    padding: 40px 0;\n    background: #0094d5;\n    height: 100%;\n    width: 100%;\n}\n\n/*Time to finalise the cloud shape*/\n.cloud {\n    width: 200px; height: 60px;\n    background: #fff;\n\n    border-radius: 200px;\n    -moz-border-radius: 200px;\n    -webkit-border-radius: 200px;\n\n    position: relative;\n}\n\n.cloud:before, .cloud:after {\n    content: '';\n    position: absolute;\n    background: #fff;\n    width: 100px; height: 80px;\n    position: absolute; top: -15px; left: 10px;\n\n    border-radius: 100px;\n    -moz-border-radius: 100px;\n    -webkit-border-radius: 100px;\n\n    -webkit-transform: rotate(30deg);\n    transform: rotate(30deg);\n    -moz-transform: rotate(30deg);\n}\n\n.cloud:after {\n    width: 120px; height: 120px;\n    top: -55px; left: auto; right: 15px;\n}\n\n/*Time to animate*/\n.x1 {\n    left: 100px;\n\n    -webkit-animation: moveclouds 130s linear infinite;\n    -moz-animation: moveclouds 130s linear infinite;\n    -o-animation: moveclouds 130s linear infinite;\n}\n\n/*variable speed, opacity, and position of clouds for realistic effect*/\n.x2 {\n    left: 500px;\n\n    -webkit-transform: scale(0.6);\n    -moz-transform: scale(0.6);\n    transform: scale(0.6);\n    opacity: 0.6; /*opacity proportional to the size*/\n\n    /*Speed will also be proportional to the size and opacity*/\n    /*More the speed. Less the time in 's' = seconds*/\n    -webkit-animation: moveclouds 370s linear infinite;\n    -moz-animation: moveclouds 370s linear infinite;\n    -o-animation: moveclouds 370s linear infinite;\n}\n\n.x3 {\n    left: 900px; top: -300px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 275s linear infinite;\n    -moz-animation: moveclouds 275s linear infinite;\n    -o-animation: moveclouds 275s linear infinite;\n}\n\n.x4 {\n    left: -450px; top: -275px;\n\n    -webkit-transform: scale(0.75);\n    -moz-transform: scale(0.75);\n    transform: scale(0.75);\n    opacity: 0.75; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 88s linear infinite;\n    -moz-animation: moveclouds 88s linear infinite;\n    -o-animation: moveclouds 88s linear infinite;\n}\n\n.x5 {\n    left: 350px; top: -820px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 225s linear infinite;\n    -moz-animation: moveclouds 225s linear infinite;\n    -o-animation: moveclouds 225s linear infinite;\n}\n\n.x6 {\n    left: 750px; top: -170px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 120s linear infinite;\n    -moz-animation: moveclouds 120s linear infinite;\n    -o-animation: moveclouds 120s linear infinite;\n}\n\n.x7 {\n    left: 500px; top: -650px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 38s linear infinite;\n    -moz-animation: moveclouds 38s linear infinite;\n    -o-animation: moveclouds 38s linear infinite;\n}\n\n@-webkit-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n@-moz-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n@-o-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n\n#header1,\n#header2,\n#header3 {\n    font-family: 'Sniglet', cursive;\n    font-size: 8em;\n    margin-top: -60px;\n    color: #ffb140;\n    text-shadow: 4px 4px #000;\n}\n\n#smallheader,\n#smallheader2 {\n    font-family: 'Catamaran', cursive;\n\n}\n\n#smallheader {\n    font-size: 3em;\n    margin-bottom: 10px;\n    padding-top: 70px;\n}\n\n#smallheader2 {\n    font-size: 1.8em;\n    margin-bottom: 25px;\n    color: #fff;\n}\n\n@media screen and (max-width: 1265px) { \n    .stepText {\n        font-size: 0.90em;\n    }\n }\n\n @media screen and (max-width: 1200px) { \n    .stepText {\n        font-size: 0.80em;\n    }\n }\n\n @media screen and (max-width: 890px) { \n    .stepText {\n        font-size: 0.70em;\n    }\n }", ""]);
+exports.push([module.i, "h1{\n    font-size: 5em;\n    font-family: catamaran;\n    color: #685ce9;\n    margin:0;\n    padding:0;\n    font-size: 6em;\n    text-shadow: 2px 2px #000;\n}\n\n/* Centered texts in each section\n* --------------------------------------- */\n.section{\n    text-align:center;\n}\n\n\n#section0 {\n    height: 110vh;\n}\n\n/* Defining each section background and styles\n* --------------------------------------- */\n\n#section2{\n\tbackground: #0094d5;\n\tpadding: 6% 0 0 0;\n}\n\n#section3{\n\tbackground: #0094d5;\n\tpadding: 6% 0 0 0;\n}\n\n*{ margin: 0; padding: 0;}\n\nhtml, body {\n    height: 100%;\n    width: 100%;\n    /*To hide the horizontal scroller appearing during the animation*/\n    overflow-x: hidden;\n}\n\n#clouds{\n    padding: 40px 0;\n    background: #0094d5;\n    height: 100%;\n    width: 100%;\n}\n\n/*Time to finalise the cloud shape*/\n.cloud {\n    width: 200px; height: 60px;\n    background: #fff;\n\n    border-radius: 200px;\n    -moz-border-radius: 200px;\n    -webkit-border-radius: 200px;\n\n    position: relative;\n}\n\n.cloud:before, .cloud:after {\n    content: '';\n    position: absolute;\n    background: #fff;\n    width: 100px; height: 80px;\n    position: absolute; top: -15px; left: 10px;\n\n    border-radius: 100px;\n    -moz-border-radius: 100px;\n    -webkit-border-radius: 100px;\n\n    -webkit-transform: rotate(30deg);\n    transform: rotate(30deg);\n    -moz-transform: rotate(30deg);\n}\n\n.cloud:after {\n    width: 120px; height: 120px;\n    top: -55px; left: auto; right: 15px;\n}\n\n/*Time to animate*/\n.x1 {\n    left: 100px;\n\n    -webkit-animation: moveclouds 130s linear infinite;\n    -moz-animation: moveclouds 130s linear infinite;\n    -o-animation: moveclouds 130s linear infinite;\n}\n\n/*variable speed, opacity, and position of clouds for realistic effect*/\n.x2 {\n    left: 500px;\n\n    -webkit-transform: scale(0.6);\n    -moz-transform: scale(0.6);\n    transform: scale(0.6);\n    opacity: 0.6; /*opacity proportional to the size*/\n\n    /*Speed will also be proportional to the size and opacity*/\n    /*More the speed. Less the time in 's' = seconds*/\n    -webkit-animation: moveclouds 370s linear infinite;\n    -moz-animation: moveclouds 370s linear infinite;\n    -o-animation: moveclouds 370s linear infinite;\n}\n\n.x3 {\n    left: 900px; top: -300px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 275s linear infinite;\n    -moz-animation: moveclouds 275s linear infinite;\n    -o-animation: moveclouds 275s linear infinite;\n}\n\n.x4 {\n    left: -450px; top: -275px;\n\n    -webkit-transform: scale(0.75);\n    -moz-transform: scale(0.75);\n    transform: scale(0.75);\n    opacity: 0.75; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 88s linear infinite;\n    -moz-animation: moveclouds 88s linear infinite;\n    -o-animation: moveclouds 88s linear infinite;\n}\n\n.x5 {\n    left: 350px; top: -820px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 225s linear infinite;\n    -moz-animation: moveclouds 225s linear infinite;\n    -o-animation: moveclouds 225s linear infinite;\n}\n\n.x6 {\n    left: 750px; top: -170px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 120s linear infinite;\n    -moz-animation: moveclouds 120s linear infinite;\n    -o-animation: moveclouds 120s linear infinite;\n}\n\n.x7 {\n    left: 500px; top: -650px;\n\n    -webkit-transform: scale(0.8);\n    -moz-transform: scale(0.8);\n    transform: scale(0.8);\n    opacity: 0.8; /*opacity proportional to the size*/\n\n    -webkit-animation: moveclouds 38s linear infinite;\n    -moz-animation: moveclouds 38s linear infinite;\n    -o-animation: moveclouds 38s linear infinite;\n}\n\n@-webkit-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n@-moz-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n@-o-keyframes moveclouds {\n    0% {margin-left: 1000px;}\n    100% {margin-left: -1000px;}\n}\n\n#header1,\n#header2,\n#header3 {\n    font-family: 'Sniglet', cursive;\n    font-size: 8em;\n    margin-top: -60px;\n    color: #ffb140;\n    text-shadow: 4px 4px #000;\n}\n\n#smallheader,\n#smallheader2 {\n    font-family: 'Catamaran', cursive;\n\n}\n\n#smallheader {\n    font-size: 3em;\n    margin-bottom: 10px;\n    padding-top: 70px;\n}\n\n#smallheader2 {\n    font-size: 1.8em;\n    margin-bottom: 25px;\n    color: #fff;\n}\n\n@media screen and (max-width: 1265px) { \n    .stepText {\n        font-size: 0.90em;\n    }\n }\n\n @media screen and (max-width: 1200px) { \n    .stepText {\n        font-size: 0.80em;\n    }\n }\n\n @media screen and (max-width: 890px) { \n    .stepText {\n        font-size: 0.70em;\n    }\n }\n\n\n /* Mobile Devices */\n @media only screen and (max-device-width: 480px) {\n\n    #section0 {\n        height: 95vh;\n    }\n    \n    #section1 {\n        height: 50vh !important;\n    }\n\n    #smallheader {\n        font-size: 1em;\n    }\n    \n    #smallheader2 {\n        font-size: 2em;\n    }\n\n    #header1,\n    #header2,\n    #header3 {\n        font-size: 15em;\n    }\n}", ""]);
 
 // exports
 
@@ -43364,7 +43364,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "#column1 {\n    background: #e21b2d;\n}\n\n\n#column2 {\n    background: #ffb140;\n}\n\n#column3 {\n    background: #73AD21;\n}\n\n#column4 {\n    background: #fe799f ;\n}\n\n#column1,\n#column2,\n#column3,\n#column4 {\n    border-radius: 25px;\n    border: 10px solid #0094d5;\n    margin-top: 50px;\n    padding-top: 30px;\n    height: 400px;\n    font-size: 1.6em;\n}\n\n#sec2columns {\n    padding: 0 5%;\n}\n.step {\n    margin-bottom: 10%; \n}", ""]);
+exports.push([module.i, "#column1 {\n    background: #e21b2d;\n}\n\n\n#column2 {\n    background: #ffb140;\n}\n\n#column3 {\n    background: #73AD21;\n}\n\n#column4 {\n    background: #fe799f ;\n}\n\n#column1,\n#column2,\n#column3,\n#column4 {\n    border-radius: 25px;\n    border: 10px solid #0094d5;\n    margin-top: 50px;\n    padding-top: 30px;\n    height: 400px;\n    font-size: 1.6em;\n}\n\n#sec2columns {\n    padding: 0 5%;\n}\n\n.step {\n    margin-bottom: 10%; \n}\n\n#join-text {\n    margin-bottom: 2em;\n}", ""]);
 
 // exports
 
@@ -43698,7 +43698,8 @@ var LoginForm = function LoginForm(_ref) {
             name: 'name',
             errorText: errors.email,
             onChange: onChange,
-            value: user.email
+            value: user.email,
+            placeholder: 'Child Username'
           })
         ),
         _react2.default.createElement(
@@ -43709,7 +43710,8 @@ var LoginForm = function LoginForm(_ref) {
             name: 'password',
             onChange: onChange,
             errorText: errors.password,
-            value: user.password
+            value: user.password,
+            placeholder: 'Child Password'
           })
         ),
         _react2.default.createElement(
@@ -43787,7 +43789,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, ".flexcontainer {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n }\n\n\n .field-line {\n     margin-bottom: 2%;\n }\n\n .card-heading, \n .success-message, \n .error-message, \n .cardText {\n     text-align: center;\n }\n\n .login-card {\n     padding: 5%;\n }", ""]);
+exports.push([module.i, ".flexcontainer {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n }\n\n\n .field-line {\n     margin-bottom: 2%;\n }\n\n .card-heading, \n .success-message, \n .error-message, \n .cardText {\n     text-align: center;\n }\n\n .login-card {\n     padding: 5%;\n     width: 30em;\n }", ""]);
 
 // exports
 
@@ -43969,6 +43971,8 @@ var _reactRouterDom = __webpack_require__(17);
 
 var _reactstrap = __webpack_require__(9);
 
+__webpack_require__(225);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SignUpForm = function SignUpForm(_ref) {
@@ -43977,60 +43981,66 @@ var SignUpForm = function SignUpForm(_ref) {
       errors = _ref.errors,
       user = _ref.user;
   return _react2.default.createElement(
-    _reactstrap.Card,
-    { className: 'container' },
+    _reactstrap.Container,
+    { className: 'flexcontainer' },
     _react2.default.createElement(
-      'form',
-      { action: '/', onSubmit: onSubmit },
+      _reactstrap.Card,
+      { className: 'signup-card' },
       _react2.default.createElement(
-        'h2',
-        { className: 'card-heading' },
-        'Sign Up'
-      ),
-      errors.summary && _react2.default.createElement(
-        'p',
-        { className: 'error-message' },
-        errors.summary
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'field-line' },
-        _react2.default.createElement(_reactstrap.Input, {
-          type: 'text',
-          name: 'name',
-          errorText: errors.name,
-          onChange: onChange,
-          value: user.name
-        })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'field-line' },
-        _react2.default.createElement(_reactstrap.Input, {
-          type: 'password',
-          name: 'password',
-          onChange: onChange,
-          errorText: errors.password,
-          value: user.password
-        })
-      ),
-      _react2.default.createElement(
-        'div',
-        { className: 'button-line' },
+        'form',
+        { action: '/', onSubmit: onSubmit },
         _react2.default.createElement(
-          _reactstrap.Button,
-          { color: 'info' },
-          'Create New Account'
-        )
-      ),
-      _react2.default.createElement(
-        _reactstrap.CardText,
-        null,
-        'Already have an account? ',
+          'h2',
+          { className: 'card-heading' },
+          'Sign Up'
+        ),
+        errors.summary && _react2.default.createElement(
+          'p',
+          { className: 'error-message' },
+          errors.summary
+        ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/login' },
-          'Log in'
+          'div',
+          { className: 'field-line' },
+          _react2.default.createElement(_reactstrap.Input, {
+            type: 'text',
+            name: 'name',
+            errorText: errors.name,
+            onChange: onChange,
+            value: user.name,
+            placeholder: 'Child\'s Username'
+          })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'field-line' },
+          _react2.default.createElement(_reactstrap.Input, {
+            type: 'password',
+            name: 'password',
+            onChange: onChange,
+            errorText: errors.password,
+            value: user.password,
+            placeholder: 'Child\'s Password'
+          })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'button-line' },
+          _react2.default.createElement(
+            _reactstrap.Button,
+            { color: 'primary', className: 'btn-block' },
+            'Create New Account'
+          )
+        ),
+        _react2.default.createElement(
+          _reactstrap.CardText,
+          { className: 'cardText' },
+          'Already have an account? ',
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/login' },
+            'Log in'
+          )
         )
       )
     )
@@ -44045,6 +44055,51 @@ SignUpForm.propTypes = {
 };
 
 exports.default = SignUpForm;
+
+/***/ }),
+/* 225 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(226);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(5)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!./signUpForm.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!./signUpForm.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 226 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".flexcontainer {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    height: 100vh;\r\n }\r\n\r\n\r\n .field-line {\r\n     margin-bottom: 2%;\r\n }\r\n\r\n .card-heading, \r\n .success-message, \r\n .error-message, \r\n .cardText {\r\n     text-align: center;\r\n }\r\n\r\n .signup-card {\r\n     padding: 5%;\r\n     width: 30em;\r\n }", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);
