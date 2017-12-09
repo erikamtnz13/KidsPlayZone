@@ -212,6 +212,14 @@ html, body {
     color: #fff;
 }
 
+#childLogInBtn {
+    float: right;
+}
+
+#parentLogInBtn {
+    float: left;
+}
+
 @media screen and (max-width: 1265px) { 
     .stepText {
         font-size: 0.90em;

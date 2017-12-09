@@ -40,7 +40,7 @@ class UserProfile extends React.Component {
       <div className="container">
         <h3 className="tabTitle">User Profile</h3>
         <div className="flex-container">
-        <img src =  {(this.state.kid.img === 'placeholder') ? this.state.kid.img &&  profileIcon : this.state.kid.img && require("../../../server/kidsPictures" + this.state.kid.img)} />
+        <img className="userImage" src =  {(this.state.kid.img === 'placeholder') ? this.state.kid.img &&  profileIcon : this.state.kid.img && require("../../../server/kidsPictures" + this.state.kid.img)} />
         </div>
         <Form ref='uploadForm' 
           id='uploadForm'

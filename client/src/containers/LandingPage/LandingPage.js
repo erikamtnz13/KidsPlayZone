@@ -283,10 +283,11 @@ class LandingPage extends Component {
             <div>
               <div className="section" id="section0">
                   <div id="clouds">
-                    <div>
-                        <Button color="primary" onClick={this.toggle}>{this.props.buttonLabel}Sign In</Button>
+                    <Row>
+                        <Col md="6">
+                        <Button id="childLogInBtn" color="primary" onClick={this.toggle}>{this.props.buttonLabel}Child Log In</Button>
                         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                          <ModalHeader toggle={this.toggle}>Log In</ModalHeader>
+                          <ModalHeader toggle={this.toggle}>Log In as a Child</ModalHeader>
                           <ModalBody>
                               <form className="form" onSubmit={this.onLoginSubmit}>
                                 <input 
@@ -305,12 +306,11 @@ class LandingPage extends Component {
                             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                           </ModalFooter>
                         </Modal>
-                    </div>
-                 
-                    <div>
-                    <Button color="primary" onClick={this.toggle2}>{this.props.buttonLabel}Parent Sign In</Button>
+                        </Col>
+                    <Col md="6">
+                    <Button id="parentLogInBtn" color="primary" onClick={this.toggle2}>{this.props.buttonLabel}Parent Log In</Button>
                     <Modal isOpen={this.state.modal2} toggle={this.toggle2} className={this.props.className}>
-                      <ModalHeader toggle={this.toggle2}>Log In As A Parent</ModalHeader>
+                      <ModalHeader toggle={this.toggle2}>Log In as a Parent</ModalHeader>
                       <ModalBody>
                           <form className="form" onSubmit={this.onParentLogin}>
                             <input 
@@ -329,7 +329,8 @@ class LandingPage extends Component {
                         <Button color="secondary" onClick={this.toggle2}>Cancel</Button>
                       </ModalFooter>
                     </Modal>
-                </div>
+                    </Col>
+                </Row>
                     <div className="title">
                         <div className="d-flex justify-content-center" id="smallheader"><img src={MCEDLogo} /></div>
                         <div className="d-flex justify-content-center" id="smallheader2">presents</div><br/>
@@ -412,7 +413,7 @@ class LandingPage extends Component {
                                         type="childName" name="name" id="childNameInput" placeholder="Enter Child's Name" />
                                         <Label>{this.state.errors.name}</Label>
                                   </FormGroup>
-                                  <FormGroup className="signUpForm">
+                                  <FormGroup id="childPw" className="signUpForm">
                                       <Label for="childPwInput">Child's Password</Label>
                                       <Input 
                                         onChange={this.onInputChange}
@@ -420,11 +421,11 @@ class LandingPage extends Component {
                                         type="password" name="password" id="childPwInput" placeholder="Enter Child's Password" />
                                         <Label>{this.state.errors.password}</Label>
                                   </FormGroup>
-                                  <Button className="btn btn-primary d-flex justify-content-center" type="submit">Submit</Button>
+                                  <Button id="childBtn" className="btn btn-primary d-flex justify-content-center" type="submit">Submit</Button>
                               </Form>
                               
                               <Form onSubmit={this.onParentSignup}>
-                              <FormGroup className="signUpForm">
+                              <FormGroup id="parentEmail" className="signUpForm">
                                   <Label for="emailInput">Parent's Email</Label>
                                   <Input 
                                     onChange={this.onParentInput}
@@ -432,7 +433,7 @@ class LandingPage extends Component {
                                     type="email" name="parentEmail" id="emailInput" placeholder="Enter Parent's Email" />
                                   <Label>{this.state.errors.name}</Label>  
                               </FormGroup>
-                              <FormGroup className="signUpForm">
+                              <FormGroup id="parentPw" className="signUpForm">
                                   <Label for="pwInput">Parent's Password</Label>
                                   <Input 
                                     onChange={this.onParentInput}
@@ -440,7 +441,7 @@ class LandingPage extends Component {
                                     type="password" name="parentPassword" id="pwInput" placeholder="Enter Parent's Password" />
                                   <Label>{this.state.errors.password}</Label>
                                 </FormGroup>
-                              <Button className="btn btn-primary d-flex justify-content-center" type="submit">Submit</Button>                              
+                              <Button id="parentBtn" className="btn btn-primary d-flex justify-content-center" type="submit">Submit</Button>                              
                           </Form>
                           </Col>
                       </Row>

@@ -391,3 +391,13 @@
   }
 }
 
+#childPw,
+#childBtn,
+#parentPw,
+#parentBtn {
+  margin-top: -40px;
+}
+
+#parentEmail {
+  margin-top: 2em;
+}

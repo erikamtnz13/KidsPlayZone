@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Route, browserHistory, Redirect} from 'react-r
 import { Link } from 'react-router-dom';
 import ParentAuth from '../modules/ParentAuth'
 import { Container, Row, Col, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+  CardTitle, Button } from 'reactstrap';
 import LandingPage from './LandingPage/LandingPage'
+import profileIcon from '../imgs/profile-icon.png'
+import './parentDashboard.css'
 
 
 class Members extends React.Component{
@@ -40,27 +42,30 @@ class Members extends React.Component{
     return (
       <Router history={browserHistory} >
       <div>
-        <h3>Members</h3>
-        <button><Link to="/parentlogout">Log Out</Link></button>
-        <Row>
-          <Col md="4">
+        <Container>
+          <h3 className="tabTitle">Members</h3>
+          <Row>
+            <Button color="warning" id="parentLogoutBtn"><Link to="/parentlogout">Log Out</Link></Button>
+          </Row>
+          <Row>
             {members.map(members =>
-              <Card>
-                <CardBody>
-                  <CardTitle key={members.name}>{members.name}</CardTitle>
-                  <CardSubtitle>Card subtitle</CardSubtitle>
-                  <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                  <Button>Button</Button> 
-                </CardBody>
-              </Card>
+              <Col xs="12" md="4">  
+                <Card>
+                  <CardBody>
+                  <CardImg className="membersImage" src =  {(members.img === 'placeholder') ? members.img &&  profileIcon : members.img && require("../../../server/kidsPictures" + members.img)}></CardImg>
+                    <CardTitle className="memberNames" key={members.name}>{members.name}</CardTitle>
+                    <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                  </CardBody>
+                </Card>
+              </Col>
             )}
-          </Col>
-        </Row>
-        <Route exact path='/parentlogout'  render={ () => {
-          console.log(ParentAuth)
-          ParentAuth.deauthenticateUser()
-          window.location.replace('/')  
-        }}/>
+          </Row>
+          <Route exact path='/parentlogout'  render={ () => {
+            console.log(ParentAuth)
+            ParentAuth.deauthenticateUser()
+            window.location.replace('/')  
+          }}/>
+        </Container>
       </div>
     </Router>
     )
