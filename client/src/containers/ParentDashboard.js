@@ -59,7 +59,6 @@ class Members extends React.Component{
         <Route exact path='/parentlogout'  render={ () => {
           console.log(ParentAuth)
           ParentAuth.deauthenticateUser()
-          // (<LandingPage/>)
           window.location.replace('/')  
         }}/>
       </div>
