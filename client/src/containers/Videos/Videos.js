@@ -98,7 +98,7 @@ class Videos extends React.Component{
           <ModalBody>
             <div className="modal-video">
               <div className="embed-responsive embed-responsive-16by9">
-                <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${this.state.currentVideoId}?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0`}
+                <iframe className="embed-responsive-item" src={`https://www.youtube.com/embed/${this.state.currentVideoId}?autoplay=1&controls=0&modestbranding=1&rel=0&showinfo=0`} 
                 ></iframe>
               </div>
             </div>

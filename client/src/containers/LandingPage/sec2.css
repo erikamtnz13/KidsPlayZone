@@ -20,13 +20,21 @@
 #column3,
 #column4 {
     border-radius: 25px;
-    margin: 20px;
+    border: 10px solid #0094d5;
     margin-top: 50px;
     padding-top: 30px;
     height: 400px;
     font-size: 1.6em;
 }
 
+#sec2columns {
+    padding: 0 5%;
+}
+
 .step {
     margin-bottom: 10%; 
+}
+
+#join-text {
+    margin-bottom: 2em;
 }
