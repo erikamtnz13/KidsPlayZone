@@ -19,3 +19,8 @@
     display: flex;
     justify-content: center;
 }
+
+.userImage {
+    height: 400px;
+    width: auto;
+}
