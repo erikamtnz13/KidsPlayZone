@@ -247,7 +247,7 @@ class LandingPage extends Component {
                       <Col sm="6" md="3" id="column4"><h2 className="step">STEP 4</h2><p className="stepText">Parents automatically become Moderators and are able to see children's activities via the dashboard.</p></Col>
                   </Row>
                   <Row className="justify-content-center" id="bottomheader">
-                      <h2>Ready to join?</h2>
+                      <h2 id="join-text">Ready to join?</h2>
                   </Row>
               </div>
   
