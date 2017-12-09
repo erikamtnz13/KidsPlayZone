@@ -44,9 +44,7 @@ class Members extends React.Component{
               <Card>
                 <CardBody>
                   <CardImg className="membersImage" src =  {(members.img === 'placeholder') ? members.img &&  profileIcon : members.img && require("../../../../server/kidsPictures" + members.img)}></CardImg>
-                  {/* <img src =  {(members.img === 'placeholder') ? members.img &&  profileIcon : members.img && require("../../../../server/kidsPictures" + members.img)} /> */}
                   <CardTitle className="memberNames" key={members.name}>{members.name}</CardTitle>
-                  {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
                   <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
                 </CardBody>
               </Card>
