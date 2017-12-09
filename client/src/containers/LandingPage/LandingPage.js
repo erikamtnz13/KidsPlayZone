@@ -283,8 +283,9 @@ class LandingPage extends Component {
             <div>
               <div className="section" id="section0">
                   <div id="clouds">
-                    <div>
-                        <Button color="primary" onClick={this.toggle}>{this.props.buttonLabel}Child Log In</Button>
+                    <Row>
+                        <Col md="6">
+                        <Button id="childLogInBtn" color="primary" onClick={this.toggle}>{this.props.buttonLabel}Child Log In</Button>
                         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                           <ModalHeader toggle={this.toggle}>Log In as a Child</ModalHeader>
                           <ModalBody>
@@ -305,10 +306,9 @@ class LandingPage extends Component {
                             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                           </ModalFooter>
                         </Modal>
-                    </div>
-                 
-                    <div>
-                    <Button color="primary" onClick={this.toggle2}>{this.props.buttonLabel}Parent Log In</Button>
+                        </Col>
+                    <Col md="6">
+                    <Button id="parentLogInBtn" color="primary" onClick={this.toggle2}>{this.props.buttonLabel}Parent Log In</Button>
                     <Modal isOpen={this.state.modal2} toggle={this.toggle2} className={this.props.className}>
                       <ModalHeader toggle={this.toggle2}>Log In as a Parent</ModalHeader>
                       <ModalBody>
@@ -329,7 +329,8 @@ class LandingPage extends Component {
                         <Button color="secondary" onClick={this.toggle2}>Cancel</Button>
                       </ModalFooter>
                     </Modal>
-                </div>
+                    </Col>
+                </Row>
                     <div className="title">
                         <div className="d-flex justify-content-center" id="smallheader"><img src={MCEDLogo} /></div>
                         <div className="d-flex justify-content-center" id="smallheader2">presents</div><br/>
