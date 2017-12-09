@@ -4,6 +4,7 @@ import axios from "axios";
 import Auth from "../modules/Auth"
 import { Container, Button, Form, Row, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './userprofile.css';
+import profileIcon from '../imgs/profile-icon.png';
 
 
 class UserProfile extends React.Component {
@@ -39,7 +40,7 @@ class UserProfile extends React.Component {
       <div className="container">
         <h3 className="tabTitle">User Profile</h3>
         <div className="flex-container">
-          <Image/>
+        <img src =  {(this.state.kid.img === 'placeholder') ? this.state.kid.img &&  profileIcon : this.state.kid.img && require("../../../server/kidsPictures" + this.state.kid.img)} />
         </div>
         <Form ref='uploadForm' 
           id='uploadForm'

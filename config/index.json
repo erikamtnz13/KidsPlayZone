@@ -1,4 +1,4 @@
 {
-    "dbUri": "mongodb://localhost/kidsplayzone",
+    "dbUri": "mongodb://heroku_zwfbcdfp:q4d0q1cv6q8dv1mte9ja966cff@ds133816.mlab.com:33816/heroku_zwfbcdfp",
     "jwtSecret": "charcoal"
   }
