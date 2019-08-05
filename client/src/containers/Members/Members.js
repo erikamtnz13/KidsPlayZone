@@ -1,8 +1,9 @@
 import React from 'react';
 import Auth from '../../modules/Auth'
-import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Row, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 
 import './members.css';
+import profileIcon from '../../imgs/profile-icon.png';
 
 class Members extends React.Component{
 
@@ -42,11 +43,9 @@ class Members extends React.Component{
             <Col xs="12" md="4">
               <Card>
                 <CardBody>
-                  <CardImg></CardImg>
-                  <CardTitle key={members.name}>{members.name}</CardTitle>
-                  {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
+                  <CardImg className="membersImage" src =  {(members.img === 'placeholder') ? members.img &&  profileIcon : members.img && require("../../../../server/kidsPictures" + members.img)}></CardImg>
+                  <CardTitle className="memberNames" key={members.name}>{members.name}</CardTitle>
                   <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                  <Button color="warning">Chat</Button> 
                 </CardBody>
               </Card>
             </Col>

@@ -1,10 +1,15 @@
 {
   "name": "KidsPlayZone",
   "version": "1.0.0",
+  "engines": {
+    "node": "7.10.0",
+    "npm": "4.2.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --use_strict index.js",
+    "start": "node index.js",
+    "start2": "nodemon --use_strict index.js",
     "bundle": "webpack"
   },
   "keywords": [],
@@ -17,11 +22,13 @@
     "bootstrap": "^4.0.0-beta",
     "express": "^4.16.2",
     "jquery": "^3.2.1",
+    "express-fileupload": "^0.3.0",
     "jsonwebtoken": "^8.1.0",
     "material-ui": "^0.19.4",
     "mongoose": "^4.13.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",

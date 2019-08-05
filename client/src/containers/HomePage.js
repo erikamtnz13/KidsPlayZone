@@ -10,7 +10,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className="container">
-        <h3>Home Page</h3>
+        <h3 className="tabTitle">Chat Room</h3>
         <HomeChatroom/>
 
       </div>

@@ -1,3 +1,26 @@
 .profile-text {
     color: white;
 }
+
+#imageMessage,
+#bioLabel {
+    color: white;
+}
+
+#uploadForm {
+    margin: 3% 0 5% 0;
+}
+
+#profileSubmitBtn {
+    margin-top: 1%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.userImage {
+    height: 400px;
+    width: auto;
+}

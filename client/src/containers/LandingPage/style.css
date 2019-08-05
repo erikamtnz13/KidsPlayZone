@@ -1,7 +1,7 @@
 h1{
     font-size: 5em;
     font-family: catamaran;
-    color: #fff;
+    color: #685ce9;
     margin:0;
     padding:0;
     font-size: 6em;
@@ -194,13 +194,6 @@ html, body {
     text-shadow: 4px 4px #000;
 }
 
-<<<<<<< HEAD
-.title {
-    margin-top: 10px;
-}
-
-=======
->>>>>>> origin/carie
 #smallheader,
 #smallheader2 {
     font-family: 'Catamaran', cursive;
@@ -219,9 +212,55 @@ html, body {
     color: #fff;
 }
 
+#childLogInBtn {
+    float: right;
+}
+
+#parentLogInBtn {
+    float: left;
+}
+
+@media screen and (max-width: 1265px) { 
+    .stepText {
+        font-size: 0.90em;
+    }
+ }
+
+ @media screen and (max-width: 1200px) { 
+    .stepText {
+        font-size: 0.80em;
+    }
+ }
+
+ @media screen and (max-width: 890px) { 
+    .stepText {
+        font-size: 0.70em;
+    }
+ }
 
 
+ /* Mobile Devices */
+ @media only screen and (max-device-width: 480px) {
 
+    #section0 {
+        height: 95vh;
+    }
+    
+    #section1 {
+        height: 50vh !important;
+    }
 
+    #smallheader {
+        font-size: 1em;
+    }
+    
+    #smallheader2 {
+        font-size: 2em;
+    }
 
-
+    #header1,
+    #header2,
+    #header3 {
+        font-size: 15em;
+    }
+}

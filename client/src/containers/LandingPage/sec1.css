@@ -31,9 +31,16 @@
 #leftcol,
 #midcol,
 #rightcol  {
-    padding-top: 50px;
+    border-radius: 25px;
+    border: 10px solid #0094d5;
+    padding-top: 30px;
+    background-color: white;
+    padding-bottom: 1em;
 }
 
+.rowPadding {
+    padding: 0 3%;
+}
 
 
 

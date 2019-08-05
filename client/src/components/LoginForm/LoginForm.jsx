@@ -11,7 +11,7 @@ const LoginForm = ({
   onChange,
   errors,
   successMessage,
-  user
+  user,
 }) => (
   <Container className="flexcontainer">
     <Card className="login-card">
@@ -27,7 +27,8 @@ const LoginForm = ({
             name="name"
             errorText={errors.email}
             onChange={onChange}
-            value={user.email}
+            placeholder="Child Username"
+            value={user.name}
           />
         </div>
 
@@ -38,6 +39,7 @@ const LoginForm = ({
             onChange={onChange}
             errorText={errors.password}
             value={user.password}
+            placeholder="Child Password"
           />
         </div>
 

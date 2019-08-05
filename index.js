@@ -1,19 +1,27 @@
+const mongoose = require("mongoose");
+// const kidsController = require("./server/controllers/kidsController.js");
+
+const fileUpload = require('express-fileupload');
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const mongoose = require("mongoose");
-const config = require('./config')
 
+const Kid = require('./server/models/Kid.js');
+const kidsController = require("./server/controllers/kidsController");
+
+
+const config = require('./config');
+
+const path = require("path");
 
 const app = express();
+
+app.use(fileUpload());
 
 const PORT = process.env.PORT || 3000
 
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
-
-
-
 
 // tell the app to look for static files in these directories
 app.use(express.static('./server/static/'));
@@ -30,18 +38,32 @@ app.use(passport.initialize());
 // load passport strategies
 const localSignupStrategy = require('./server/passport/local-signup');
 const localLoginStrategy = require('./server/passport/local-login');
+const parentSignupStrategy = require('./server/passport/parent-signup');
+const parentLoginStrategy = require('./server/passport/parent-login');
 passport.use('local-signup', localSignupStrategy);
 passport.use('local-login', localLoginStrategy);
+passport.use('parent-signup', parentSignupStrategy);
+passport.use('parent-login', parentLoginStrategy);
 
 // pass the authenticaion checker middleware
 const authCheckMiddleware = require('./server/middleware/auth-check');
+const parentCheckMiddleware = require('./server/middleware/parent-check')
 app.use('/api', authCheckMiddleware);
+app.use('/parentapi', parentCheckMiddleware)
 
 // routes
 const authRoutes = require('./server/routes/auth');
 const apiRoutes = require('./server/routes/api');
+const uploadRoute = require('./server/routes/upload.js')
+const parentAuthRoutes = require('./server/routes/parent-auth.js')
 app.use('/auth', authRoutes);
+app.use('/parent-auth', parentAuthRoutes);
 app.use('/api', apiRoutes);
+app.use('/parentapi', apiRoutes)
+app.use('/upload', uploadRoute);
+
+app.post('/upload', kidsController.update)
+
 
 // // start the server
 // app.listen(3000, () => {
@@ -66,3 +88,6 @@ io.on('connection', function(socket){
     
 })
 server.listen(PORT);
+// app.listen(process.env.PORT || 3000, function(){
+//     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+//   });
